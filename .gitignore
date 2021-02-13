@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+PerpetualMotion/Library/
+PerpetualMotion/Temp/UnityLockfile
+PerpetualMotion/Temp/
