@@ -4,45 +4,40 @@ using UnityEngine;
 
 public class ColorInfo : MonoBehaviour
 {
+    /// <summary>オブジェクトの画像</summary>
+    private Sprite image;
+
+    [SerializeField] private Sprite blankImage;
+    [SerializeField] private Sprite redImage;
+    [SerializeField] private Sprite buluImage;
+    [SerializeField] private Sprite greenImge;
+
     public enum COLOR_TYPE 
     {
-        White,
-        Black,
+        Blank,
         Red,
         Bulu,
-        Yellow,
         Green,
-        Gray
     }
     
-    public Color SelectColor(COLOR_TYPE colorType)
+    public Sprite SelectColor(COLOR_TYPE colorType)
     {
-        Color color = new Color(255, 255, 255);
         switch (colorType)
         {
-            case COLOR_TYPE.White:
-                color = new Color(255, 255, 255);
-                break;
-            case COLOR_TYPE.Black:
-                color = new Color(0, 0, 0);
+            case COLOR_TYPE.Blank:
+                image = blankImage;
                 break;
             case COLOR_TYPE.Red :
-                color = new Color(255, 0, 0);
+                image = redImage;
                 break;
             case COLOR_TYPE.Bulu:
-                color = new Color(0, 255, 0);
-                break;
-            case COLOR_TYPE.Yellow:
-                color = new Color(255, 255, 0);
+                image = buluImage;
                 break;
             case COLOR_TYPE.Green:
-                color = new Color(0, 0, 255);
-                break;
-            case COLOR_TYPE.Gray:
-                color = new Color(116, 126, 130);
+                image = greenImge;
                 break;
         }
 
-        return color;
+        return image;
     }
 }
