@@ -87,14 +87,14 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        //trackingRangeの範囲を赤いワイヤーフレームで示す
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, trackingRange);
+    //void OnDrawGizmosSelected()
+    //{
+    //    //trackingRangeの範囲を赤いワイヤーフレームで示す
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireSphere(transform.position, trackingRange);
 
-        //quitRangeの範囲を青いワイヤーフレームで示す
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, quitRange);
-    }
+    //    //quitRangeの範囲を青いワイヤーフレームで示す
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireSphere(transform.position, quitRange);
+    //}
 }
