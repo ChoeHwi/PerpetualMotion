@@ -25,11 +25,17 @@ public class ColorSelection : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            selectNumber--;
+            if (selectNumber > 0)
+            {
+                selectNumber--;
+            }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            selectNumber++;
+            if (selectNumber < 2)
+            {
+                selectNumber++;
+            }
         }
         selectColor();
     }

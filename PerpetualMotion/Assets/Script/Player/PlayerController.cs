@@ -7,13 +7,14 @@ public class PlayerController : ColorInfo
 {
     public float m_moveSpeed = 0.02f;
     float m_stopSpeed;
-    public Image playerImage;
+    public SpriteRenderer playerImage;
     public int playerHp = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         m_stopSpeed = m_moveSpeed;
+        playerImage =  GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -40,10 +41,16 @@ public class PlayerController : ColorInfo
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag== "enemy")
         {
             playerHp -= 1;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("トリガー" + collision.gameObject.name);
     }
     public void Form_red()
     {

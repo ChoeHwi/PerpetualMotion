@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float quitRange = 5f;
     /// <summary>追跡状態かどうか</summary>
     [SerializeField] bool tracking = false;
+    /// <summary>敵の表示部</summary>
+    [SerializeField] GameObject enemyProjector;
 
     void Start()
     {
@@ -65,7 +67,6 @@ public class EnemyController : MonoBehaviour
         targetPos = target.transform.position;
         distance = Vector3.Distance(this.transform.position, targetPos);
 
-
         if (tracking)
         {
             //追跡の時、quitRangeより距離が離れたら中止
@@ -86,6 +87,8 @@ public class EnemyController : MonoBehaviour
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
                 GotoNextPoint();
         }
+
+        enemyProjector.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
     }
 
     //void OnDrawGizmosSelected()
