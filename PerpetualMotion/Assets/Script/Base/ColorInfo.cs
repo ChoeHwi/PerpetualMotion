@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ColorInfo : MonoBehaviour
 {
-<<<<<<< HEAD
     /// <summary>オブジェクトの画像</summary>
     private Sprite image;
 
@@ -13,9 +12,6 @@ public class ColorInfo : MonoBehaviour
     [SerializeField] private Sprite buluImage;
     [SerializeField] private Sprite greenImge;
 
-=======
-    public Color color;
->>>>>>> otsuki
     public enum COLOR_TYPE 
     {
         Blank,
@@ -27,10 +23,6 @@ public class ColorInfo : MonoBehaviour
     
     public Sprite SelectColor(COLOR_TYPE colorType)
     {
-<<<<<<< HEAD
-=======
-        color = new Color(255, 255, 255);
->>>>>>> otsuki
         switch (colorType)
         {
             case COLOR_TYPE.Blank:
