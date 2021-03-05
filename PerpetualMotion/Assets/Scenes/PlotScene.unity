@@ -6837,6 +6837,7 @@ MonoBehaviour:
   Select_red: {fileID: 820452688}
   Select_green: {fileID: 714867292}
   Select_blue: {fileID: 438914396}
+  speed: 10
 --- !u!114 &1392560375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13942,7 +13943,7 @@ MonoBehaviour:
   greenImage: {fileID: 0}
   type: 0
   m_moveSpeed: 0.05
-  playerImage: {fileID: 0}
+  playerImage: {fileID: 2056672955}
   playerHp: 5
   nowColor: 0
 --- !u!70 &2056672957

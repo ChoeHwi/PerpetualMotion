@@ -53,6 +53,11 @@ public class PlayerController : ColorInfo
     {
         Debug.Log("トリガー" + collision.gameObject.name);
     }
+    public void Form_blank()
+    {
+        playerImage.color = Color.white;
+        nowColor = COLOR_TYPE.Blank;
+    }
     public void Form_red()
     {
         playerImage.color = Color.red;
