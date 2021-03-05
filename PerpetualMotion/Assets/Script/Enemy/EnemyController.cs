@@ -29,6 +29,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
+
         agent = GetComponent<NavMeshAgent>();
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
