@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColorInfo : MonoBehaviour
 {
+    public Color color;
     public enum COLOR_TYPE 
     {
         White,
@@ -14,10 +15,11 @@ public class ColorInfo : MonoBehaviour
         Green,
         Gray
     }
+    public COLOR_TYPE type;
     
     public Color SelectColor(COLOR_TYPE colorType)
     {
-        Color color = new Color(255, 255, 255);
+        color = new Color(255, 255, 255);
         switch (colorType)
         {
             case COLOR_TYPE.White:
