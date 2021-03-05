@@ -9,6 +9,7 @@ public class PlayerController : ColorInfo
     float m_stopSpeed;
     public SpriteRenderer playerImage;
     public int playerHp = 5;
+    public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
 
     // Start is called before the first frame update
     void Start()
@@ -55,14 +56,17 @@ public class PlayerController : ColorInfo
     public void Form_red()
     {
         playerImage.color = Color.red;
+        nowColor = COLOR_TYPE.Red;
     }
     public void Form_green()
     {
         playerImage.color = Color.green;
+        nowColor = COLOR_TYPE.Green;
     }
     public void Form_blue()
     {
         playerImage.color = Color.blue;
+        nowColor = COLOR_TYPE.Bulu;
     }
     public void mod_craft()
     {

@@ -13776,11 +13776,12 @@ MonoBehaviour:
   blankImage: {fileID: 0}
   redImage: {fileID: 0}
   buluImage: {fileID: 0}
-  greenImge: {fileID: 0}
+  greenImage: {fileID: 0}
   type: 0
   m_moveSpeed: 1
   playerImage: {fileID: 0}
   playerHp: 5
+  nowColor: 0
 --- !u!114 &2051320969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13796,7 +13797,7 @@ MonoBehaviour:
   blankImage: {fileID: 0}
   redImage: {fileID: 0}
   buluImage: {fileID: 0}
-  greenImge: {fileID: 0}
+  greenImage: {fileID: 0}
   type: 2
 --- !u!114 &2051320970
 MonoBehaviour:
@@ -13913,7 +13914,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 67cfac10fee75774a87fbecca761f094, type: 3}
-  m_Color: {r: 0, g: 0.21367073, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13938,11 +13939,12 @@ MonoBehaviour:
   blankImage: {fileID: 0}
   redImage: {fileID: 0}
   buluImage: {fileID: 0}
-  greenImge: {fileID: 0}
+  greenImage: {fileID: 0}
   type: 0
   m_moveSpeed: 0.05
   playerImage: {fileID: 0}
   playerHp: 5
+  nowColor: 0
 --- !u!70 &2056672957
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
