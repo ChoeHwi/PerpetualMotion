@@ -13,22 +13,21 @@ public class DrawPath : MonoBehaviour
     void Awake()
     {
         path = new NavMeshPath();
-        if (path != null)
+        //var result = NavMesh.CalculatePath(startPos.position, endPos.position, NavMesh.AllAreas, path);
+        var corners = path.corners;
+        line.positionCount = corners.Length;
+        line.SetPositions(corners);
+        
+        /*enabled = line.enabled = result;
+
+        if (result)
         {
-            OnEnable();
-        }
+            
+        }*/
     }
 
     void OnEnable()
     {
-        var result = NavMesh.CalculatePath(startPos.position, endPos.position, NavMesh.AllAreas, path);
-        enabled = line.enabled = result;
-
-        if (result)
-        {
-            var corners = path.corners;
-            line.positionCount = corners.Length;
-            line.SetPositions(corners);
-        }
+        
     }
 }
