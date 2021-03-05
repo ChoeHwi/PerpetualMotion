@@ -6,50 +6,62 @@ using UnityEngine.UI;
 [ExecuteInEditMode]
 public class Resize : MonoBehaviour
 {
+    public enum UI_TYPE
+    {
+        Life,
+        Gauge,
+        Time
+    }
+    public UI_TYPE ui_Type;
+    float screenHeight;
+    float screenWidth;
     RectTransform rtf;
-    public int num;
-    public bool shieldZone;
-    public bool anchorRight;
+
     // Start is called before the first frame update
     void Start()
     {
         rtf = GetComponent<RectTransform>();
+        screenHeight = (float)Screen.height;
+        screenWidth = (float)Screen.width;
+        switch (ui_Type)
+        {
+            case UI_TYPE.Life:
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.14f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f * 0.3f / 7f);
+                break;
+            case UI_TYPE.Gauge:
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.16f / 3f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f / 5f);
+                break;
+            case UI_TYPE.Time:
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.16f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.1f);
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
-        if (shieldZone)
+        if (screenWidth != (float)Screen.height || screenHeight != (float)Screen.width)
         {
-            rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.width - (float)Screen.height / 8f * 0.7f * 4);
-        }
-        else
-        {
-            rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height / 8f * 0.7f);
-        }
-        if (anchorRight)
-        {
-            if (shieldZone)
+            switch (ui_Type)
             {
-                transform.position = new Vector3((float)Screen.width, transform.position.y, 0);
+                case UI_TYPE.Life:
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.14f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f * 0.3f / 7f);
+                    break;
+                case UI_TYPE.Gauge:
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.16f / 3f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f / 5f);
+                    break;
+                case UI_TYPE.Time:
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.16f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.08f);
+                    break;
             }
-            else
-            {
-                transform.position = new Vector3((float)Screen.width - ((float)Screen.height / 8f * 0.7f * num + (float)Screen.height / 8f * 0.7f * 0.5f), transform.position.y, 0f);
-            }
-        }
-        else
-        {
-            if (shieldZone)
-            {
-                transform.position = new Vector3(0, transform.position.y, 0);
-            }
-            else
-            {
-                transform.position = new Vector3((float)Screen.height / 8f * 0.7f * num + (float)Screen.height / 8f * 0.7f * 0.5f, transform.position.y, 0f);
-            }
+            screenHeight = (float)Screen.height;
+            screenWidth = (float)Screen.width;
         }
     }
 }
