@@ -15,7 +15,7 @@ public class PlayerController : ColorInfo
     void Start()
     {
         m_stopSpeed = m_moveSpeed;
-        playerImage =  GetComponent<SpriteRenderer>();
+        playerImage = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
