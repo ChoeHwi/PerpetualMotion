@@ -9,7 +9,7 @@ public class ColorInfo : MonoBehaviour
 
     [SerializeField] private Sprite blankImage;
     [SerializeField] private Sprite redImage;
-    [SerializeField] private Sprite buluImage;
+    [SerializeField] private Sprite buleImage;
     [SerializeField] private Sprite greenImage;
 
     public enum COLOR_TYPE 
@@ -32,7 +32,7 @@ public class ColorInfo : MonoBehaviour
                 image = redImage;
                 break;
             case COLOR_TYPE.Bule:
-                image = buluImage;
+                image = buleImage;
                 break;
             case COLOR_TYPE.Green:
                 image = greenImage;
