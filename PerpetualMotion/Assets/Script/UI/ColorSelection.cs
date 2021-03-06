@@ -102,7 +102,7 @@ public class ColorSelection : MonoBehaviour
                 }
                 break;
             case 2:
-                if (playerController.nowColor != ColorInfo.COLOR_TYPE.Bulu)
+                if (playerController.nowColor != ColorInfo.COLOR_TYPE.Bule)
                 {
                     playerController.Form_blue();
                 }

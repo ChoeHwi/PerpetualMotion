@@ -71,7 +71,7 @@ public class PlayerController : ColorInfo
     public void Form_blue()
     {
         playerImage.color = Color.blue;
-        nowColor = COLOR_TYPE.Bulu;
+        nowColor = COLOR_TYPE.Bule;
     }
     public void mod_craft()
     {

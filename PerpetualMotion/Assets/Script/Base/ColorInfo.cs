@@ -16,7 +16,7 @@ public class ColorInfo : MonoBehaviour
     {
         Blank,
         Red,
-        Bulu,
+        Bule,
         Green,
     }
     public COLOR_TYPE type;
@@ -31,7 +31,7 @@ public class ColorInfo : MonoBehaviour
             case COLOR_TYPE.Red :
                 image = redImage;
                 break;
-            case COLOR_TYPE.Bulu:
+            case COLOR_TYPE.Bule:
                 image = buluImage;
                 break;
             case COLOR_TYPE.Green:
