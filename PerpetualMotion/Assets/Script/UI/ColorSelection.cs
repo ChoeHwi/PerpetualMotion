@@ -6,15 +6,22 @@ using UnityEngine.UI;
 public class ColorSelection : MonoBehaviour
 {
     public int selectNumber = 0;
+    [Header("赤色のバー")]
     [SerializeField] Slider Select_red;
+    [Header("緑のバー")]
     [SerializeField] Slider Select_green;
+    [Header("青色のバー")]
     [SerializeField] Slider Select_blue;
     /// <summary>3本のゲージの値</summary>
-    [SerializeField]float[] UsageTimes = new float[3]{100f,100f,100f, };
+    float[] UsageTimes = new float[3]{100f,100f,100f, };
     /// <summary>現在値が0でないゲージの数</summary>
     int shiftCount  = 3;
     /// <summary>ゲージの減少速度</summary>
+    [Header("色の使用スピード")]
     public float speed;
+    /// <summary>ゲージの回復速度</summary>
+    [Header("色の回復スピード")]
+    public float HeelSpeed;
     PlayerController playerController;
 
     void Start()
@@ -80,12 +87,12 @@ public class ColorSelection : MonoBehaviour
                     Select_red.value = UsageTimes[0];
                     if (UsageTimes[1] < 100)
                     {
-                        UsageTimes[1] += Time.deltaTime * speed;
+                        UsageTimes[1] += Time.deltaTime * HeelSpeed;
                         Select_green.value = UsageTimes[1];
                     }
                     if (UsageTimes[2] < 100)
                     {
-                        UsageTimes[2] += Time.deltaTime * speed;
+                        UsageTimes[2] += Time.deltaTime * HeelSpeed;
                         Select_blue.value = UsageTimes[2];
                     }
                 }
@@ -106,12 +113,12 @@ public class ColorSelection : MonoBehaviour
                     Select_green.value = UsageTimes[1];
                     if (UsageTimes[0] < 100)
                     {
-                        UsageTimes[0] += Time.deltaTime * speed;
+                        UsageTimes[0] += Time.deltaTime * HeelSpeed;
                         Select_red.value = UsageTimes[0];
                     }
                     if (UsageTimes[2] < 100)
                     {
-                        UsageTimes[2] += Time.deltaTime * speed;
+                        UsageTimes[2] += Time.deltaTime * HeelSpeed;
                         Select_blue.value = UsageTimes[2];
                     }
                 }
@@ -132,12 +139,12 @@ public class ColorSelection : MonoBehaviour
                     Select_blue.value = UsageTimes[2];
                     if (UsageTimes[0] < 100)
                     {
-                        UsageTimes[0] += Time.deltaTime * speed;
+                        UsageTimes[0] += Time.deltaTime * HeelSpeed;
                         Select_red.value = UsageTimes[0];
                     }
                     if (UsageTimes[1] < 100)
                     {
-                        UsageTimes[1] += Time.deltaTime * speed;
+                        UsageTimes[1] += Time.deltaTime * HeelSpeed;
                         Select_green.value = UsageTimes[1];
                     }
                 }
