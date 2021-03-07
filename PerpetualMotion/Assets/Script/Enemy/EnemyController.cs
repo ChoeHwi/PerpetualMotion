@@ -28,10 +28,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] bool tracking = false;
     /// <summary>敵の表示部</summary>
     [SerializeField] GameObject enemyProjector;
-
+    PlayerController playerController;
     void Start()
     {
-
         agent = GetComponent<NavMeshAgent>();
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
@@ -43,6 +42,11 @@ public class EnemyController : MonoBehaviour
 
         //追跡したいオブジェクトの名前を入れる
         target = GameObject.Find("Player");
+
+        if (target.GetComponent<PlayerController>())
+        {
+            playerController = target.GetComponent<PlayerController>();
+        }
     }
 
 
@@ -70,8 +74,10 @@ public class EnemyController : MonoBehaviour
         if (tracking)
         {
             //追跡の時、quitRangeより距離が離れたら中止
-            if (distance > quitRange)
+            if (distance > quitRange || playerController.stealth)
+            {
                 tracking = false;
+            }
 
             //Playerを目標とする
             agent.destination = targetPos;
@@ -80,7 +86,13 @@ public class EnemyController : MonoBehaviour
         {
             //PlayerがtrackingRangeより近づいたら追跡開始
             if (distance < trackingRange)
-                tracking = true;
+            {
+                if (!playerController.stealth)
+                {
+                    tracking = true;
+                }
+            }
+
 
             // エージェントが現目標地点に近づいてきたら、
             // 次の目標地点を選択します
@@ -91,14 +103,14 @@ public class EnemyController : MonoBehaviour
         enemyProjector.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
     }
 
-    //void OnDrawGizmosSelected()
-    //{
-    //    //trackingRangeの範囲を赤いワイヤーフレームで示す
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(transform.position, trackingRange);
+    void OnDrawGizmosSelected()
+    {
+        //trackingRangeの範囲を赤いワイヤーフレームで示す
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, trackingRange);
 
-    //    //quitRangeの範囲を青いワイヤーフレームで示す
-    //    Gizmos.color = Color.blue;
-    //    Gizmos.DrawWireSphere(transform.position, quitRange);
-    //}
+        //quitRangeの範囲を青いワイヤーフレームで示す
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, quitRange);
+    }
 }

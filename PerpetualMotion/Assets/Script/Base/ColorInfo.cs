@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColorInfo : MonoBehaviour
+public abstract class ColorInfo : MonoBehaviour
 {
-    /// <summary>オブジェクトの画像</summary>
-    private Sprite image;
-
+    
     [SerializeField] private Sprite blankImage;
     [SerializeField] private Sprite redImage;
     [SerializeField] private Sprite buleImage;
     [SerializeField] private Sprite greenImage;
 
+    /// <summary>色の種類</summary>
     public enum COLOR_TYPE 
     {
         Blank,
@@ -19,10 +18,15 @@ public class ColorInfo : MonoBehaviour
         Bule,
         Green,
     }
+    /// <summary>現在の色</summary>
     public COLOR_TYPE type;
-    
+
+    /// <summary>色のタイプを渡すとその色の画像を返す</summary>
+    /// <param name="colorType">色のタイプ</param>
+    /// <returns></returns>
     public Sprite SelectColor(COLOR_TYPE colorType)
     {
+        Sprite image = null;
         switch (colorType)
         {
             case COLOR_TYPE.Blank:
@@ -38,7 +42,6 @@ public class ColorInfo : MonoBehaviour
                 image = greenImage;
                 break;
         }
-
         return image;
     }
 }

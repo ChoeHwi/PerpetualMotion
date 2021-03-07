@@ -10,6 +10,8 @@ public class PlayerController : ColorInfo
     public SpriteRenderer playerImage;
     public int playerHp = 5;
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
+    /// <summary>ステルス状態かどうか</summary>
+    public bool stealth = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class PlayerController : ColorInfo
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag== "enemy")
+        if (collision.gameObject.tag == "enemy")
         {
             playerHp -= 1;
         }
@@ -52,7 +54,20 @@ public class PlayerController : ColorInfo
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("トリガー" + collision.gameObject.name);
+        if (collision.gameObject.tag == "stealth")
+        {
+            stealth = true;
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "stealth")
+        {
+            stealth = false;
+        }
+    }
+
     public void Form_blank()
     {
         playerImage.color = Color.white;
