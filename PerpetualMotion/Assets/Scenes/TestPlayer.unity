@@ -1417,7 +1417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e41f275ecd12947b4db36c5e52b970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1389758782}
   LifeObj_1: {fileID: 619966959}
   LifeObj_2: {fileID: 1820181603}
   LifeObj_3: {fileID: 422499005}
@@ -2254,7 +2253,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dac7c95c19bfc419e1cf788146d53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  blankImage: {fileID: 0}
+  redImage: {fileID: 0}
+  buluImage: {fileID: 0}
+  greenImge: {fileID: 0}
   type: 0
   m_moveSpeed: 1
   playerImage: {fileID: 1389758785}
@@ -2355,7 +2357,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ee0cb7305f0ff48ab1577d5abfe2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  blankImage: {fileID: 0}
+  redImage: {fileID: 0}
+  buluImage: {fileID: 0}
+  greenImge: {fileID: 0}
   type: 2
 --- !u!1 &1439870782
 GameObject:

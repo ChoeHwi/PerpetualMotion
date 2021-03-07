@@ -10,7 +10,7 @@ public class ColorSelection : MonoBehaviour
     [SerializeField] Slider Select_green;
     [SerializeField] Slider Select_blue;
     /// <summary>3本のゲージの値</summary>
-    float[] UsageTimes = new float[3]{100f,100f,100f, };
+    [SerializeField]float[] UsageTimes = new float[3]{100f,100f,100f, };
     /// <summary>現在値が0でないゲージの数</summary>
     int shiftCount  = 3;
     /// <summary>ゲージの減少速度</summary>
@@ -78,6 +78,16 @@ public class ColorSelection : MonoBehaviour
                 {
                     UsageTimes[0] -= Time.deltaTime * speed;
                     Select_red.value = UsageTimes[0];
+                    if (UsageTimes[1] < 100)
+                    {
+                        UsageTimes[1] += Time.deltaTime * speed;
+                        Select_green.value = UsageTimes[1];
+                    }
+                    if (UsageTimes[2] < 100)
+                    {
+                        UsageTimes[2] += Time.deltaTime * speed;
+                        Select_blue.value = UsageTimes[2];
+                    }
                 }
                 else//ゲージがなくなったら合図をだす
                 {
@@ -94,6 +104,16 @@ public class ColorSelection : MonoBehaviour
                 {
                     UsageTimes[1] -= Time.deltaTime * speed;
                     Select_green.value = UsageTimes[1];
+                    if (UsageTimes[0] < 100)
+                    {
+                        UsageTimes[0] += Time.deltaTime * speed;
+                        Select_red.value = UsageTimes[0];
+                    }
+                    if (UsageTimes[2] < 100)
+                    {
+                        UsageTimes[2] += Time.deltaTime * speed;
+                        Select_blue.value = UsageTimes[2];
+                    }
                 }
                 else//ゲージがなくなったら合図をだす
                 {
@@ -110,6 +130,16 @@ public class ColorSelection : MonoBehaviour
                 {
                     UsageTimes[2] -= Time.deltaTime * speed;
                     Select_blue.value = UsageTimes[2];
+                    if (UsageTimes[0] < 100)
+                    {
+                        UsageTimes[0] += Time.deltaTime * speed;
+                        Select_red.value = UsageTimes[0];
+                    }
+                    if (UsageTimes[1] < 100)
+                    {
+                        UsageTimes[1] += Time.deltaTime * speed;
+                        Select_green.value = UsageTimes[1];
+                    }
                 }
                 else//ゲージがなくなったら合図をだす
                 {
