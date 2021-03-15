@@ -363,15 +363,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe79fe30184b6c4f833534930b1e324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   points:
   - {fileID: 1187200862}
   - {fileID: 216816021}
   - {fileID: 1818116264}
   - {fileID: 516851466}
-  destPoint: 0
+  targetName: Player
   trackingRange: 3
   quitRange: 5
-  tracking: 0
   enemyProjector: {fileID: 955667221}
 --- !u!195 &330228019
 NavMeshAgent:
@@ -7268,6 +7268,7 @@ MonoBehaviour:
   - 100
   - 100
   speed: 10
+  HeelSpeed: 10
 --- !u!114 &1392560375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9847,12 +9848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ee0cb7305f0ff48ab1577d5abfe2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  blankImage: {fileID: 0}
-  redImage: {fileID: 0}
-  buleImage: {fileID: 0}
-  greenImage: {fileID: 0}
-  type: 2
 --- !u!114 &2051320970
 MonoBehaviour:
   m_ObjectHideFlags: 0
