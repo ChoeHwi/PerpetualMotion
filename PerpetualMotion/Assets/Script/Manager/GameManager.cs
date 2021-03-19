@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public string SceneName;
-    public int clearTime;
-    public int killedEnemy;
-    public int gimmickCount;
+    public int clearTime = 0;
+    public int killedEnemy = 0;
+    public int gimmickCount = 0;
     [SerializeField] GameObject clearResult;
     [SerializeField] GameObject gameOverResult;
     [SerializeField] Text[] textBox;
@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
         if(isClear)
         {
             clearResult.SetActive(true);
+            textBox[0].text = clearTime.ToString();
+            textBox[1].text = killedEnemy.ToString();
+            textBox[2].text = gimmickCount.ToString();
         }
         else
         {

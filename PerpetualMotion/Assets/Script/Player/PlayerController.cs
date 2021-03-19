@@ -13,8 +13,9 @@ public class PlayerController : ColorInfo
     /// <summary>ステルス状態かどうか</summary>
     public bool stealth = false;
     /// <summary>プレイヤーが操作可能か</summary>
-    bool active;
+    bool active = true;
     GameManager gameManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class PlayerController : ColorInfo
         {
             transform.Translate(0, -m_moveSpeed, 0);
         }
-        if (playerHp >= 0　&& active)
+        if (playerHp <= 0　&& active)
         {
             active = false;
             gameManager.OpenResult(false);
