@@ -12,12 +12,16 @@ public class PlayerController : ColorInfo
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
     /// <summary>ステルス状態かどうか</summary>
     public bool stealth = false;
+    /// <summary>プレイヤーが操作可能か</summary>
+    bool active;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         m_stopSpeed = m_moveSpeed;
         playerImage = GetComponent<SpriteRenderer>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -40,7 +44,11 @@ public class PlayerController : ColorInfo
         {
             transform.Translate(0, -m_moveSpeed, 0);
         }
-
+        if (playerHp >= 0　&& active)
+        {
+            active = false;
+            gameManager.OpenResult(false);
+        }
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
