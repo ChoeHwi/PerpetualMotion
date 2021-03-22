@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SutersuObject : ColorInfo
+public class StealthObject : ColorInfo
 {
     
 }

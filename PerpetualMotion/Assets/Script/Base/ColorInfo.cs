@@ -5,10 +5,10 @@ using UnityEngine;
 public abstract class ColorInfo : MonoBehaviour
 {
     
-    [SerializeField] private Sprite blankImage;
-    [SerializeField] private Sprite redImage;
-    [SerializeField] private Sprite buleImage;
-    [SerializeField] private Sprite greenImage;
+    [SerializeField] private Sprite[] blankImages;
+    [SerializeField] private Sprite[] redImages;
+    [SerializeField] private Sprite[] buleImages;
+    [SerializeField] private Sprite[] greenImages;
 
     /// <summary>色の種類</summary>
     public enum COLOR_TYPE 
@@ -24,22 +24,22 @@ public abstract class ColorInfo : MonoBehaviour
     /// <summary>色のタイプを渡すとその色の画像を返す</summary>
     /// <param name="colorType">色のタイプ</param>
     /// <returns></returns>
-    public Sprite SelectColor(COLOR_TYPE colorType)
+    public Sprite[] SelectColor(COLOR_TYPE colorType)
     {
-        Sprite image = null;
+        Sprite[] image = null;
         switch (colorType)
         {
             case COLOR_TYPE.Blank:
-                image = blankImage;
+                image = blankImages;
                 break;
             case COLOR_TYPE.Red :
-                image = redImage;
+                image = redImages;
                 break;
             case COLOR_TYPE.Bule:
-                image = buleImage;
+                image = buleImages;
                 break;
             case COLOR_TYPE.Green:
-                image = greenImage;
+                image = greenImages;
                 break;
         }
         return image;

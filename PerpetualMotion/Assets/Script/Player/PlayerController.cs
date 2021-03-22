@@ -8,6 +8,7 @@ public class PlayerController : ColorInfo
     public float m_moveSpeed = 0.02f;
     float m_stopSpeed;
     public SpriteRenderer playerImage;
+    int imageIndex = 1;
     public int playerHp = 5;
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
     /// <summary>ステルス状態かどうか</summary>
@@ -15,7 +16,8 @@ public class PlayerController : ColorInfo
     /// <summary>プレイヤーが操作可能か</summary>
     bool active = true;
     GameManager gameManager;
-
+    CapsuleCollider2D capsuleCollider;
+    [SerializeField] GameObject dialog;
 
     // Start is called before the first frame update
     void Start()
@@ -23,27 +25,36 @@ public class PlayerController : ColorInfo
         m_stopSpeed = m_moveSpeed;
         playerImage = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
 
     void Update()
     {
-        if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A))
+        if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A) && active)
         {
             transform.Translate(-m_moveSpeed, 0, 0);
+            imageIndex = 2;
+            playerImage.sprite = SelectColor(nowColor)[imageIndex];
         }
-        if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D))
+        if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D) && active)
         {
             transform.Translate(m_moveSpeed, 0, 0);
+            imageIndex = 3;
+            playerImage.sprite = SelectColor(nowColor)[imageIndex];
         }
-        if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W))
+        if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W) && active)
         {
             transform.Translate(0, m_moveSpeed, 0);
+            imageIndex = 0;
+            playerImage.sprite = SelectColor(nowColor)[imageIndex];
         }
-        if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S))
+        if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S) && active)
         {
             transform.Translate(0, -m_moveSpeed, 0);
+            imageIndex = 1;
+            playerImage.sprite = SelectColor(nowColor)[imageIndex];
         }
         if (playerHp <= 0　&& active)
         {
@@ -58,14 +69,33 @@ public class PlayerController : ColorInfo
         {
             playerHp -= 1;
         }
+        if (collision.gameObject.tag == "item")
+        {
+            gameManager.GetItem(collision.gameObject);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("トリガー" + collision.gameObject.name);
         if (collision.gameObject.tag == "stealth")
         {
-            stealth = true;
+            dialog.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (stealth)
+                {
+                    capsuleCollider.isTrigger = false;
+                    stealth = false;
+                    active = true;
+                }
+                else
+                {
+                    stealth = true;
+                    active = false;
+                    capsuleCollider.isTrigger = true;
+                    this.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, this.transform.position.z);
+                }
+            }
         }
     }
 
@@ -73,30 +103,16 @@ public class PlayerController : ColorInfo
     {
         if (collision.gameObject.tag == "stealth")
         {
-            stealth = false;
+            dialog.SetActive(false);
         }
     }
 
-    public void Form_blank()
+    public void Form_Color(COLOR_TYPE color)
     {
-        playerImage.color = Color.white;
-        nowColor = COLOR_TYPE.Blank;
+        nowColor = color;
+        playerImage.sprite = SelectColor(nowColor)[imageIndex];
     }
-    public void Form_red()
-    {
-        playerImage.color = Color.red;
-        nowColor = COLOR_TYPE.Red;
-    }
-    public void Form_green()
-    {
-        playerImage.color = Color.green;
-        nowColor = COLOR_TYPE.Green;
-    }
-    public void Form_blue()
-    {
-        playerImage.color = Color.blue;
-        nowColor = COLOR_TYPE.Bule;
-    }
+    
     public void mod_craft()
     {
         m_moveSpeed = 0;

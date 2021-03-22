@@ -24,7 +24,6 @@ public class Slot : MonoBehaviour
     public void onRemovedButton()
     {
         Inventry.instance.Remove(item);
-        
     }
 
     public void UseItem()

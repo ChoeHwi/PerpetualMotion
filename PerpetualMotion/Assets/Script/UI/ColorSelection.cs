@@ -30,7 +30,7 @@ public class ColorSelection : MonoBehaviour
         Select_green = GameObject.Find("Green").GetComponent<Slider>();
         Select_blue = GameObject.Find("Blue").GetComponent<Slider>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        playerController.Form_red();
+        playerController.Form_Color(ColorInfo.COLOR_TYPE.Red);
     }
 
     // Update is called once per frame
@@ -68,7 +68,7 @@ public class ColorSelection : MonoBehaviour
         {
             if (playerController.nowColor != ColorInfo.COLOR_TYPE.Blank)
             {
-                playerController.Form_blank();
+                playerController.Form_Color(ColorInfo.COLOR_TYPE.Blank);
             }
         }
     }
@@ -79,7 +79,7 @@ public class ColorSelection : MonoBehaviour
             case 0:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Red)
                 {
-                    playerController.Form_red();
+                    playerController.Form_Color(ColorInfo.COLOR_TYPE.Red);
                 }
                 if (UsageTimes[0] > 0)
                 {
@@ -105,7 +105,7 @@ public class ColorSelection : MonoBehaviour
             case 1:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Green)
                 {
-                    playerController.Form_green();
+                    playerController.Form_Color(ColorInfo.COLOR_TYPE.Green);
                 }
                 if (UsageTimes[1] > 0)
                 {
@@ -131,7 +131,7 @@ public class ColorSelection : MonoBehaviour
             case 2:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Bule)
                 {
-                    playerController.Form_blue();
+                    playerController.Form_Color(ColorInfo.COLOR_TYPE.Bule);
                 }
                 if (UsageTimes[2] > 0)
                 {

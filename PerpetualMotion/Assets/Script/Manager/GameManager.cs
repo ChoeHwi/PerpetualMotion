@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject clearResult;
     [SerializeField] GameObject gameOverResult;
     [SerializeField] Text[] textBox;
+    
+    public void GetItem(GameObject item)
+    {
+        
+    }
+
     public void OpenResult(bool isClear)
     {
         if(isClear)
