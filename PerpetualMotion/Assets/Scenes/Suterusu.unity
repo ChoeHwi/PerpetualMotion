@@ -11272,6 +11272,8 @@ MonoBehaviour:
   - {fileID: 1247769029}
   mobius: {fileID: 309608969}
   slot: {fileID: 508190483}
+  itemPrefabBase: {fileID: 4242778276569648497, guid: 123f9f187fa535b4bbe2b17a6bd48a48,
+    type: 3}
 --- !u!1 &1812786927
 GameObject:
   m_ObjectHideFlags: 0
