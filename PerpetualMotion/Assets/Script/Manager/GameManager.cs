@@ -13,10 +13,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject clearResult;
     [SerializeField] GameObject gameOverResult;
     [SerializeField] Text[] textBox;
+    [SerializeField] Mobius mobius;
+    public Slot slot;
     
-    public void GetItem(GameObject item)
+    public void GetItem(Item item)
     {
-        
+        slot.AddItem(item);
+    }
+
+    public void RemoveItem()
+    {
+        slot.clearSlot();
+    }
+
+    public void FitPiece()
+    {
+        mobius.FitPiece();
     }
 
     public void OpenResult(bool isClear)
