@@ -18,6 +18,8 @@ public class PlayerController : ColorInfo
     GameManager gameManager;
     CapsuleCollider2D capsuleCollider;
     [SerializeField] GameObject dialog;
+    bool triggerStay;
+    Transform stealthPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -61,25 +63,9 @@ public class PlayerController : ColorInfo
             active = false;
             gameManager.OpenResult(false);
         }
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "enemy")
-        {
-            playerHp -= 1;
-        }
-        if (collision.gameObject.tag == "item")
-        {
-            gameManager.GetItem(collision.gameObject);
-        }
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "stealth")
+        if (triggerStay)
         {
-            dialog.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (stealth)
@@ -93,9 +79,43 @@ public class PlayerController : ColorInfo
                     stealth = true;
                     active = false;
                     capsuleCollider.isTrigger = true;
-                    this.transform.position = new Vector3(collision.transform.position.x, collision.transform.position.y, this.transform.position.z);
+                    this.transform.position = new Vector3(stealthPosition.transform.position.x, stealthPosition.transform.position.y, this.transform.position.z);
                 }
             }
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag == "enemy")
+        {
+            playerHp -= 1;
+            if (gameManager.slot.item != null)
+            {
+                gameManager.RemoveItem();
+            }
+        }
+        if (collision.gameObject.tag == "Item")
+        {
+            gameManager.GetItem(collision.gameObject.GetComponent<MobiusParts>().item);
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Mobius")
+        {
+            if (gameManager.slot.item != null)
+            {
+                gameManager.RemoveItem();
+                gameManager.FitPiece();
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "stealth")
+        {
+            dialog.SetActive(true);
+            triggerStay = true;
+            stealthPosition = collision.transform;
         }
     }
 
@@ -104,6 +124,7 @@ public class PlayerController : ColorInfo
         if (collision.gameObject.tag == "stealth")
         {
             dialog.SetActive(false);
+            triggerStay = false;
         }
     }
 

@@ -7,19 +7,25 @@ public class Slot : MonoBehaviour
 {
     public Image icon;
     public GameObject removeButton;
-    Item item;
+    public Item item;
 
     public void AddItem(Item newitem)
     {
         item = newitem;
         icon.sprite = newitem.icon;
-        removeButton.SetActive(true);
+        if (removeButton)
+        {
+            removeButton.SetActive(true);
+        }
     }
     public void clearSlot()
     {
         item = null;
         icon.sprite = null;
-        removeButton.SetActive(false);
+        if (removeButton)
+        {
+            removeButton.SetActive(false);
+        }
     }
     public void onRemovedButton()
     {
