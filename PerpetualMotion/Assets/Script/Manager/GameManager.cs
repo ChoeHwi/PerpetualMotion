@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text[] textBox;
     [SerializeField] Mobius mobius;
     public Slot slot;
+    [SerializeField] GameObject itemPrefabBase;
     
     public void GetItem(Item item)
     {
@@ -23,6 +24,12 @@ public class GameManager : MonoBehaviour
 
     public void RemoveItem()
     {
+        slot.clearSlot();
+    }
+
+    public void LostItem(Vector3 position)
+    {
+        Instantiate(itemPrefabBase, new Vector3(position.x + Random.Range(-3, 3),position.y + Random.Range(-3, 3)), new Quaternion(0,0,0,0)).GetComponent<MobiusParts>().item = slot.item;
         slot.clearSlot();
     }
 

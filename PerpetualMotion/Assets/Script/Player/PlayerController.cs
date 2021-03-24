@@ -92,7 +92,7 @@ public class PlayerController : ColorInfo
             playerHp -= 1;
             if (gameManager.slot.item != null)
             {
-                gameManager.RemoveItem();
+                gameManager.LostItem(this.transform.position);
             }
         }
         if (collision.gameObject.tag == "Item")
