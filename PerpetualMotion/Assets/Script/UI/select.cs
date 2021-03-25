@@ -105,7 +105,7 @@ public class select : MonoBehaviour
     }
     public void RoadScene()
     {
-        SceneManager.LoadScene("PlotScene");
+        SceneManager.LoadScene("PlotScene(otuki)");
     }
     public void SceneSelect()
     {

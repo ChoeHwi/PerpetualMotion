@@ -603,7 +603,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 277596745}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810772241}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlotScene(otuki)
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &277596745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +838,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.276192, y: 50.12}
+  m_SizeDelta: {x: 31.84762, y: 58.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &333313223
 MonoBehaviour:
@@ -1210,7 +1221,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 127.28889, y: 19.093332}
+  m_SizeDelta: {x: 148.62222, y: 22.293333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438914396
 MonoBehaviour:
@@ -1807,7 +1818,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 127.28889, y: 19.093332}
+  m_SizeDelta: {x: 148.62222, y: 22.293333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &714867292
 MonoBehaviour:
@@ -1987,7 +1998,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 127.28889, y: 19.093332}
+  m_SizeDelta: {x: 148.62222, y: 22.293333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &820452688
 MonoBehaviour:
@@ -7573,7 +7584,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.276192, y: 50.12}
+  m_SizeDelta: {x: 31.84762, y: 58.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1020938182
 MonoBehaviour:
@@ -7745,7 +7756,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1053415837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810772241}
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SelectScreen
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1053415837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8537,7 +8559,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.276192, y: 50.12}
+  m_SizeDelta: {x: 31.84762, y: 58.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269647415
 MonoBehaviour:
@@ -8987,7 +9009,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 57.28, y: 50.915554}
+  m_SizeDelta: {x: 66.88, y: 59.448887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423795971
 MonoBehaviour:
@@ -9221,7 +9243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1457944390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10598,7 +10620,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.276192, y: 50.12}
+  m_SizeDelta: {x: 31.84762, y: 58.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1782374097
 MonoBehaviour:
@@ -10693,7 +10715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9744cd2f4d0b0f4dbdfb92cfc44495b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: 
+  SceneName: PlotScene(otuki)
   clearTime: 0
   killedEnemy: 0
   gimmickCount: 0
@@ -10703,6 +10725,9 @@ MonoBehaviour:
   - {fileID: 370388731}
   - {fileID: 1736589553}
   - {fileID: 1247769029}
+  mobius: {fileID: 0}
+  slot: {fileID: 0}
+  itemPrefabBase: {fileID: 0}
 --- !u!1 &1812786927
 GameObject:
   m_ObjectHideFlags: 0
@@ -11087,7 +11112,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.276192, y: 50.12}
+  m_SizeDelta: {x: 31.84762, y: 58.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1904049716
 MonoBehaviour:
@@ -11988,16 +12013,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dac7c95c19bfc419e1cf788146d53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankImage: {fileID: 0}
-  redImage: {fileID: 0}
-  buleImage: {fileID: 0}
-  greenImage: {fileID: 0}
+  blankImages: []
+  redImages: []
+  buleImages: []
+  greenImages: []
   type: 0
   m_moveSpeed: 1
   playerImage: {fileID: 0}
   playerHp: 5
   nowColor: 0
   stealth: 0
+  dialog: {fileID: 0}
 --- !u!114 &2051320969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12148,16 +12174,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dac7c95c19bfc419e1cf788146d53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankImage: {fileID: 0}
-  redImage: {fileID: 0}
-  buleImage: {fileID: 0}
-  greenImage: {fileID: 0}
+  blankImages: []
+  redImages: []
+  buleImages: []
+  greenImages: []
   type: 0
   m_moveSpeed: 0.08
   playerImage: {fileID: 2056672955}
   playerHp: 5
   nowColor: 0
   stealth: 0
+  dialog: {fileID: 0}
 --- !u!70 &2056672957
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
             gameOverResult.SetActive(true);
         }
     }
-
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
