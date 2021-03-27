@@ -34,29 +34,41 @@ public class PlayerController : ColorInfo
 
     void Update()
     {
-        if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A) && active)
+        if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-m_moveSpeed, 0, 0);
             imageIndex = 2;
             playerImage.sprite = SelectColor(nowColor)[imageIndex];
+            if (active)
+            {
+                transform.Translate(-m_moveSpeed, 0, 0);
+            }
         }
-        if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D) && active)
+        if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D))
         {
-            transform.Translate(m_moveSpeed, 0, 0);
             imageIndex = 3;
             playerImage.sprite = SelectColor(nowColor)[imageIndex];
+            if (active)
+            {
+                transform.Translate(m_moveSpeed, 0, 0);
+            }
         }
-        if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W) && active)
+        if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, m_moveSpeed, 0);
             imageIndex = 0;
             playerImage.sprite = SelectColor(nowColor)[imageIndex];
+            if (active)
+            {
+                transform.Translate(0, m_moveSpeed, 0);
+            }
         }
-        if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S) && active)
+        if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, -m_moveSpeed, 0);
             imageIndex = 1;
             playerImage.sprite = SelectColor(nowColor)[imageIndex];
+            if (active)
+            {
+                transform.Translate(0, -m_moveSpeed, 0);
+            }   
         }
         if (playerHp <= 0　&& active)
         {

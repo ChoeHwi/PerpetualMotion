@@ -6,7 +6,7 @@ using UnityEngine.AI;
 //オブジェクトにNavMeshAgentコンポーネントを設置
 [RequireComponent(typeof(NavMeshAgent))]
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : ColorInfo
 {
     [Header("移動速度")]
     /// <summary>移動速度</summary>
@@ -38,9 +38,14 @@ public class EnemyController : MonoBehaviour
     /// <summary>このオブジェクトの見た目の位置</summary>
     [SerializeField] GameObject enemyProjector;
     PlayerController playerController;
+    public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
+    public SpriteRenderer enemyImage;
+    int imageIndex = 1;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyImage = enemyProjector.GetComponent<SpriteRenderer>();
+        Form_Color(nowColor);
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
         //(つまり、エージェントは目標地点に近づいても
@@ -78,13 +83,55 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         enemyProjector.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
-
         //Playerとこのオブジェクトの距離を測る
         targetPos = target.transform.position;
+
+        if (enemyProjector.transform.position.x - agent.destination.x > 0)
+        {
+            imageIndex = 2;
+            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+        }
+        else if (enemyProjector.transform.position.x - agent.destination.x < 0)
+        {
+            imageIndex = 3;
+            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+        }
+        else if (enemyProjector.transform.position.y - agent.destination.y > 0)
+        {
+            imageIndex = 1;
+            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+        }
+        else if (enemyProjector.transform.position.y - agent.destination.y < 0)
+        {
+            imageIndex = 0;
+            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+        }
+
         distance = Vector3.Distance(enemyProjector.transform.position, targetPos);
 
         if (tracking)
         {
+            if (enemyProjector.transform.position.y - targetPos.y > 3)//プレイヤーが下側
+            {
+                imageIndex = 1;
+                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            }
+            else if (enemyProjector.transform.position.y - targetPos.y < 3)//プレイヤーが上側
+            {
+                imageIndex = 0;
+                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            }
+            else if (enemyProjector.transform.position.x - targetPos.x > 0)//プレイヤーが左側
+            {
+                imageIndex = 2;
+                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            }
+            else if (enemyProjector.transform.position.x - targetPos.x < 0)//プレイヤーが右側
+            {
+                imageIndex = 3;
+                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            }
+
             //追跡の時、quitRangeより距離が離れたら中止
             if (distance > quitRange || playerController.stealth)
             {
@@ -121,5 +168,11 @@ public class EnemyController : MonoBehaviour
         //quitRangeの範囲を青いワイヤーフレームで示す
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(enemyProjector.transform.position, quitRange);
+    }
+
+    public void Form_Color(COLOR_TYPE color)
+    {
+        nowColor = color;
+        enemyImage.sprite = SelectColor(nowColor)[imageIndex];
     }
 }

@@ -7,7 +7,6 @@ public class StealthObject : ColorInfo
     [Header("このオブジェクトの色")]
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
     SpriteRenderer objImage;
-    int imageIndex = 1;
 
     private void Start()
     {
