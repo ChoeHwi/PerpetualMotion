@@ -19,7 +19,7 @@ public abstract class ColorInfo : MonoBehaviour
         Green,
     }
     /// <summary>現在の色</summary>
-    public COLOR_TYPE type;
+    COLOR_TYPE type;
 
     /// <summary>色のタイプを渡すとその色の画像を返す</summary>
     /// <param name="colorType">色のタイプ</param>

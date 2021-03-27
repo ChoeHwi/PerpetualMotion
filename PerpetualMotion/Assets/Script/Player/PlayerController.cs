@@ -113,9 +113,12 @@ public class PlayerController : ColorInfo
     {
         if (collision.gameObject.tag == "stealth")
         {
-            dialog.SetActive(true);
-            triggerStay = true;
-            stealthPosition = collision.transform;
+            if (collision.GetComponent<StealthObject>().nowColor == nowColor)
+            {
+                dialog.SetActive(true);
+                triggerStay = true;
+                stealthPosition = collision.transform;
+            }   
         }
     }
 

@@ -1036,6 +1036,7 @@ GameObject:
   - component: {fileID: 348469406}
   - component: {fileID: 348469405}
   - component: {fileID: 348469404}
+  - component: {fileID: 348469407}
   m_Layer: 0
   m_Name: StealthObj (1)
   m_TagString: stealth
@@ -1109,7 +1110,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1745afed5761dc14c85d5297bd79da33, type: 3}
-  m_Color: {r: 1, g: 0.24545762, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1133,6 +1134,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &348469407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348469403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0761f588781e21499bb9eb9f3d03103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages: []
+  redImages: []
+  buleImages: []
+  greenImages: []
+  nowColor: 2
 --- !u!1 &370388729
 GameObject:
   m_ObjectHideFlags: 0
@@ -9378,6 +9396,7 @@ GameObject:
   - component: {fileID: 1307227916}
   - component: {fileID: 1307227915}
   - component: {fileID: 1307227914}
+  - component: {fileID: 1307227917}
   m_Layer: 0
   m_Name: StealthObj
   m_TagString: stealth
@@ -9451,7 +9470,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1745afed5761dc14c85d5297bd79da33, type: 3}
-  m_Color: {r: 1, g: 0.24545762, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9475,6 +9494,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1307227917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307227913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0761f588781e21499bb9eb9f3d03103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages: []
+  redImages: []
+  buleImages: []
+  greenImages: []
+  nowColor: 1
 --- !u!1 &1363368082
 GameObject:
   m_ObjectHideFlags: 0
@@ -12593,6 +12629,7 @@ GameObject:
   - component: {fileID: 1983996975}
   - component: {fileID: 1983996974}
   - component: {fileID: 1983996973}
+  - component: {fileID: 1983996976}
   m_Layer: 0
   m_Name: StealthObj (3)
   m_TagString: stealth
@@ -12666,7 +12703,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1745afed5761dc14c85d5297bd79da33, type: 3}
-  m_Color: {r: 1, g: 0.24545762, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12690,6 +12727,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1983996976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983996972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0761f588781e21499bb9eb9f3d03103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages: []
+  redImages: []
+  buleImages: []
+  greenImages: []
+  nowColor: 3
 --- !u!1 &2000004882
 GameObject:
   m_ObjectHideFlags: 0
@@ -13073,7 +13127,6 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  type: 0
   m_moveSpeed: 1
   playerImage: {fileID: 0}
   playerHp: 5
@@ -13250,7 +13303,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 52901f899aff0c442b7d61dd363f9625, type: 3}
   - {fileID: 21300000, guid: 753cb44afb2be74469680e7a6e985098, type: 3}
   - {fileID: 21300000, guid: bc66e3e21529d0a4bbe0f1810e75f9b3, type: 3}
-  type: 0
   m_moveSpeed: 0.08
   playerImage: {fileID: 2056672955}
   playerHp: 5
