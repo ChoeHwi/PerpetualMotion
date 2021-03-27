@@ -99,7 +99,7 @@ public class ColorSelection : MonoBehaviour
                 else//ゲージがなくなったら合図をだす
                 {
                     shiftColor();
-                    shiftCount--;
+                    //shiftCount--;
                 }
                 break;
             case 1:
@@ -125,7 +125,7 @@ public class ColorSelection : MonoBehaviour
                 else//ゲージがなくなったら合図をだす
                 {
                     shiftColor();
-                    shiftCount--;
+                    //shiftCount--;
                 }
                 break;
             case 2:
@@ -151,7 +151,7 @@ public class ColorSelection : MonoBehaviour
                 else//ゲージがなくなったら合図をだす
                 {
                     shiftColor();
-                    shiftCount--;
+                    //shiftCount--;
                 }
                 break;
             default:
