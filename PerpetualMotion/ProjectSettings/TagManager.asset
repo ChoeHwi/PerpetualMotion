@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
   - stealth
   - Item
   - Mobius
+  - Enemy
   layers:
   - Default
   - TransparentFX

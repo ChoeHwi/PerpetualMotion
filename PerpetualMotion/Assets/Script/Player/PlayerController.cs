@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : ColorInfo
 {
+    [Header("プレイヤーの移動速度")]
     public float m_moveSpeed = 0.02f;
     float m_stopSpeed;
     public SpriteRenderer playerImage;
@@ -20,6 +21,8 @@ public class PlayerController : ColorInfo
     [SerializeField] GameObject dialog;
     bool triggerStay;
     Transform stealthPosition;
+    /// <summary>現在入ることのできるステルスオブジェクト</summary>
+    public StealthObject stealthObject;
 
     // Start is called before the first frame update
     void Start()
@@ -88,10 +91,13 @@ public class PlayerController : ColorInfo
                 }
                 else
                 {
-                    stealth = true;
-                    active = false;
-                    capsuleCollider.isTrigger = true;
-                    this.transform.position = new Vector3(stealthPosition.transform.position.x, stealthPosition.transform.position.y, this.transform.position.z);
+                    if(stealthObject.nowColor == nowColor)
+                    {
+                        stealth = true;
+                        active = false;
+                        capsuleCollider.isTrigger = true;
+                        this.transform.position = new Vector3(stealthPosition.transform.position.x, stealthPosition.transform.position.y, this.transform.position.z);
+                    }
                 }
             }
         }
@@ -99,7 +105,7 @@ public class PlayerController : ColorInfo
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             playerHp -= 1;
             if (gameManager.slot.item != null)
@@ -125,7 +131,8 @@ public class PlayerController : ColorInfo
     {
         if (collision.gameObject.tag == "stealth")
         {
-            if (collision.GetComponent<StealthObject>().nowColor == nowColor)
+            stealthObject = collision.GetComponent<StealthObject>();
+            if (stealthObject.nowColor == nowColor)
             {
                 dialog.SetActive(true);
                 triggerStay = true;
@@ -140,6 +147,7 @@ public class PlayerController : ColorInfo
         {
             dialog.SetActive(false);
             triggerStay = false;
+            stealthObject = null;
         }
     }
 
@@ -147,6 +155,27 @@ public class PlayerController : ColorInfo
     {
         nowColor = color;
         playerImage.sprite = SelectColor(nowColor)[imageIndex];
+        if(stealth)
+        {
+            if (stealthObject.nowColor != nowColor)
+            {
+                capsuleCollider.isTrigger = false;
+                stealth = false;
+                active = true;
+                dialog.SetActive(false);
+            }
+        }
+        else if (triggerStay)
+        {
+            if (stealthObject.nowColor != nowColor)
+            {
+                dialog.SetActive(false);
+            }
+            else if (stealthObject.nowColor == nowColor)
+            {
+                dialog.SetActive(true);
+            }
+        }
     }
     
     public void mod_craft()

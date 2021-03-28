@@ -11,6 +11,7 @@ public class playercamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Target = GameObject.FindObjectOfType<PlayerController>().gameObject;
         transform.position = new Vector3(Target.transform.position.x, Target.transform.position.y, cameraDistance) + offset;
     }
 

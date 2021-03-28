@@ -35,7 +35,8 @@ public class EnemyController : ColorInfo
     [SerializeField] float quitRange = 5f;
     /// <summary>追跡状態かどうか</summary>
     bool tracking = false;
-    /// <summary>このオブジェクトの見た目の位置</summary>
+    [SerializeField] GameObject projectorObj;
+    /// <summary>このオブジェクトの見た目のオブジェクト</summary>
     [SerializeField] GameObject enemyProjector;
     PlayerController playerController;
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
@@ -44,6 +45,7 @@ public class EnemyController : ColorInfo
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyProjector = Instantiate(projectorObj, new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
         enemyImage = enemyProjector.GetComponent<SpriteRenderer>();
         Form_Color(nowColor);
 
@@ -159,7 +161,7 @@ public class EnemyController : ColorInfo
         }
     }
 
-    void OnDrawGizmosSelected()
+    /*void OnDrawGizmosSelected()
     {
         //trackingRangeの範囲を赤いワイヤーフレームで示す
         Gizmos.color = Color.red;
@@ -168,11 +170,16 @@ public class EnemyController : ColorInfo
         //quitRangeの範囲を青いワイヤーフレームで示す
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(enemyProjector.transform.position, quitRange);
-    }
+    }*/
 
     public void Form_Color(COLOR_TYPE color)
     {
         nowColor = color;
         enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+    }
+
+    public void Freeze()
+    {
+
     }
 }
