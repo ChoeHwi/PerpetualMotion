@@ -46,6 +46,7 @@ public class EnemyController : ColorInfo
     {
         agent = GetComponent<NavMeshAgent>();
         enemyProjector = Instantiate(projectorObj, new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
+        enemyProjector.GetComponent<EnemyColliderController>().enemyController = this;
         enemyImage = enemyProjector.GetComponent<SpriteRenderer>();
         Form_Color(nowColor);
 
@@ -180,6 +181,11 @@ public class EnemyController : ColorInfo
 
     public void Freeze()
     {
+        agent.isStopped = true;
+    }
 
+    public void FreezeOff()
+    {
+        agent.isStopped = false;
     }
 }

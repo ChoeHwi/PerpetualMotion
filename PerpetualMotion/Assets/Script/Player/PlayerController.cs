@@ -139,6 +139,10 @@ public class PlayerController : ColorInfo
                 stealthPosition = collision.transform;
             }   
         }
+        if (collision.gameObject.tag == "Switch")
+        {
+            collision.gameObject.GetComponent<TrapSwich>().TrapActuation();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

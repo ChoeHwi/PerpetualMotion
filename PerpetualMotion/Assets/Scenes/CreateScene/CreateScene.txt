@@ -38,6 +38,11 @@ Prefab本体の値は変更しないでください。
 ・StealthObj
 　設定項目　このオブジェクトの色
 
+・ElectricTrap
+
+・TrapSwitch
+　設定項目　対応する電流トラップ(複数可)シーン上に配置したElectricTrapを入れてください。
+
 ●シーンごとの設定
 シーンのGameOver→continue→continueのInspectorのButtonのOnClick()の
 現在、Suterusuと書かれた部分をそのシーンのシーン名に変更してください。
