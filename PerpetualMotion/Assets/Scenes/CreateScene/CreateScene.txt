@@ -38,4 +38,8 @@ Prefab本体の値は変更しないでください。
 ・StealthObj
 　設定項目　このオブジェクトの色
 
+●シーンごとの設定
+シーンのGameOver→continue→continueのInspectorのButtonのOnClick()の
+現在、Suterusuと書かれた部分をそのシーンのシーン名に変更してください。
+
 
