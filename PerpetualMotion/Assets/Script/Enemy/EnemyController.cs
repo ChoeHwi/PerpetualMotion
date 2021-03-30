@@ -42,8 +42,12 @@ public class EnemyController : ColorInfo
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
     public SpriteRenderer enemyImage;
     int imageIndex = 1;
+
+    public bool alarm = false;
     void Start()
     {
+        alarm = false;
+
         agent = GetComponent<NavMeshAgent>();
         enemyProjector = Instantiate(projectorObj, new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
         enemyImage = enemyProjector.GetComponent<SpriteRenderer>();
@@ -111,7 +115,7 @@ public class EnemyController : ColorInfo
 
         distance = Vector3.Distance(enemyProjector.transform.position, targetPos);
 
-        if (tracking)
+        if (tracking || alarm == true)
         {
             if (enemyProjector.transform.position.y - targetPos.y > 3)//プレイヤーが下側
             {
