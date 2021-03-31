@@ -8,6 +8,8 @@ TagManager:
   - Item
   - Mobius
   - Enemy
+  - enemy
+  - Switch
   layers:
   - Default
   - TransparentFX

@@ -104,7 +104,7 @@ public class PlayerController : ColorInfo
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Enemy")
         {
             playerHp -= 1;
@@ -138,6 +138,10 @@ public class PlayerController : ColorInfo
                 triggerStay = true;
                 stealthPosition = collision.transform;
             }   
+        }
+        if (collision.gameObject.tag == "Switch")
+        {
+            collision.gameObject.GetComponent<TrapSwich>().TrapActuation();
         }
     }
 

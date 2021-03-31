@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElectricTrapSwich : MonoBehaviour
+public class EnemyColliderController : MonoBehaviour
 {
+    public EnemyController enemyController;
     // Start is called before the first frame update
     void Start()
     {
