@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject clearResult;
     [SerializeField] GameObject gameOverResult;
     [SerializeField] Text[] textBox;
+    [Header("このシーンのメビウスの台座")]
     [SerializeField] Mobius mobius;
     public Slot slot;
     [SerializeField] GameObject itemPrefabBase;
