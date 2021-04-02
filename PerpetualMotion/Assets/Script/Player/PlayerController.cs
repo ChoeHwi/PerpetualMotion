@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerController : ColorInfo
 {
     [Header("プレイヤーの移動速度")]
-    public float m_moveSpeed = 0.02f;
+    public float m_moveSpeed = 5.0f;
+    public Rigidbody2D rb;
     float m_stopSpeed;
     public SpriteRenderer playerImage;
     int imageIndex = 1;
@@ -31,49 +32,110 @@ public class PlayerController : ColorInfo
         playerImage = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
 
     void Update()
     {
-        if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A))
+        //if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A))
+        //{
+        //    imageIndex = 2;
+        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
+        //    if (active)
+        //    {
+        //        //transform.Translate(-m_moveSpeed, 0, 0);
+        //        //rb.velocity = new Vector2(-m_moveSpeed, 0);
+        //    }
+        //}
+        //if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D))
+        //{
+        //    imageIndex = 3;
+        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
+        //    if (active)
+        //    {
+        //        //transform.Translate(m_moveSpeed, 0, 0);
+        //        //rb.velocity = new Vector2(m_moveSpeed, 0);
+        //    }
+        //}
+        //if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W))
+        //{
+        //    imageIndex = 0;
+        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
+        //    if (active)
+        //    {
+        //        //transform.Translate(0, m_moveSpeed, 0);
+        //        //rb.velocity = new Vector2(0, m_moveSpeed);
+        //    }
+        //}
+        //if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S))
+        //{
+        //    imageIndex = 1;
+        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
+        //    if (active)
+        //    {
+        //        //transform.Translate(0, -m_moveSpeed, 0);
+        //        //rb.velocity = new Vector2(0, -m_moveSpeed);
+        //    }
+        //}
+
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        if (active)
         {
-            imageIndex = 2;
-            playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            if (active)
+            Vector2 dir = new Vector2(h, v).normalized;
+            rb.velocity = dir * m_moveSpeed;
+        }
+
+        if (h > 0)
+        {
+            if (v > 0)
             {
-                transform.Translate(-m_moveSpeed, 0, 0);
+
+            }
+            else if (v < 0)
+            {
+
+            }
+            else
+            {
+                imageIndex = 3;
+                playerImage.sprite = SelectColor(nowColor)[imageIndex];
             }
         }
-        if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D))
+        else if (h < 0)
         {
-            imageIndex = 3;
-            playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            if (active)
+            if (v > 0)
             {
-                transform.Translate(m_moveSpeed, 0, 0);
+
+            }
+            else if (v < 0)
+            {
+
+            }
+            else
+            {
+                imageIndex = 2;
+                playerImage.sprite = SelectColor(nowColor)[imageIndex];
             }
         }
-        if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W))
+        else
         {
-            imageIndex = 0;
-            playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            if (active)
+            if (v > 0)
             {
-                transform.Translate(0, m_moveSpeed, 0);
+                imageIndex = 0;
+                playerImage.sprite = SelectColor(nowColor)[imageIndex];
+            }
+            else if (v < 0)
+            {
+                imageIndex = 1;
+                playerImage.sprite = SelectColor(nowColor)[imageIndex];
             }
         }
-        if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S))
-        {
-            imageIndex = 1;
-            playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            if (active)
-            {
-                transform.Translate(0, -m_moveSpeed, 0);
-            }   
-        }
-        if (playerHp <= 0　&& active)
+
+        if (playerHp <= 0 && active)
         {
             active = false;
             gameManager.OpenResult(false);
@@ -91,7 +153,7 @@ public class PlayerController : ColorInfo
                 }
                 else
                 {
-                    if(stealthObject.nowColor == nowColor)
+                    if (stealthObject.nowColor == nowColor)
                     {
                         stealth = true;
                         active = false;
@@ -137,7 +199,7 @@ public class PlayerController : ColorInfo
                 dialog.SetActive(true);
                 triggerStay = true;
                 stealthPosition = collision.transform;
-            }   
+            }
         }
         if (collision.gameObject.tag == "Switch")
         {
@@ -159,7 +221,7 @@ public class PlayerController : ColorInfo
     {
         nowColor = color;
         playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        if(stealth)
+        if (stealth)
         {
             if (stealthObject.nowColor != nowColor)
             {
@@ -181,7 +243,7 @@ public class PlayerController : ColorInfo
             }
         }
     }
-    
+
     public void mod_craft()
     {
         m_moveSpeed = 0;
