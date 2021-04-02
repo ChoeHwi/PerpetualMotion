@@ -14,8 +14,6 @@ public class ColorSelection : MonoBehaviour
     [SerializeField] Slider Select_blue;
     /// <summary>3本のゲージの値</summary>
     float[] UsageTimes = new float[3]{100f,100f,100f, };
-    /// <summary>現在値が0でないゲージの数</summary>
-    int shiftCount  = 3;
     /// <summary>ゲージの減少速度</summary>
     [Header("色の使用スピード")]
     public float speed;
@@ -38,39 +36,47 @@ public class ColorSelection : MonoBehaviour
     {   
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            for (int i = selectNumber - 1; i >= 0; i--)
+            if (selectNumber == 0)
             {
-                if (UsageTimes[i] > 0)
+                selectNumber = 3;
+            }
+            else
+            {
+                for (int i = selectNumber - 1; i >= 0; i--)
                 {
-                    selectNumber = i;
-                    break;
+                    if (UsageTimes[i] > 0)
+                    {
+                        selectNumber = i;
+                        break;
+                    }
                 }
             }
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            for (int i = selectNumber + 1; i < UsageTimes.Length; i++)
+            if (selectNumber == 2)
             {
-                if (UsageTimes[i] > 0)
+                selectNumber = 3;
+            }
+            else if (selectNumber != 3)
+            {
+                for (int i = selectNumber + 1; i < UsageTimes.Length; i++)
                 {
-                    selectNumber = i;
-                    break;
+                    if (UsageTimes[i] > 0)
+                    {
+                        selectNumber = i;
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                selectNumber = 0;
             }
         }
 
-        if (shiftCount > 0)
-        {
-            selectColor();
-        }
-        else//ゲージがすべてなくなったらプレイヤーを白に
-        {
-            if (playerController.nowColor != ColorInfo.COLOR_TYPE.Blank)
-            {
-                playerController.Form_Color(ColorInfo.COLOR_TYPE.Blank);
-            }
-        }
+        selectColor();
     }
     void selectColor()
     {
@@ -99,7 +105,7 @@ public class ColorSelection : MonoBehaviour
                 else//ゲージがなくなったら合図をだす
                 {
                     shiftColor();
-                    //shiftCount--;
+                    selectNumber = 3;
                 }
                 break;
             case 1:
@@ -125,7 +131,7 @@ public class ColorSelection : MonoBehaviour
                 else//ゲージがなくなったら合図をだす
                 {
                     shiftColor();
-                    //shiftCount--;
+                    selectNumber = 3;
                 }
                 break;
             case 2:
@@ -150,11 +156,30 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    shiftColor();
-                    //shiftCount--;
+                    //shiftColor();
+                    selectNumber = 3;
                 }
                 break;
             default:
+                if (playerController.nowColor != ColorInfo.COLOR_TYPE.Blank)
+                {
+                    playerController.Form_Color(ColorInfo.COLOR_TYPE.Blank);
+                }
+                if (UsageTimes[0] < 100)
+                {
+                    UsageTimes[0] += Time.deltaTime * HeelSpeed;
+                    Select_red.value = UsageTimes[0];
+                }
+                if (UsageTimes[1] < 100)
+                {
+                    UsageTimes[1] += Time.deltaTime * HeelSpeed;
+                    Select_green.value = UsageTimes[1];
+                }
+                if (UsageTimes[2] < 100)
+                {
+                    UsageTimes[2] += Time.deltaTime * HeelSpeed;
+                    Select_blue.value = UsageTimes[2];
+                }
                 break;
         }
     }
