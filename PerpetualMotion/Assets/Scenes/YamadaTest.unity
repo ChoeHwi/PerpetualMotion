@@ -17229,6 +17229,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992831677}
   m_CullTransparentMesh: 0
+--- !u!114 &1013052256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6828940011431757289, guid: 446c6b9bb08bf7c468a02c95ee084c9c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2140745681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d497ee6dfc050fb4fb2a65399cd072f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1073752086
 GameObject:
   m_ObjectHideFlags: 0
@@ -18452,7 +18464,7 @@ PrefabInstance:
     - target: {fileID: 6190971589628000072, guid: 31ae7ad2f35248d4fa58be5be7d647c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.045597
+      value: 36.43
       objectReference: {fileID: 0}
     - target: {fileID: 6190971589628000072, guid: 31ae7ad2f35248d4fa58be5be7d647c1,
         type: 3}
@@ -20443,6 +20455,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ElectricTrapSwitch
       objectReference: {fileID: 0}
+    - target: {fileID: 3938991370094163971, guid: 54bdaa1666f318b41aebfb465d60510e,
+        type: 3}
+      propertyPath: electricTrap.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938991370094163971, guid: 54bdaa1666f318b41aebfb465d60510e,
+        type: 3}
+      propertyPath: electricTrap.Array.data[0]
+      value: 
+      objectReference: {fileID: 1013052256}
+    - target: {fileID: 3938991370094163971, guid: 54bdaa1666f318b41aebfb465d60510e,
+        type: 3}
+      propertyPath: electricTrap.Array.data[1]
+      value: 
+      objectReference: {fileID: 1013052256}
     - target: {fileID: 3938991370094164028, guid: 54bdaa1666f318b41aebfb465d60510e,
         type: 3}
       propertyPath: m_LocalPosition.x
