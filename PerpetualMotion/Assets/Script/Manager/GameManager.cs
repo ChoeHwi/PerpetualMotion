@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Mobius mobius;
     public Slot slot;
     [SerializeField] GameObject itemPrefabBase;
-    
+    void Start()
+    {
+        path = new NavMeshPath();
+    }
     public void GetItem(Item item)
     {
         slot.AddItem(item);
@@ -30,8 +34,17 @@ public class GameManager : MonoBehaviour
 
     public void LostItem(Vector3 position)
     {
-        Instantiate(itemPrefabBase, new Vector3(position.x + Random.Range(-3, 3),position.y + Random.Range(-3, 3)), new Quaternion(0,0,0,0)).GetComponent<MobiusParts>().item = slot.item;
-        slot.clearSlot();
+        while (true)
+        {
+            var lostPosition = new Vector3(position.x + Random.Range(-3, 3),position.y + Random.Range(-3, 3)), new Quaternion(0,0,0,0));
+            if (NaviMesh.CalculatePath(position,lostPosition,NaviMesh.AllAreas,path))
+            
+            {
+                Instantiate(itemPrefabBase,lostPosition).GetComponent<MobiusParts>().item = slot.item;
+                slot.clearSlot();
+                break;
+            }
+        }
     }
 
     public void FitPiece()
