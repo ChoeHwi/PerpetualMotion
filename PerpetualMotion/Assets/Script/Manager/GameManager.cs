@@ -18,10 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Mobius mobius;
     public Slot slot;
     [SerializeField] GameObject itemPrefabBase;
-    void Start()
-    {
-        path = new NavMeshPath();
-    }
+    NavMeshHit hit;
+
     public void GetItem(Item item)
     {
         slot.AddItem(item);
@@ -34,16 +32,12 @@ public class GameManager : MonoBehaviour
 
     public void LostItem(Vector3 position)
     {
-        while (true)
+        var item = Instantiate(itemPrefabBase, new Vector3(position.x + Random.Range(-3, 3), position.y + Random.Range(-3, 3), 0), new Quaternion(0, 0, 0, 0));
+        item.GetComponent<MobiusParts>().item = slot.item;
+        slot.clearSlot();
+        if (NavMesh.SamplePosition(item.transform.position, out hit, 2.0f, NavMesh.AllAreas))
         {
-            var lostPosition = new Vector3(position.x + Random.Range(-3, 3),position.y + Random.Range(-3, 3)), new Quaternion(0,0,0,0));
-            if (NaviMesh.CalculatePath(position,lostPosition,NaviMesh.AllAreas,path))
-            
-            {
-                Instantiate(itemPrefabBase,lostPosition).GetComponent<MobiusParts>().item = slot.item;
-                slot.clearSlot();
-                break;
-            }
+            item.transform.position = hit.position;
         }
     }
 
