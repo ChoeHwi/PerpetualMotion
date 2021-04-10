@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mobius : MonoBehaviour
 {
-    [SerializeField] Sprite[] image;
+    [SerializeField] Sprite[] image = new Sprite[3];
     int processNum = 0;
     SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
@@ -23,5 +23,11 @@ public class Mobius : MonoBehaviour
     {
         processNum++;
         spriteRenderer.sprite = image[processNum];
+        if (processNum + 1 = image.Length)
+        {
+            
+        }
     }
+    
+    
 }
