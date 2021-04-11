@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject itemPrefabBase;
     NavMeshHit hit;
 
+    private void Start()
+    {
+        mobius.gameManager = this;
+    }
+
     public void GetItem(Item item)
     {
         slot.AddItem(item);
@@ -64,11 +69,4 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
-    
-    public void GameClear()
-    {
-        
-    }
-    
-    
 }
