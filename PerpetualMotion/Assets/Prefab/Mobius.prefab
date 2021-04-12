@@ -97,18 +97,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image:
   - {fileID: 21300000, guid: 859f4da14749fde4d83fadf4e25d0292, type: 3}
-  - {fileID: 21300000, guid: b634fb203111c4446b0482e31fd3aa9e, type: 3}
   - {fileID: 21300000, guid: 50589a944848fde459f5599fe7d34e8a, type: 3}
-  - {fileID: 21300000, guid: 981ef249dd96cf5469b48193474ccb85, type: 3}
   - {fileID: 21300000, guid: 4d678d07b403ee94387165adf5c66644, type: 3}
   - {fileID: 21300000, guid: fb85ed16244a89a44a178ca488afee3e, type: 3}
   - {fileID: 21300000, guid: 19aab34562b62564cbebf6199052c2f5, type: 3}
-  - {fileID: 21300000, guid: 9b6248830e731f14e898dfee88e200cc, type: 3}
   - {fileID: 21300000, guid: d05f572fb37d40248a287c19407f5b7f, type: 3}
-  - {fileID: 21300000, guid: a01ffcbfef7074e429d8c891b36821e7, type: 3}
   - {fileID: 21300000, guid: 596ba5ce44a4e554aad6f1c0458ecb25, type: 3}
-  - {fileID: 21300000, guid: b7a8dc3ae7976f84ba3d6990b6b6874c, type: 3}
   - {fileID: 21300000, guid: a9b00ce12984383458d747aafac9610f, type: 3}
+  gameManager: {fileID: 0}
 --- !u!61 &7696478895104221611
 BoxCollider2D:
   m_ObjectHideFlags: 0
