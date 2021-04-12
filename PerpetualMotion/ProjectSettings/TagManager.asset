@@ -50,3 +50,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Mobius
+    uniqueID: 2406333217
+    locked: 0
+  - name: Star
+    uniqueID: 4090788043
+    locked: 0
+  - name: Spark
+    uniqueID: 2174311883
+    locked: 0
