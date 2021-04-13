@@ -24,6 +24,16 @@ public class PlayerController : ColorInfo
     Transform stealthPosition;
     /// <summary>現在入ることのできるステルスオブジェクト</summary>
     public StealthObject stealthObject;
+    //moveObj関連
+    bool MoveObj;
+    [Header("オブジェクトと融合したときのスピード")]
+    public float ObjSpeed;
+    public bool Movement = false;
+    public moveObject moveObject;
+    [Header("融合して移動するオブジェクトを入れる")]
+    public Transform MoveObj_Red;
+    public Transform MoveObj_Blue;
+    public Transform MoveObj_Green;
 
     // Start is called before the first frame update
     void Start()
