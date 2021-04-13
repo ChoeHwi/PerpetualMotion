@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Mobius
   - Enemy
+  - mov
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : ColorInfo
 {
     [Header("プレイヤーの移動速度")]
-    public float m_moveSpeed = 0.02f;
+    public float m_moveSpeed;
     float m_stopSpeed;
     public SpriteRenderer playerImage;
     int imageIndex = 1;
@@ -15,7 +15,7 @@ public class PlayerController : ColorInfo
     /// <summary>ステルス状態かどうか</summary>
     public bool stealth = false;
     /// <summary>プレイヤーが操作可能か</summary>
-    bool active = true;
+    public bool active = true;
     GameManager gameManager;
     CapsuleCollider2D capsuleCollider;
     [SerializeField] GameObject dialog;
@@ -24,6 +24,14 @@ public class PlayerController : ColorInfo
     /// <summary>現在入ることのできるステルスオブジェクト</summary>
     public StealthObject stealthObject;
 
+    //moveObj関連
+    bool MoveObj;
+    public float ObjSpeed;
+    public bool Movement = false;
+    public moveObject moveObject;
+    public Transform MoveObj_Red;
+    public Transform MoveObj_Blue;
+    public Transform MoveObj_Green;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +39,7 @@ public class PlayerController : ColorInfo
         playerImage = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        moveObject = GameObject.FindObjectOfType<moveObject>();
     }
 
     // Update is called once per frame
@@ -91,12 +100,74 @@ public class PlayerController : ColorInfo
                 }
                 else
                 {
-                    if(stealthObject.nowColor == nowColor)
+                    if (stealthObject.nowColor == nowColor)
                     {
                         stealth = true;
                         active = false;
                         capsuleCollider.isTrigger = true;
                         this.transform.position = new Vector3(stealthPosition.transform.position.x, stealthPosition.transform.position.y, this.transform.position.z);
+                    }
+                }
+            }
+        }
+        if (MoveObj)//オブジェクト移動できるときの処理
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (Movement)
+                {
+                    transform.parent = null;
+                    active = true;
+                    capsuleCollider.isTrigger = false;
+                    Movement = false;
+                    moveObject.active = false;
+                }
+                else
+                {
+                    if (moveObject.nowColor == nowColor)
+                    {
+                        switch (nowColor)
+                        {
+                            
+                            case COLOR_TYPE.Blank:
+                                break;
+                            case COLOR_TYPE.Red:
+                                if (moveObject.nowColor == COLOR_TYPE.Red)
+                                {
+                                    transform.parent = MoveObj_Red;
+                                    moveObject.active = true;
+                                    Movement = true;
+                                    active = false;
+                                    capsuleCollider.isTrigger = true;
+                                    this.transform.position = new Vector3(MoveObj_Red.transform.position.x, MoveObj_Red.transform.position.y, this.transform.position.z);
+                                }
+                                break;
+                            case COLOR_TYPE.Bule:
+                                if (moveObject.nowColor == COLOR_TYPE.Bule)
+                                {
+                                    transform.parent = MoveObj_Blue;
+                                    moveObject.active = true;
+                                    Movement = true;
+                                    active = false;
+                                    capsuleCollider.isTrigger = true;
+                                    this.transform.position = new Vector3(MoveObj_Blue.transform.position.x, MoveObj_Blue.transform.position.y, this.transform.position.z);
+                                }
+                                break;
+                            case COLOR_TYPE.Green:
+                                if (moveObject.nowColor==COLOR_TYPE.Green)
+                                {
+                                    transform.parent = MoveObj_Green;
+                                    moveObject.active = true;
+                                    Movement = true;
+                                    active = false;
+                                    capsuleCollider.isTrigger = true;
+                                    this.transform.position = new Vector3(MoveObj_Green.transform.position.x, MoveObj_Green.transform.position.y, this.transform.position.z);
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        ;
                     }
                 }
             }
@@ -139,6 +210,16 @@ public class PlayerController : ColorInfo
                 stealthPosition = collision.transform;
             }   
         }
+        if (collision.gameObject.tag == "mov")
+        {
+            moveObject = collision.GetComponent<moveObject>();
+            if (moveObject.nowColor == nowColor)
+            {
+                dialog.SetActive(true);
+                MoveObj = true;
+                stealthPosition = collision.transform;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -149,13 +230,20 @@ public class PlayerController : ColorInfo
             triggerStay = false;
             stealthObject = null;
         }
+        if (collision.gameObject.tag == "mov")
+        {
+            dialog.SetActive(false);
+            MoveObj = false;
+            moveObject = null;
+            transform.parent = null;
+        }
     }
 
     public void Form_Color(COLOR_TYPE color)
     {
         nowColor = color;
         playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        if(stealth)
+        if (stealth)
         {
             if (stealthObject.nowColor != nowColor)
             {
@@ -172,6 +260,29 @@ public class PlayerController : ColorInfo
                 dialog.SetActive(false);
             }
             else if (stealthObject.nowColor == nowColor)
+            {
+                dialog.SetActive(true);
+            }
+        }
+        if (Movement)
+        {
+            if (moveObject.nowColor != nowColor)
+            {
+                capsuleCollider.isTrigger = false;
+                Movement = false;
+                active = true;
+                transform.parent = null;
+                moveObject.active = false;
+                dialog.SetActive(false);
+            }
+        }
+        else if (MoveObj)
+        {
+            if (moveObject.nowColor != nowColor)
+            {
+                dialog.SetActive(false);
+            }
+            else if (moveObject.nowColor == nowColor)
             {
                 dialog.SetActive(true);
             }
