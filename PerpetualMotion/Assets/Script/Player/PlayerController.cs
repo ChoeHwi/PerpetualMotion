@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// プレイヤーの制御
+/// </summary>
 public class PlayerController : ColorInfo
 {
     [Header("プレイヤーの移動速度")]
