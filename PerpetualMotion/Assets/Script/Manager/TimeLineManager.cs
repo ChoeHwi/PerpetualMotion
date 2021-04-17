@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
+/// <summary> タイムラインを制御するクラス </summary>
 public class TimeLineManager : MonoBehaviour
 {
     /// <summary>  </summary>
