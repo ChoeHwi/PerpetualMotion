@@ -22,14 +22,16 @@ public class Mobius : MonoBehaviour
         
     }
 
-    public void FitPiece()
+    public bool FitPiece()
     {
         processNum++;
         image.sprite = images[processNum];
         if (images.Length == processNum + 1)
         {
             gameManager.OpenResult(true);
+            return true;
         }
+        return false;
     }
     
     
