@@ -4,16 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - stealth
   - Item
-  - Mobius
-  - Enemy
-<<<<<<< HEAD
-  - enemy
-  - Switch
-=======
-  - mov
->>>>>>> otsuki
   layers:
   - Default
   - TransparentFX
@@ -48,8 +39,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Map
-    uniqueID: 1135618885
+  - name: MapFloor
+    uniqueID: 2286201829
+    locked: 0
+  - name: MapWall
+    uniqueID: 1474968691
     locked: 0
   - name: Default
     uniqueID: 0

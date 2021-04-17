@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// プレイヤーの制御
+/// </summary>
 public class PlayerController : ColorInfo
 {
     [Header("プレイヤーの移動速度")]
@@ -50,47 +53,6 @@ public class PlayerController : ColorInfo
 
     void Update()
     {
-        //if (/*Input.GetKey(KeyCode.LeftArrow) || */Input.GetKey(KeyCode.A))
-        //{
-        //    imageIndex = 2;
-        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        //    if (active)
-        //    {
-        //        //transform.Translate(-m_moveSpeed, 0, 0);
-        //        //rb.velocity = new Vector2(-m_moveSpeed, 0);
-        //    }
-        //}
-        //if (/*Input.GetKey(KeyCode.RightArrow) || */Input.GetKey(KeyCode.D))
-        //{
-        //    imageIndex = 3;
-        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        //    if (active)
-        //    {
-        //        //transform.Translate(m_moveSpeed, 0, 0);
-        //        //rb.velocity = new Vector2(m_moveSpeed, 0);
-        //    }
-        //}
-        //if (/*Input.GetKey(KeyCode.UpArrow) || */Input.GetKey(KeyCode.W))
-        //{
-        //    imageIndex = 0;
-        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        //    if (active)
-        //    {
-        //        //transform.Translate(0, m_moveSpeed, 0);
-        //        //rb.velocity = new Vector2(0, m_moveSpeed);
-        //    }
-        //}
-        //if (/*Input.GetKey(KeyCode.DownArrow) || */Input.GetKey(KeyCode.S))
-        //{
-        //    imageIndex = 1;
-        //    playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        //    if (active)
-        //    {
-        //        //transform.Translate(0, -m_moveSpeed, 0);
-        //        //rb.velocity = new Vector2(0, -m_moveSpeed);
-        //    }
-        //}
-
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 

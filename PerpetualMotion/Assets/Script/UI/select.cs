@@ -13,6 +13,7 @@ public class select : MonoBehaviour
     [SerializeField] int pageNum;
     [SerializeField] int maxPage;
     [SerializeField] Text nameText;
+    [SerializeField] string[] sceneName;
     
     [SerializeField] GameObject playLog;
     [SerializeField] GameObject clearStamp;
@@ -105,7 +106,13 @@ public class select : MonoBehaviour
     }
     public void RoadScene()
     {
-        SceneManager.LoadScene("PlotScene(otuki)");
+        Debug.Log(StageNum);
+        Debug.Log(sceneName.Length);
+        if (StageNum <= sceneName.Length && StageNum > 0)
+        {
+            SceneManager.LoadScene(sceneName[StageNum - 1]);
+        }
+        //SceneManager.LoadScene("PlotScene(otuki)");
     }
     public void SceneSelect()
     {
