@@ -220,7 +220,7 @@ public class PlayerController : ColorInfo
             if (gameManager.slot.item != null)
             {
                 gameManager.RemoveItem();
-                gameManager.FitPiece();
+                gameManager.FitStart();
             }
         }
     }
