@@ -4,27 +4,38 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
+using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
+    /// <summary>シーンの名前 </summary>
     public string SceneName;
+    /// <summary>クリアの時間 </summary>
     public int clearTime = 0;
+    /// <summary> </summary>
     public int killedEnemy = 0;
+    /// <summary> </summary>
     public int gimmickCount = 0;
-    [SerializeField] GameObject clearResult;
-    [SerializeField] GameObject gameOverResult;
+    /// <summary> </summary>
+    [SerializeField] GameObject clearResult = null;
+    /// <summary> </summary>
+    [SerializeField] GameObject gameOverResult = null;
+    /// <summary> </summary>
     [SerializeField] Text[] textBox;
-    /// <summary>台座のUI</summary>
-    [SerializeField] GameObject mobius;
-    Mobius mobiusScript;
+    [Header("このシーンのメビウスの台座")]
+    [SerializeField] Mobius mobius;
+    /// <summary> </summary>
     public Slot slot;
-    [SerializeField] GameObject itemPrefabBase;
+    /// <summary> </summary>
+    [SerializeField] GameObject itemPrefabBase = null;
+    /// <summary> </summary>
     NavMeshHit hit;
+    /// <summary> 参照先のクラスの変数 </summary>
+    TimeLineManager timeLineManager;
 
     private void Start()
     {
-        mobiusScript = mobius.GetComponentInChildren<Mobius>();
-        mobiusScript.gameManager = this;
+        mobius.gameManager = this;
     }
 
     public void GetItem(Item item)
@@ -50,29 +61,19 @@ public class GameManager : MonoBehaviour
 
     public void FitPiece()
     {
-        mobius.SetActive(true);
-        Invoke("Fit" ,1f);
-        Invoke("FitEnd", 2f);
-    }
-
-    void Fit()
-    {
-        mobiusScript.FitPiece();
-    }
-
-    void FitEnd()
-    {
-        mobius.SetActive(false);
+        mobius.FitPiece();
     }
 
     public void OpenResult(bool isClear)
     {
         if(isClear)
         {
+            timeLineManager.StartTimeLine();
+
             clearResult.SetActive(true);
-            /*textBox[0].text = clearTime.ToString();
+            textBox[0].text = clearTime.ToString();
             textBox[1].text = killedEnemy.ToString();
-            textBox[2].text = gimmickCount.ToString();*/
+            textBox[2].text = gimmickCount.ToString();
         }
         else
         {
