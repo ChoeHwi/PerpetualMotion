@@ -8,8 +8,12 @@ TagManager:
   - Item
   - Mobius
   - Enemy
+<<<<<<< HEAD
   - enemy
   - Switch
+=======
+  - mov
+>>>>>>> otsuki
   layers:
   - Default
   - TransparentFX
