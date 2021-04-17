@@ -9,8 +9,27 @@ public class Slot : MonoBehaviour
     public GameObject removeButton;
     public Item item;
 
+    //仮テスト
+    public int ItemNum;
+    public Text ItemNumText;
+    public void TestAddItem()
+    {
+        ItemNum += 1;
+        ItemNumText.text = "×" + ItemNum;
+    }
+    public void TestclearSlot()
+    {
+        ItemNum -= 1;
+        if (ItemNum >= 0)
+        {
+            ItemNumText.text = "×" + ItemNum;
+        }
+    }
+
+
     public void AddItem(Item newitem)
     {
+        Debug.Log("atariamotu");
         item = newitem;
         icon.sprite = newitem.icon;
         if (removeButton)
