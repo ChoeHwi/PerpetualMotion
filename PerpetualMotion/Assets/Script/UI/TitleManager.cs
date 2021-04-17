@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TitleManager : MonoBehaviour
+public class TitleManager : MonoBehaviour//SingletonMonoBehaviour<TitleManager>
 {
     [SerializeField] Text clickText;
     [SerializeField] GameObject TitlePanel;
+    //static bool isTitleClicked;
+    private void Start()
+    {
+        if (false)//isTitleClicked)
+        {
+            //TitlePanel.SetActive(false);
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -24,5 +32,6 @@ public class TitleManager : MonoBehaviour
     public void TitleClick()
     {
         TitlePanel.SetActive(false);
+        //isTitleClicked = true;
     }
 }
