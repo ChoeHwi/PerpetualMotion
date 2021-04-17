@@ -12,6 +12,9 @@ public class PlayerController : ColorInfo
     public float m_moveSpeed = 4.0f;
     public Rigidbody2D rb;
     float m_stopSpeed;
+    /// <summary>無敵時間</summary>
+    float invincibleTime = 3f;
+    bool isDamaged = false;
     public SpriteRenderer playerImage;
     int imageIndex = 1;
     public int playerHp = 5;
@@ -199,12 +202,25 @@ public class PlayerController : ColorInfo
             }
         }
     }
+
+    void FixedUpdate()
+    {
+        //ダメージを受けた時の処理
+        if (isDamaged)
+        {
+            float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, level);
+        }
+    }
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !isDamaged)
         {
             playerHp -= 1;
+            isDamaged = true;
+            Invoke("flashEnd", invincibleTime);
             if (gameManager.slot.item != null)
             {
                 gameManager.LostItem(this.transform.position);
@@ -317,6 +333,12 @@ public class PlayerController : ColorInfo
                 dialog.SetActive(true);
             }
         }
+    }
+
+    void flashEnd()
+    {
+        isDamaged = false;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1);
     }
 
     public void mod_craft()
