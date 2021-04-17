@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,10 +31,12 @@ public class GameManager : MonoBehaviour
     NavMeshHit hit;
     /// <summary> 参照先のクラスの変数 </summary>
     TimeLineManager timeLineManager;
+    [SerializeField] GameObject director;
 
     private void Start()
     {
         mobius.gameManager = this;
+        timeLineManager = director.GetComponent<TimeLineManager>();
     }
 
     public void GetItem(Item item)
@@ -68,6 +69,8 @@ public class GameManager : MonoBehaviour
     {
         if(isClear)
         {
+            director.SetActive(true);
+            
             timeLineManager.StartTimeLine();
 
             clearResult.SetActive(true);

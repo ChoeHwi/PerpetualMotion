@@ -493,7 +493,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -204179253
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: edd9b07aba374084f828135e28b83ed5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2185,7 +2185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2120655413
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a8a1aabb988f7a47a3b7c646189b487, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2286,7 +2286,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1888634079
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 32be15ac4f82ca04a898326c036688ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3258,7 +3258,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1135618885
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -8431,7 +8431,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2120655413
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3a8a1aabb988f7a47a3b7c646189b487, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9994,7 +9994,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1888634079
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 32be15ac4f82ca04a898326c036688ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10037,7 +10037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!320 &1290420706
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -10049,7 +10049,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 6d1373acd77bee941980fe302909bab2, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -12069,7 +12069,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1135618885
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -12608,6 +12608,7 @@ MonoBehaviour:
   slot: {fileID: 508190483}
   itemPrefabBase: {fileID: 4242778276569648497, guid: 123f9f187fa535b4bbe2b17a6bd48a48,
     type: 3}
+  director: {fileID: 1290420704}
 --- !u!1 &1812786927
 GameObject:
   m_ObjectHideFlags: 0
@@ -13813,7 +13814,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -204179253
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: edd9b07aba374084f828135e28b83ed5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14231,6 +14232,12 @@ MonoBehaviour:
   stealth: 0
   dialog: {fileID: 0}
   stealthObject: {fileID: 0}
+  ObjSpeed: 0
+  Movement: 0
+  moveObject: {fileID: 0}
+  MoveObj_Red: {fileID: 0}
+  MoveObj_Blue: {fileID: 0}
+  MoveObj_Green: {fileID: 0}
 --- !u!114 &2051320969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14409,6 +14416,12 @@ MonoBehaviour:
   stealth: 0
   dialog: {fileID: 1381037592}
   stealthObject: {fileID: 0}
+  ObjSpeed: 0
+  Movement: 0
+  moveObject: {fileID: 0}
+  MoveObj_Red: {fileID: 0}
+  MoveObj_Blue: {fileID: 0}
+  MoveObj_Green: {fileID: 0}
 --- !u!70 &2056672957
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

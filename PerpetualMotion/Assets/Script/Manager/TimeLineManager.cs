@@ -14,7 +14,11 @@ public class TimeLineManager : MonoBehaviour
     private void Awake()
     {
         _playableDirector = GetComponent<PlayableDirector>();
-        _playableDirector.played += Director_Played;
+        
+    }
+
+    public void PlayableStop() 
+    {
         _playableDirector.stopped += Director_Stopped;
     }
 
@@ -24,6 +28,7 @@ public class TimeLineManager : MonoBehaviour
     /// <param name="obj"></param>
     public void Director_Played(PlayableDirector obj) 
     {
+        _playableDirector.played += Director_Played;
         _director.SetActive(true);
     }
 
