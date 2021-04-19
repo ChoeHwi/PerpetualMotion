@@ -8,7 +8,6 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerController : ColorInfo
 {
-    //a
     [Header("プレイヤーの移動速度")]
     public float m_moveSpeed = 4.0f;
     public Rigidbody2D rb;
