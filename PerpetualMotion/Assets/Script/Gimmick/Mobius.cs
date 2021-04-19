@@ -26,6 +26,7 @@ public class Mobius : MonoBehaviour
     {
         processNum += item;
         image.sprite = images[processNum];
+        Debug.Log(processNum);
         if (images.Length == processNum + 1)
         {
             gameManager.OpenResult(true);
