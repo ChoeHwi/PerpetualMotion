@@ -32,7 +32,7 @@ Prefab本体の値は変更しないでください。
 　　　　　　追跡を開始する範囲の半径
 　　　　　　追跡を停止する範囲の半径
 ・Mobius
-　1シーンに一つのみ配置可能。配置後ManagerのMobiusに配置したものを設定する。
+　1シーンに一つのみ配置可能。
 
 ・Parts
 
@@ -47,5 +47,8 @@ Prefab本体の値は変更しないでください。
 ●シーンごとの設定
 シーンのGameOver→continue→continueのInspectorのButtonのOnClick()の
 現在、Suterusuと書かれた部分をそのシーンのシーン名に変更してください。
+シーンのGameClear→continueのInspectorのButtonのOnClick()の
+現在、Suterusuと書かれた部分をそのシーンのシーン名に変更してください。
+
 
 
