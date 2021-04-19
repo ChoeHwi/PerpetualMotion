@@ -22,9 +22,9 @@ public class Mobius : MonoBehaviour
         
     }
 
-    public bool FitPiece()
+    public bool FitPiece(int item)
     {
-        processNum++;
+        processNum += item;
         image.sprite = images[processNum];
         if (images.Length == processNum + 1)
         {

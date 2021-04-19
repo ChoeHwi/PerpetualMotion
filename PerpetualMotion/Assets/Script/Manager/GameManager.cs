@@ -60,16 +60,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void FitStart()
+    public void FitStart(int item)
     {
-        StartCoroutine(FitPiece());
+        StartCoroutine(FitPiece(item));
     }
 
-    IEnumerator FitPiece()
+    IEnumerator FitPiece(int item)
     {
         mobius.SetActive(true);
         yield return new WaitForSeconds(1f);
-        if (mobiusScript.FitPiece())
+        if (mobiusScript.FitPiece(item))
         {
             
         }

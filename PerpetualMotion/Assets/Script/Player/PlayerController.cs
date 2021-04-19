@@ -40,8 +40,9 @@ public class PlayerController : ColorInfo
     public Transform MoveObj_Red;
     public Transform MoveObj_Blue;
     public Transform MoveObj_Green;
+    //アイテム関連
+    public int itemCount;
 
-    // Start is called before the first frame update
     void Start()
     {
         m_stopSpeed = m_moveSpeed;
@@ -228,6 +229,7 @@ public class PlayerController : ColorInfo
         }
         if (collision.gameObject.tag == "Item")
         {
+            itemCount += 1;
             gameManager.GetItem(collision.gameObject.GetComponent<MobiusParts>().item);
             Destroy(collision.gameObject);
         }
@@ -235,8 +237,9 @@ public class PlayerController : ColorInfo
         {
             if (gameManager.slot.item != null)
             {
+                itemCount -= 1;
                 gameManager.RemoveItem();
-                gameManager.FitStart();
+                gameManager.FitStart(itemCount);
             }
         }
     }
