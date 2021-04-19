@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Mobius : MonoBehaviour
 {
+    //a
     [SerializeField] Sprite[] images = new Sprite[7];
     public GameManager gameManager;
     int processNum = 0;

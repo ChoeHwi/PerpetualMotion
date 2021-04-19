@@ -7,6 +7,7 @@ using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
+    //a
     /// <summary>シーンの名前 </summary>
     public string SceneName;
     /// <summary>クリアの時間 </summary>
