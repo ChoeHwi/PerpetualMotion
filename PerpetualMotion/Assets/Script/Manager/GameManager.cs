@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject mobius;
     Mobius mobiusScript;
     /// <summary> </summary>
-    public Slot slot;
-    /// <summary> </summary>
     [SerializeField] GameObject itemPrefabBase = null;
     /// <summary> </summary>
     NavMeshHit hit;
@@ -39,11 +37,9 @@ public class GameManager : MonoBehaviour
         mobiusScript.gameManager = this;
     }
 
-    public void LostItem(Vector3 position)
+    public void LostItem(Vector3 position, GameObject itemObj)
     {
-        var item = Instantiate(itemPrefabBase, new Vector3(position.x + Random.Range(-3, 3), position.y + Random.Range(-3, 3), 0), new Quaternion(0, 0, 0, 0));
-        item.GetComponent<MobiusParts>().item = slot.item;
-        slot.clearSlot();
+        var item = Instantiate(itemObj, new Vector3(position.x + Random.Range(-3, 3), position.y + Random.Range(-3, 3), 0), new Quaternion(0, 0, 0, 0));
         if (NavMesh.SamplePosition(item.transform.position, out hit, 2.0f, NavMesh.AllAreas))
         {
             item.transform.position = hit.position;

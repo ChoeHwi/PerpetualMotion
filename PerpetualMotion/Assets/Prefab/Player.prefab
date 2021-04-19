@@ -383,6 +383,9 @@ MonoBehaviour:
   MoveObj_Red: {fileID: 0}
   MoveObj_Blue: {fileID: 0}
   MoveObj_Green: {fileID: 0}
+  itemCount: 0
+  itemType:
+  - {fileID: 4242778276569648497, guid: 123f9f187fa535b4bbe2b17a6bd48a48, type: 3}
 --- !u!50 &6834007070454598335
 Rigidbody2D:
   serializedVersion: 4
