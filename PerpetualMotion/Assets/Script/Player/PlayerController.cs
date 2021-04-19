@@ -41,6 +41,9 @@ public class PlayerController : ColorInfo
     public Transform MoveObj_Blue;
     public Transform MoveObj_Green;
 
+    //アイテム関連
+    public int itemCount;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -221,23 +224,25 @@ public class PlayerController : ColorInfo
             playerHp -= 1;
             isDamaged = true;
             Invoke("flashEnd", invincibleTime);
-            if (gameManager.slot.item != null)
-            {
-                gameManager.LostItem(this.transform.position);
-            }
+            //if (gameManager.slot.item != null)
+            //{
+            //    gameManager.LostItem(this.transform.position);
+            //}
         }
         if (collision.gameObject.tag == "Item")
         {
-            gameManager.GetItem(collision.gameObject.GetComponent<MobiusParts>().item);
-            Destroy(collision.gameObject);
+            itemCount += 1;
         }
         if (collision.gameObject.tag == "Mobius")
         {
-            if (gameManager.slot.item != null)
-            {
-                gameManager.RemoveItem();
-                gameManager.FitStart();
-            }
+            itemCount -= 1;
+            gameManager.FitPiece(itemCount);
+            Debug.Log("mob");
+            //if (gameManager.slot.item != null)
+            //{
+            //    gameManager.RemoveItem();
+            //    gameManager.FitPiece();
+            //}
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
