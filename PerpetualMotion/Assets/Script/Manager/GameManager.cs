@@ -39,16 +39,6 @@ public class GameManager : MonoBehaviour
         mobiusScript.gameManager = this;
     }
 
-    public void GetItem(Item item)
-    {
-        slot.AddItem(item);
-    }
-
-    public void RemoveItem()
-    {
-        slot.clearSlot();
-    }
-
     public void LostItem(Vector3 position)
     {
         var item = Instantiate(itemPrefabBase, new Vector3(position.x + Random.Range(-3, 3), position.y + Random.Range(-3, 3), 0), new Quaternion(0, 0, 0, 0));

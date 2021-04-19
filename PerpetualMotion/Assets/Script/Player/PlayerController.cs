@@ -222,7 +222,7 @@ public class PlayerController : ColorInfo
             playerHp -= 1;
             isDamaged = true;
             Invoke("flashEnd", invincibleTime);
-            if (gameManager.slot.item != null)
+            if (itemCount > 0)
             {
                 gameManager.LostItem(this.transform.position);
             }
@@ -230,16 +230,14 @@ public class PlayerController : ColorInfo
         if (collision.gameObject.tag == "Item")
         {
             itemCount += 1;
-            gameManager.GetItem(collision.gameObject.GetComponent<MobiusParts>().item);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "Mobius")
         {
-            if (gameManager.slot.item != null)
+            if (itemCount > 0)
             {
-                itemCount -= 1;
-                gameManager.RemoveItem();
                 gameManager.FitStart(itemCount);
+                itemCount = 0;
             }
         }
     }
