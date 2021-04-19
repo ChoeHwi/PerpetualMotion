@@ -42,6 +42,7 @@ public class PlayerController : ColorInfo
     public Transform MoveObj_Green;
     //アイテム関連
     public int itemCount;
+    [SerializeField] GameObject[] itemType = new GameObject[1];
 
     void Start()
     {
@@ -224,7 +225,8 @@ public class PlayerController : ColorInfo
             Invoke("flashEnd", invincibleTime);
             if (itemCount > 0)
             {
-                gameManager.LostItem(this.transform.position);
+                itemCount -= 1;
+                gameManager.LostItem(this.transform.position, itemType[0]);
             }
         }
         if (collision.gameObject.tag == "Item")
