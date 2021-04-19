@@ -13,7 +13,7 @@ public class LifeUI : MonoBehaviour
     void Start()
     {
         con = GameObject.Find("Player").GetComponent<PlayerController>();
-        life= con.playerHp;
+        life = con.playerHp;
     }
 
     // Update is called once per frame

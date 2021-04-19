@@ -18,16 +18,16 @@ public class Inventry : MonoBehaviour
     void Start()
     {
         inventryUI = GetComponent<InventryUI>();
-        inventryUI.UpdateUI();
+        //inventryUI.UpdateUI();
     }
     public void Add(Item item)
     {
         items.Add(item);
-        inventryUI.UpdateUI();
+        //inventryUI.UpdateUI();
     }
     public void Remove(Item item)
     {
         items.Remove(item);
-        inventryUI.UpdateUI();
+        //inventryUI.UpdateUI();
     }
 }

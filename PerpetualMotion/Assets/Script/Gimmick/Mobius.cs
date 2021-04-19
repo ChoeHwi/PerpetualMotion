@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,9 +23,9 @@ public class Mobius : MonoBehaviour
         
     }
 
-    public bool FitPiece()
+    public bool FitPiece(int item)
     {
-        processNum++;
+        processNum += item;
         image.sprite = images[processNum];
         if (images.Length == processNum + 1)
         {
@@ -33,6 +34,4 @@ public class Mobius : MonoBehaviour
         }
         return false;
     }
-    
-    
 }

@@ -10,7 +10,8 @@ public class Resize : MonoBehaviour
     {
         Life,
         Gauge,
-        Time
+        Time,
+        Item
     }
     public UI_TYPE ui_Type;
     float screenHeight;
@@ -37,6 +38,10 @@ public class Resize : MonoBehaviour
                 rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.16f);
                 rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.1f);
                 break;
+            case UI_TYPE.Item:
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.16f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.1f);
+                break;
         }
     }
 
@@ -58,6 +63,10 @@ public class Resize : MonoBehaviour
                 case UI_TYPE.Time:
                     rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.16f);
                     rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.08f);
+                    break;
+                case UI_TYPE.Item:
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.14f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f * 0.3f / 7f);
                     break;
             }
             screenHeight = (float)Screen.height;
