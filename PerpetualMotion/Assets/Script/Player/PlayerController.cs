@@ -49,8 +49,7 @@ public class PlayerController : ColorInfo
     bool ventBool;
     public int VentNum;
     bool Vent_ch = false;
-    public bool tracking = false;
-    [SerializeField] GameObject player;
+    bool tracking = false;
     [SerializeField] EnemyController enemyCon;
     public Canvas BeingTrackedOBJ;
 
@@ -334,6 +333,7 @@ public class PlayerController : ColorInfo
         if (collision.gameObject.tag == "vent")
         {
             vent_S = collision.GetComponent<Vent>();
+            VentNum = vent_S.ventNumber;
             ventBool = true;
             if (!tracking)
             {
@@ -371,29 +371,7 @@ public class PlayerController : ColorInfo
     }
     public void Vent_Pos()
     {
-        switch (VentNum)
-        {
-            case 0:
-                transform.position = new Vector3(vent_Mana.ventPos_1.position.x, vent_Mana.ventPos_1.position.y, 1);
-                break;
-            case 1:
-                transform.position = new Vector3(vent_Mana.ventPos_2.position.x, vent_Mana.ventPos_2.position.y, 1);
-                break;
-            case 2:
-                transform.position = new Vector3(vent_Mana.ventPos_3.position.x, vent_Mana.ventPos_3.position.y, 1);
-                break;
-            case 3:
-                transform.position = new Vector3(vent_Mana.ventPos_4.position.x, vent_Mana.ventPos_4.position.y, 1);
-                break;
-            case 4:
-                transform.position = new Vector3(vent_Mana.ventPos_5.position.x, vent_Mana.ventPos_5.position.y, 1);
-                break;
-            case 5:
-                transform.position = new Vector3(vent_Mana.ventPos_6.position.x, vent_Mana.ventPos_6.position.y, 1);
-                break;
-            default:
-                break;
-        }
+        transform.position = new Vector3(vent_Mana.vent_Pos[VentNum].position.x, vent_Mana.vent_Pos[VentNum].position.y, 1);
     }
 
     public void Form_Color(COLOR_TYPE color)
