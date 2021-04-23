@@ -34,7 +34,7 @@ public class EnemyController : ColorInfo
     /// <summary>この範囲から出たら追跡をやめる</summary>
     [SerializeField] float quitRange = 5f;
     /// <summary>追跡状態かどうか</summary>
-    bool tracking = false;
+    public bool tracking = false;
     [SerializeField] GameObject projectorObj;
     /// <summary>このオブジェクトの見た目のオブジェクト</summary>
     [SerializeField] GameObject enemyProjector;
