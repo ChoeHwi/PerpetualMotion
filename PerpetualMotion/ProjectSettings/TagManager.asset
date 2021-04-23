@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Mobius
+  - stealth
+  - enemy
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -39,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 3700438943
+    locked: 0
   - name: MapFloor
     uniqueID: 2286201829
     locked: 0
