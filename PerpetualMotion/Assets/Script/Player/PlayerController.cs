@@ -43,9 +43,23 @@ public class PlayerController : ColorInfo
     //アイテム関連
     public int itemCount;
     [SerializeField] GameObject[] itemType = new GameObject[1];
+    //通気口関連
+    Vent vent_S;
+    ventManager vent_Mana;
+    bool ventBool;
+    public int VentNum;
+    bool Vent_ch = false;
+    public bool tracking = false;
+    [SerializeField] GameObject player;
+    [SerializeField] EnemyController enemyCon;
+    public Canvas BeingTrackedOBJ;
+
 
     void Start()
     {
+        enemyCon = FindObjectOfType<EnemyController>();
+        vent_Mana = GameObject.FindObjectOfType<ventManager>();
+        vent_S = GameObject.FindObjectOfType<Vent>();
         m_stopSpeed = m_moveSpeed;
         playerImage = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -58,6 +72,7 @@ public class PlayerController : ColorInfo
 
     void Update()
     {
+        tracking = enemyCon.tracking;
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -203,6 +218,53 @@ public class PlayerController : ColorInfo
                 }
             }
         }
+        if (ventBool && !tracking)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!Vent_ch)
+                {
+                    Vent_ch = true;
+                    active = false;
+                }
+                else if (Vent_ch && vent_S)
+                {
+                    Vent_ch = false;
+                    active = true;
+                    transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                }
+            }
+            if (Vent_ch)
+            {
+                if (VentNum < 0)
+                {
+                    VentNum = vent_Mana.num;
+                }
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    if (VentNum >= 0)
+                    {
+                        VentNum -= 1;
+                    }
+                    if (VentNum == -1)
+                    {
+                        VentNum = vent_Mana.num - 1;
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    if (VentNum < vent_Mana.num)
+                    {
+                        VentNum += 1;
+                    }
+                    if (VentNum == vent_Mana.num)
+                    {
+                        VentNum = 0;
+                    }
+                }
+                Vent_Pos();
+            }
+        }
     }
 
     void FixedUpdate()
@@ -269,6 +331,19 @@ public class PlayerController : ColorInfo
                 stealthPosition = collision.transform;
             }
         }
+        if (collision.gameObject.tag == "vent")
+        {
+            vent_S = collision.GetComponent<Vent>();
+            ventBool = true;
+            if (!tracking)
+            {
+                dialog.SetActive(true);
+            }
+            else
+            {
+                BeingTrackedOBJ.gameObject.SetActive(true);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -285,6 +360,39 @@ public class PlayerController : ColorInfo
             MoveObj = false;
             moveObject = null;
             transform.parent = null;
+        }
+        if (collision.gameObject.tag == "vent")
+        {
+            ventBool = false;
+            dialog.SetActive(false);
+            BeingTrackedOBJ.gameObject.SetActive(false);
+
+        }
+    }
+    public void Vent_Pos()
+    {
+        switch (VentNum)
+        {
+            case 0:
+                transform.position = new Vector3(vent_Mana.ventPos_1.position.x, vent_Mana.ventPos_1.position.y, 1);
+                break;
+            case 1:
+                transform.position = new Vector3(vent_Mana.ventPos_2.position.x, vent_Mana.ventPos_2.position.y, 1);
+                break;
+            case 2:
+                transform.position = new Vector3(vent_Mana.ventPos_3.position.x, vent_Mana.ventPos_3.position.y, 1);
+                break;
+            case 3:
+                transform.position = new Vector3(vent_Mana.ventPos_4.position.x, vent_Mana.ventPos_4.position.y, 1);
+                break;
+            case 4:
+                transform.position = new Vector3(vent_Mana.ventPos_5.position.x, vent_Mana.ventPos_5.position.y, 1);
+                break;
+            case 5:
+                transform.position = new Vector3(vent_Mana.ventPos_6.position.x, vent_Mana.ventPos_6.position.y, 1);
+                break;
+            default:
+                break;
         }
     }
 
