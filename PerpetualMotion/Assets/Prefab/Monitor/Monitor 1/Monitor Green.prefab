@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 795765947185109950}
   - component: {fileID: -3774847069262844857}
   - component: {fileID: 5985317366574083086}
+  - component: {fileID: -4960984551357468149}
+  - component: {fileID: 7348190621606726255}
   m_Layer: 0
   m_Name: Monitor Green
   m_TagString: Untagged
@@ -116,3 +118,59 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!60 &-4960984551357468149
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799504812237342448}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 15.36, y: 15.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.59765625, y: -0.47460938}
+      - {x: 0.98828125, y: -0.46875}
+      - {x: 0.98828125, y: 0.8730469}
+      - {x: 0.98046875, y: 0.8828125}
+      - {x: -0.98828125, y: 0.8828125}
+      - {x: -0.98828125, y: -0.43359375}
+      - {x: -0.15820312, y: -1.1953125}
+      - {x: -0.390625, y: -1.2011719}
+      - {x: -0.41015625, y: -1.2070312}
+      - {x: -0.41601562, y: -1.4707031}
+      - {x: -0.40039062, y: -1.4882812}
+      - {x: 0.421875, y: -1.4882812}
+      - {x: 0.44726562, y: -1.2050781}
+      - {x: 0.16015625, y: -1.1796875}
+      - {x: 0.140625, y: -0.43945312}
+--- !u!58 &7348190621606726255
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3799504812237342448}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4256691574696902878}
   - component: {fileID: -342092752246091596}
   - component: {fileID: 559089650362671423}
+  - component: {fileID: 8484838787919009373}
+  - component: {fileID: 2245302111347383862}
   m_Layer: 0
   m_Name: Shelf2.3
   m_TagString: Untagged
@@ -116,3 +118,60 @@ MonoBehaviour:
   buleImages: []
   greenImages: []
   nowColor: 0
+--- !u!60 &8484838787919009373
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005054265221036474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 15.36, y: 15.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.5234375, y: -1.4609375}
+      - {x: 0.5253906, y: -1.4589844}
+      - {x: 0.5332031, y: -1.4589844}
+      - {x: 0.5371094, y: -1.4550781}
+      - {x: 0.5371094, y: 0.8027344}
+      - {x: 0.5332031, y: 0.8066406}
+      - {x: -0.53515625, y: 0.8066406}
+      - {x: -0.5390625, y: 0.8027344}
+      - {x: -0.5390625, y: 0.796875}
+      - {x: -0.5410156, y: 0.7949219}
+      - {x: -0.5410156, y: -1.4472656}
+      - {x: -0.5390625, y: -1.4492188}
+      - {x: -0.5390625, y: -1.4550781}
+      - {x: -0.53515625, y: -1.4589844}
+      - {x: -0.52734375, y: -1.4589844}
+      - {x: -0.5253906, y: -1.4609375}
+--- !u!58 &2245302111347383862
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005054265221036474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  serializedVersion: 2
+  m_Radius: 1.5

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3569481827185247315}
   - component: {fileID: -9049001524421840368}
   - component: {fileID: 1579068519922791528}
+  - component: {fileID: -7040236324420121438}
+  - component: {fileID: 3498569092745642237}
   m_Layer: 0
   m_Name: Monitor2 Bule
   m_TagString: Untagged
@@ -116,3 +118,54 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!60 &-7040236324420121438
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859685017588695372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 15.36, y: 15.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.8886719, y: 1.0234375}
+      - {x: -0.9082031, y: 1.0234375}
+      - {x: -0.97265625, y: 0.9453125}
+      - {x: -0.97265625, y: -0.14257812}
+      - {x: -0.9628906, y: -0.16210938}
+      - {x: -0.8886719, y: -0.2421875}
+      - {x: 0.90625, y: -0.2421875}
+      - {x: 0.96875, y: -0.1953125}
+      - {x: 0.9921875, y: -0.171875}
+      - {x: 0.9921875, y: 0.9355469}
+--- !u!58 &3498569092745642237
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859685017588695372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.4}
+  serializedVersion: 2
+  m_Radius: 1.5
