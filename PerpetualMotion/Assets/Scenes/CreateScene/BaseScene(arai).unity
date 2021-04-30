@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -334,7 +334,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128.35556, y: 19.253332}
+  m_SizeDelta: {x: 113.77778, y: 17.066666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &20129725
 MonoBehaviour:
@@ -776,7 +776,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128.35556, y: 19.253332}
+  m_SizeDelta: {x: 113.77778, y: 17.066666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &149713652
 MonoBehaviour:
@@ -7194,7 +7194,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 57.76, y: 51.34222}
+  m_SizeDelta: {x: 51.199997, y: 45.51111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1052202736
 MonoBehaviour:
@@ -7634,7 +7634,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 57.76, y: 51.34222}
+  m_SizeDelta: {x: 51.199997, y: 45.51111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319750552
 MonoBehaviour:
@@ -10461,9 +10461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectNumber: 0
-  Select_red: {fileID: 1602021346}
-  Select_green: {fileID: 149713653}
-  Select_blue: {fileID: 20129726}
+  Select_red: {fileID: 0}
+  Select_green: {fileID: 0}
+  Select_blue: {fileID: 0}
   speed: 10
   HeelSpeed: 10
 --- !u!1 &1401417087
@@ -10875,8 +10875,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ventNumber: 1
   vent_obj: {fileID: 1520863934}
-  vent_obj_tr: {fileID: 1520863938}
-  ch: 0
 --- !u!61 &1520863936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11329,7 +11327,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 128.35556, y: 19.253332}
+  m_SizeDelta: {x: 113.77778, y: 17.066666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602021345
 MonoBehaviour:
@@ -11708,8 +11706,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ventNumber: 0
   vent_obj: {fileID: 1683776225}
-  vent_obj_tr: {fileID: 1683776229}
-  ch: 0
 --- !u!61 &1683776227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12038,7 +12034,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 27.504763, y: 50.54}
+  m_SizeDelta: {x: 24.380953, y: 44.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819844645
 MonoBehaviour:
@@ -12582,7 +12578,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 57.76, y: 51.34222}
+  m_SizeDelta: {x: 51.199997, y: 45.51111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2108339753
 MonoBehaviour:
@@ -13144,8 +13140,6 @@ MonoBehaviour:
   itemType:
   - {fileID: 4242778276569648497, guid: 123f9f187fa535b4bbe2b17a6bd48a48, type: 3}
   VentNum: 0
-  tracking: 0
-  player: {fileID: 0}
   enemyCon: {fileID: 0}
   BeingTrackedOBJ: {fileID: 1203530204745810977}
 --- !u!212 &3651701243678055148
