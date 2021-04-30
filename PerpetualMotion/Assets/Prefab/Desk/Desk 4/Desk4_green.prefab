@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2008222645066428440}
   - component: {fileID: 1776016680734735840}
   - component: {fileID: 3653472457215330438}
+  - component: {fileID: 7973058512520950506}
+  - component: {fileID: 5093576217309790001}
   m_Layer: 0
   m_Name: Desk4_green
   m_TagString: Untagged
@@ -116,3 +118,50 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!60 &7973058512520950506
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588029930699078692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 15.36, y: 15.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.4082031, y: 0.46484375}
+      - {x: -1.4082031, y: -1.4570312}
+      - {x: 1.34375, y: -1.4570312}
+      - {x: 1.421875, y: -0.828125}
+      - {x: 1.421875, y: 0.4609375}
+      - {x: 1.4179688, y: 0.46484375}
+--- !u!58 &5093576217309790001
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588029930699078692}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  serializedVersion: 2
+  m_Radius: 2

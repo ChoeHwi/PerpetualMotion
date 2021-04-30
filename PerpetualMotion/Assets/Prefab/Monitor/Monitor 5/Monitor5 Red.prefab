@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3245061613510834375}
   - component: {fileID: -7913450672992823879}
   - component: {fileID: 756592736181822617}
+  - component: {fileID: -5665260217500161654}
+  - component: {fileID: 4804267828920493456}
   m_Layer: 0
   m_Name: Monitor5 Red
   m_TagString: Untagged
@@ -116,3 +118,56 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!60 &-5665260217500161654
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612346331374101578}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 3}
+    newSize: {x: 15.36, y: 15.36}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.1015625, y: -0.37304688}
+      - {x: 1.0976562, y: 0.9160156}
+      - {x: 1.0820312, y: 0.9316406}
+      - {x: -1.09375, y: 0.9316406}
+      - {x: -1.109375, y: 0.90625}
+      - {x: -1.2226562, y: -0.18554688}
+      - {x: -1.2226562, y: -1.4394531}
+      - {x: -1.2011719, y: -1.4589844}
+      - {x: 1.2265625, y: -1.4589844}
+      - {x: 1.2539062, y: -1.4453125}
+      - {x: 1.2539062, y: -0.37890625}
+      - {x: 1.2519531, y: -0.34570312}
+--- !u!58 &4804267828920493456
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612346331374101578}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
