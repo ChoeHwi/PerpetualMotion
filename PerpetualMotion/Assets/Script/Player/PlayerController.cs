@@ -78,6 +78,7 @@ public class PlayerController : ColorInfo
 
         if (active)
         {
+            
             Vector2 dir = new Vector2(h, v).normalized;
             rb.velocity = dir * m_moveSpeed;
         }
