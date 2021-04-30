@@ -129,8 +129,7 @@ public class PlayerController : ColorInfo
 
         if (playerHp <= 0 && active)
         {
-            active = false;
-            gameManager.OpenResult(false);
+            GameOverCH();
         }
 
         if (triggerStay)
@@ -368,6 +367,11 @@ public class PlayerController : ColorInfo
             BeingTrackedOBJ.gameObject.SetActive(false);
 
         }
+    }
+    public void GameOverCH()
+    {
+        active = false;
+        gameManager.OpenResult(false);
     }
     public void Vent_Pos()
     {
