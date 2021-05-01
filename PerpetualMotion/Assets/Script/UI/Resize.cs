@@ -39,8 +39,8 @@ public class Resize : MonoBehaviour
                 rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.1f);
                 break;
             case UI_TYPE.Item:
-                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.16f);
-                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.1f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.41f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f / 5f);
                 break;
         }
     }
@@ -65,8 +65,8 @@ public class Resize : MonoBehaviour
                     rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f * 0.08f);
                     break;
                 case UI_TYPE.Item:
-                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.14f);
-                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f * 0.3f / 7f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.41f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 16f / 9f / 5f);
                     break;
             }
             screenHeight = (float)Screen.height;
