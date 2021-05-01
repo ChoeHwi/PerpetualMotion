@@ -53,6 +53,8 @@ public class PlayerController : ColorInfo
     [SerializeField] EnemyController enemyCon;
     public Canvas BeingTrackedOBJ;
 
+    /// <summary> プレイヤーが敵に当たった時のアニメーションの変数 </summary>
+    Animator damageAnim = null;
 
     void Start()
     {
@@ -65,6 +67,7 @@ public class PlayerController : ColorInfo
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         rb = GetComponent<Rigidbody2D>();
         moveObject = GameObject.FindObjectOfType<moveObject>();
+        damageAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -280,6 +283,8 @@ public class PlayerController : ColorInfo
         //Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Enemy" && !isDamaged)
         {
+            damageAnim.Play("PlayerDamageAnim", 0, 0.0f);
+
             playerHp -= 1;
             isDamaged = true;
             Invoke("flashEnd", invincibleTime);
