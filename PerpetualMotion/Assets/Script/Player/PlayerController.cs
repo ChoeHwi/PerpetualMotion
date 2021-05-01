@@ -52,7 +52,6 @@ public class PlayerController : ColorInfo
     bool tracking = false;
     [SerializeField] EnemyController enemyCon;
     public Canvas BeingTrackedOBJ;
-
     /// <summary> プレイヤーが敵に当たった時のアニメーションの変数 </summary>
     Animator damageAnim = null;
 

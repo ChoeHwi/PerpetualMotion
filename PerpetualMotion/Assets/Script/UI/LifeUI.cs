@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class LifeUI : MonoBehaviour
 {
     PlayerController con;
-    [SerializeField] GameObject LifeObj;
-    [SerializeField] Text LifeText;
+    [SerializeField] Image LifeImage;
     public int life;
     // Start is called before the first frame update
     void Start()
@@ -27,19 +26,19 @@ public class LifeUI : MonoBehaviour
         switch (life)
         {
             case 4:
-                LifeText.text = "×" + life;
+                LifeImage.fillAmount = 0.8f;
                 break;
             case 3:
-                LifeText.text = "×" + life;
+                LifeImage.fillAmount = 0.6f;
                 break;
             case 2:
-                LifeText.text = "×" + life;
+                LifeImage.fillAmount = 0.4f;
                 break;
             case 1:
-                LifeText.text = "×" + life;
+                LifeImage.fillAmount = 0.2f;
                 break;
             case 0:
-                LifeText.text = "×" + life;
+                LifeImage.fillAmount = 0;
                 break;
             default:
                 break;
