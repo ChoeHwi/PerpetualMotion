@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4804267828920493456}
   m_Layer: 0
   m_Name: Monitor5 Red
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 1
 --- !u!208 &756592736181822617
 NavMeshObstacle:
   m_ObjectHideFlags: 0

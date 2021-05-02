@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6701905593847153396}
   m_Layer: 0
   m_Name: "Server\u300005"
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 3
 --- !u!60 &3581368258870685224
 PolygonCollider2D:
   m_ObjectHideFlags: 0

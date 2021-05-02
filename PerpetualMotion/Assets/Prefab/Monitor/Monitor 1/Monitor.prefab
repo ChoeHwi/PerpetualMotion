@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5008480151930605681}
   m_Layer: 0
   m_Name: Monitor
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4092715818505418887}
   m_Layer: 0
   m_Name: Shelf5.1
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 2
 --- !u!208 &2084038544214380852
 NavMeshObstacle:
   m_ObjectHideFlags: 0

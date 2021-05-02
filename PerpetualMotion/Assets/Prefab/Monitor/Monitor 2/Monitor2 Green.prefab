@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5688224753180337952}
   m_Layer: 0
   m_Name: Monitor2 Green
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 3
 --- !u!208 &-1549621981313954850
 NavMeshObstacle:
   m_ObjectHideFlags: 0

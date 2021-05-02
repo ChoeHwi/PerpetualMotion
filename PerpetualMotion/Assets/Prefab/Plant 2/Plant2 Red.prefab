@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8146360197450833982}
   m_Layer: 0
   m_Name: Plant2 Red
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 1
 --- !u!60 &8522903332752341688
 PolygonCollider2D:
   m_ObjectHideFlags: 0
