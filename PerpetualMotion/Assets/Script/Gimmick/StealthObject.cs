@@ -15,8 +15,11 @@ public class StealthObject : ColorInfo
         p_con = FindObjectOfType<PlayerController>();
         objImage = GetComponent<SpriteRenderer>();
         Form_Color(nowColor);
-        eyes.gameObject.SetActive(false);
         Instantiate(eyes, this.transform);
+        foreach (Transform item in transform)
+        {
+            item.gameObject.SetActive(false);
+        }
     }
     public void EyeController_Tr()
     {
