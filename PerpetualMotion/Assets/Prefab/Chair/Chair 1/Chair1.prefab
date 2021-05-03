@@ -102,6 +102,7 @@ MonoBehaviour:
   buleImages: []
   greenImages: []
   nowColor: 0
+  eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
 --- !u!208 &-1053193445003907087
 NavMeshObstacle:
   m_ObjectHideFlags: 0
