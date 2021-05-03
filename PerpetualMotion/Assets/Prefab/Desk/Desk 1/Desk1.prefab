@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 736343576465234778}
   m_Layer: 0
   m_Name: Desk1
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   buleImages: []
   greenImages: []
   nowColor: 0
+  eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
 --- !u!60 &-6333651427606076928
 PolygonCollider2D:
   m_ObjectHideFlags: 0

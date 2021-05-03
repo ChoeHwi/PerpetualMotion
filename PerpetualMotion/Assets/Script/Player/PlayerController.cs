@@ -34,6 +34,7 @@ public class PlayerController : ColorInfo
     bool MoveObj;
     [Header("オブジェクトと融合したときのスピード")]
     public float ObjSpeed;
+    StealthObject O_stealth;
     public bool Movement = false;
     public moveObject moveObject;
     [Header("融合して移動するオブジェクトを入れる")]
@@ -52,12 +53,12 @@ public class PlayerController : ColorInfo
     bool tracking = false;
     [SerializeField] EnemyController enemyCon;
     public Canvas BeingTrackedOBJ;
-
     /// <summary> プレイヤーが敵に当たった時のアニメーションの変数 </summary>
     Animator damageAnim = null;
 
     void Start()
     {
+        O_stealth = FindObjectOfType<StealthObject>();
         enemyCon = FindObjectOfType<EnemyController>();
         vent_Mana = GameObject.FindObjectOfType<ventManager>();
         vent_S = GameObject.FindObjectOfType<Vent>();
@@ -145,11 +146,15 @@ public class PlayerController : ColorInfo
                     capsuleCollider.isTrigger = false;
                     stealth = false;
                     active = true;
+                    playerImage.enabled = true;
+                    stealthObject.EyeController_Fa();
                 }
                 else
                 {
                     if (stealthObject.nowColor == nowColor)
                     {
+                        O_stealth.EyeController_Tr();
+                        playerImage.enabled = false;
                         stealth = true;
                         active = false;
                         capsuleCollider.isTrigger = true;
@@ -392,6 +397,8 @@ public class PlayerController : ColorInfo
         {
             if (stealthObject.nowColor != nowColor)
             {
+                playerImage.enabled = true;
+                stealthObject.EyeController_Fa();
                 capsuleCollider.isTrigger = false;
                 stealth = false;
                 active = true;
@@ -406,6 +413,8 @@ public class PlayerController : ColorInfo
             }
             else if (stealthObject.nowColor == nowColor)
             {
+                playerImage.enabled = true;
+                stealthObject.EyeController_Fa();
                 dialog.SetActive(true);
             }
         }

@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Mobius
   - vent
+  - stealth
   layers:
   - Default
   - TransparentFX
@@ -42,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 1881921117
+    locked: 0
   - name: MapFloor
     uniqueID: 2286201829
     locked: 0

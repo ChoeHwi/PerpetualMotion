@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1315031099523698826}
   m_Layer: 0
   m_Name: Desk2_red
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 1
 --- !u!208 &5726901001461262214
 NavMeshObstacle:
   m_ObjectHideFlags: 0

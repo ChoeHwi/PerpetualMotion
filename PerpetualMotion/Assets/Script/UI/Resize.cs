@@ -27,8 +27,8 @@ public class Resize : MonoBehaviour
         switch (ui_Type)
         {
             case UI_TYPE.Life:
-                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.14f);
-                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f * 0.3f / 7f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.2f);
+                rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.2f);
                 break;
             case UI_TYPE.Gauge:
                 rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.16f / 3f);
@@ -53,8 +53,8 @@ public class Resize : MonoBehaviour
             switch (ui_Type)
             {
                 case UI_TYPE.Life:
-                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.14f);
-                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 16f / 9f * 0.3f / 7f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, (float)Screen.height * 0.2f);
+                    rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.2f);
                     break;
                 case UI_TYPE.Gauge:
                     rtf.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, (float)Screen.height * 0.16f / 3f);

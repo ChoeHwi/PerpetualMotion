@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2245302111347383862}
   m_Layer: 0
   m_Name: Shelf2.3
-  m_TagString: Untagged
+  m_TagString: stealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,7 +117,8 @@ MonoBehaviour:
   redImages: []
   buleImages: []
   greenImages: []
-  nowColor: 0
+  nowColor: 3
+  eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
 --- !u!60 &8484838787919009373
 PolygonCollider2D:
   m_ObjectHideFlags: 0
