@@ -149,6 +149,55 @@ public class PlayerController : ColorInfo
             if (active)
             {
                 rb.velocity = dir * m_moveSpeed;
+
+                //方向によって画像変更
+                #region
+                if (h > 0)
+                {
+                    if (v > 0)
+                    {
+
+                    }
+                    else if (v < 0)
+                    {
+
+                    }
+                    else
+                    {
+                        imageIndex = 3;
+                        playerImage.sprite = SelectColor(nowColor)[imageIndex];
+                    }
+                }
+                else if (h < 0)
+                {
+                    if (v > 0)
+                    {
+
+                    }
+                    else if (v < 0)
+                    {
+
+                    }
+                    else
+                    {
+                        imageIndex = 2;
+                        playerImage.sprite = SelectColor(nowColor)[imageIndex];
+                    }
+                }
+                else
+                {
+                    if (v > 0)
+                    {
+                        imageIndex = 0;
+                        playerImage.sprite = SelectColor(nowColor)[imageIndex];
+                    }
+                    else if (v < 0)
+                    {
+                        imageIndex = 1;
+                        playerImage.sprite = SelectColor(nowColor)[imageIndex];
+                    }
+                }
+                #endregion
             }
             else if (stealth)
             {
@@ -159,55 +208,6 @@ public class PlayerController : ColorInfo
                 }
             }
         }
-
-        //方向によって画像変更
-        #region
-        if (h > 0)
-        {
-            if (v > 0)
-            {
-
-            }
-            else if (v < 0)
-            {
-
-            }
-            else
-            {
-                imageIndex = 3;
-                playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-        }
-        else if (h < 0)
-        {
-            if (v > 0)
-            {
-
-            }
-            else if (v < 0)
-            {
-
-            }
-            else
-            {
-                imageIndex = 2;
-                playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-        }
-        else
-        {
-            if (v > 0)
-            {
-                imageIndex = 0;
-                playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-            else if (v < 0)
-            {
-                imageIndex = 1;
-                playerImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-        }
-        #endregion
 
         if (playerHp <= 0 && active)
         {
