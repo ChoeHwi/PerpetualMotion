@@ -9,7 +9,7 @@ public class Event : MonoBehaviour
     GameManager gm;
     public Sprite[] Sprit_UI;
     [Header("呼び込みたいシーンを追加する")]
-    public string LoadScene_name;
+    public string[] LoadSceneName;
 
 
     void Start()
@@ -26,10 +26,10 @@ public class Event : MonoBehaviour
     }
     public void DownButton_main()
     {
-        gm.LoadScene(LoadScene_name);
+        gm.LoadScene(LoadSceneName[0]);
     }
     public void DownButton_sub()
     {
-        gm.LoadScene(LoadScene_name);
+        gm.LoadScene(LoadSceneName[1]);
     }
 }
