@@ -27,7 +27,7 @@ public class PlayerController : ColorInfo
     CapsuleCollider2D capsuleCollider;
     [SerializeField] GameObject dialog;
     /// <summary>ステルス可能な状態</summary>
-    bool enterStayStealthObj;
+    bool canStealth;
     /// <summary>現在入ることのできるステルスオブジェクト</summary>
     public StealthObject stealthObject;
     [Header("オブジェクトと融合したときのスピード")]
@@ -109,12 +109,10 @@ public class PlayerController : ColorInfo
         if (Input.GetKeyDown(KeyCode.Space))//スペースを押したとき
         {
             Debug.Log("enter");
-            if (enterStayStealthObj)//ステルスオブジェクトに触れているなら
+            if (stealthObject)//ステルスオブジェクトに触れているなら
             {
-                Debug.Log(enterStayStealthObj);
                 if (stealth)//ステルス状態なら
                 {
-                    Debug.Log("pt1");
                     playerImage.enabled = true;
                     capsuleCollider.isTrigger = false;
                     stealth = false;
@@ -127,10 +125,10 @@ public class PlayerController : ColorInfo
                 }
                 else
                 {
-                    if (stealthObject.nowColor == nowColor)//ステルスできる状態なら
+                    if (canStealth)//ステルスできる状態なら
                     {
-                        Debug.Log("pt2");
                         //stealthObject.EyeController_Tr();
+                        rb.velocity = new Vector2(0, 0);
                         stealth = true;
                         capsuleCollider.isTrigger = true;
                         this.transform.position = new Vector3(stealthObject.transform.position.x, stealthObject.transform.position.y, this.transform.position.z);
@@ -228,7 +226,6 @@ public class PlayerController : ColorInfo
         if (isDamaged)
         {
             float level = Mathf.Abs(Mathf.Sin(Time.time * 10));
-            Debug.Log(level);
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, level);
         }
     }
@@ -237,11 +234,13 @@ public class PlayerController : ColorInfo
     {
         if (collision.gameObject.tag == "Enemy" && !isDamaged)
         {
+            isDamaged = true;
             playerHp -= 1;
             if (enemyCon.Count > 0)
             {
                 foreach (EnemyController enemy in enemyCon)
                 {
+                    Debug.Log(enemy.enemyProjector.GetComponent<CapsuleCollider2D>());
                     enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
                 }
             }
@@ -277,7 +276,7 @@ public class PlayerController : ColorInfo
                 if (stealthObject.nowColor == nowColor)
                 {
                     dialog.SetActive(true);
-                    enterStayStealthObj = true;
+                    canStealth = true;
                 }
             }
         }
@@ -306,7 +305,7 @@ public class PlayerController : ColorInfo
         if (collision.gameObject.tag == "stealth")
         {
             dialog.SetActive(false);
-            enterStayStealthObj = false;
+            canStealth = false;
             stealthObject = null;
         }
         if (collision.gameObject.tag == "vent")
@@ -330,31 +329,34 @@ public class PlayerController : ColorInfo
     {
         nowColor = color;
         playerImage.sprite = SelectColor(nowColor)[imageIndex];
-        if (stealth)
+        if (stealthObject)
         {
-            if (stealthObject.nowColor != nowColor)
+            if (stealth)
             {
-                playerImage.enabled = true;
-                //stealthObject.EyeController_Fa();
-                capsuleCollider.isTrigger = false;
-                stealth = false;
-                active = true;
-                dialog.SetActive(false);
+                if (stealthObject.nowColor != nowColor)
+                {
+                    playerImage.enabled = true;
+                    //stealthObject.EyeController_Fa();
+                    capsuleCollider.isTrigger = false;
+                    stealth = false;
+                    active = true;
+                    dialog.SetActive(false);
+                }
             }
-        }
-        else if (enterStayStealthObj)
-        {
-            if (stealthObject.nowColor != nowColor)
+            else
             {
-                dialog.SetActive(false);
-                enterStayStealthObj = false;
-            }
-            else if (stealthObject.nowColor == nowColor)
-            {
-                playerImage.enabled = true;
-                //stealthObject.EyeController_Fa();
-                dialog.SetActive(true);
-                enterStayStealthObj = true;
+                if (stealthObject.nowColor != nowColor)
+                {
+                    dialog.SetActive(false);
+                    canStealth = false;
+                }
+                else if (stealthObject.nowColor == nowColor)
+                {
+                    playerImage.enabled = true;
+                    //stealthObject.EyeController_Fa();
+                    dialog.SetActive(true);
+                    canStealth = true;
+                }
             }
         }
     }
