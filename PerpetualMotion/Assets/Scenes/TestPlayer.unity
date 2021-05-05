@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -751,9 +751,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectNumber: 0
-  Select_red: {fileID: 431013867}
-  Select_green: {fileID: 1897446189}
-  Select_blue: {fileID: 2061515090}
+  Select_red: {fileID: 0}
+  Select_green: {fileID: 0}
+  Select_blue: {fileID: 0}
+  speed: 0
+  HeelSpeed: 0
 --- !u!1 &256015573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,11 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e41f275ecd12947b4db36c5e52b970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifeObj_1: {fileID: 619966959}
-  LifeObj_2: {fileID: 1820181603}
-  LifeObj_3: {fileID: 422499005}
-  LifeObj_4: {fileID: 17006400}
-  LifeObj_5: {fileID: 13854300}
+  LifeImage: {fileID: 0}
   life: 5
 --- !u!1 &619966959
 GameObject:
@@ -2253,14 +2251,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dac7c95c19bfc419e1cf788146d53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankImage: {fileID: 0}
-  redImage: {fileID: 0}
-  buluImage: {fileID: 0}
-  greenImge: {fileID: 0}
-  type: 0
+  blankImages: []
+  redImages: []
+  buleImages: []
+  greenImages: []
   m_moveSpeed: 1
-  playerImage: {fileID: 1389758785}
+  rb: {fileID: 0}
+  playerImage: {fileID: 0}
   playerHp: 5
+  nowColor: 0
+  stealth: 0
+  dialog: {fileID: 0}
+  stealthObject: {fileID: 0}
+  ObjSpeed: 0
+  Movement: 0
+  moveObject: {fileID: 0}
+  MoveObj_Red: {fileID: 0}
+  MoveObj_Blue: {fileID: 0}
+  MoveObj_Green: {fileID: 0}
+  itemCount: 0
+  itemType:
+  - {fileID: 0}
+  VentNum: 0
+  enemyCon: {fileID: 0}
+  BeingTrackedOBJ: {fileID: 0}
 --- !u!114 &1389758785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3219,6 +3233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 1389758782}
   offset: {x: 0, y: 0, z: -10}
+  cameraDistance: -10
 --- !u!124 &1826673712
 Behaviour:
   m_ObjectHideFlags: 0
