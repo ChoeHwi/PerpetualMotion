@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8223668275179100591}
   - component: {fileID: 3636785315435452831}
+  - component: {fileID: 2299542338175327000}
   m_Layer: 0
-  m_Name: box
+  m_Name: box1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2299542338175327000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574297846964996265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: cbf636c17793571438841ad70a171e62, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 182991c561ed5d041a91295c48d38cc4, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: fc7320af3fece504da116241e6245c88, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 1963e410ec1a72440a05bd5d03685882, type: 3}
+  nowColor: 0

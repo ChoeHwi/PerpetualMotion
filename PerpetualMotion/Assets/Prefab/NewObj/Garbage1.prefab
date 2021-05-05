@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8913705370172425852}
   - component: {fileID: 6809053677589135799}
+  - component: {fileID: 1623848500620384353}
   m_Layer: 0
-  m_Name: "Garbage\uFF11"
+  m_Name: Garbage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1623848500620384353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5774853799636354395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: bed6cca2c45aff449a77c2a8802c88b8, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 6cd0f591c256a4f4a9a2e20063eca0ea, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 4c54f58085f9acc47bcf59ec15672a6b, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 46505a0fa0ad2cd40b70f4582363da45, type: 3}
+  nowColor: 0

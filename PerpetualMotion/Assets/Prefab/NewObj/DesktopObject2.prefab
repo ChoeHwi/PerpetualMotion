@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7352117767374941660}
   - component: {fileID: 2674781578063866512}
+  - component: {fileID: 2818026522924828744}
   m_Layer: 0
   m_Name: DesktopObject2
   m_TagString: Untagged
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2818026522924828744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707218058325846996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: 057eab70c59297b4e9b4451847236ad6, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 48515ecdbc5d0f14f917abc9f848159d, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 9e2f8e8ae50a79a4cb8331288cbad88b, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: b333092574e25284f8bf44ade5df06cc, type: 3}
+  nowColor: 0

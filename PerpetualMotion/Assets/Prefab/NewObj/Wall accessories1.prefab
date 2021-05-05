@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4088887971145251854}
   - component: {fileID: 736879655227722943}
+  - component: {fileID: -929355138880048035}
   m_Layer: 0
-  m_Name: "Wall accessories\uFF11"
+  m_Name: Wall accessories1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-929355138880048035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492674025990343037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: f8919165f92eab9469c2438d1b7fae36, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 6c122bc88a14f844d92f947f13784842, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 73b8905b95ba393469042491c489c5b1, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 5149688058bfe0441a5ba8c7e34ffd8e, type: 3}
+  nowColor: 0
