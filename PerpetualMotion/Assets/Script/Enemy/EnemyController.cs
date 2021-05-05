@@ -42,6 +42,7 @@ public class EnemyController : ColorInfo
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
     public SpriteRenderer enemyImage;
     int imageIndex = 1;
+    bool onPlayer;
 
     public bool alarm = false;
     void Start()
@@ -144,6 +145,7 @@ public class EnemyController : ColorInfo
             {
                 tracking = false;
                 playerController.enemyCon.Remove(this);
+                onPlayer = false;
                 enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
 
@@ -158,7 +160,17 @@ public class EnemyController : ColorInfo
                 if (!playerController.stealth)
                 {
                     tracking = true;
-                    playerController.enemyCon.Add(this);
+                    foreach(EnemyController enemyController in playerController.enemyCon)
+                    {
+                        if (enemyController == this)
+                        {
+                            onPlayer = true;
+                        }
+                    }
+                    if (!onPlayer)
+                    {
+                        playerController.enemyCon.Add(this);
+                    }
                 }
             }
 
