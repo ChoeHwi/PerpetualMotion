@@ -6,21 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
     path: Assets/Scenes/Title.unity
     guid: 682dbfea26be4724cbce41b5d4d87de3
   - enabled: 1
-=======
->>>>>>> otsuki
     path: Assets/Scenes/SelectScreen.unity
     guid: 6b9bd26ba30c05a47918acf1d5b9c8d2
   - enabled: 1
     path: Assets/Scenes/Option.unity
     guid: a661434d941f05a42ae700d77bbf19eb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FlowTest/Stage1Test.unity
     guid: f74688add291bba49bfb0135e26bec07
-  - enabled: 1
-    path: Assets/Scenes/Stage1Test(otsuki).unity
-    guid: 299458a9a57b9564aa4cce721ef8adf3
   m_configObjects: {}
