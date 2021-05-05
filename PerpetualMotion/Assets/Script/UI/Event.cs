@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Event : MonoBehaviour
 {
-    GameManager gm;
     public Sprite[] Sprit_UI;
     [Header("呼び込みたいシーンを追加する")]
     public string[] LoadSceneName;
@@ -14,7 +13,7 @@ public class Event : MonoBehaviour
 
     void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+
     }
     public void EnterButton()
     {
@@ -26,10 +25,10 @@ public class Event : MonoBehaviour
     }
     public void DownButton_main()
     {
-        gm.LoadScene(LoadSceneName[0]);
+        SceneManager.LoadScene(LoadSceneName[0]);
     }
     public void DownButton_sub()
     {
-        gm.LoadScene(LoadSceneName[1]);
+        SceneManager.LoadScene(LoadSceneName[1]);
     }
 }
