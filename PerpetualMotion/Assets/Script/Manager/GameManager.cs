@@ -30,16 +30,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             if (GameObject.FindObjectOfType<GameMessenger>())
             {
                 gameMessenger = GameObject.FindObjectOfType<GameMessenger>();
+                gameMessenger.mobiusScript.gameManager = this;
             }
-        }
-    }
-
-    void OnSceneLoaded(Scene nextScene, ScaleMode mode)
-    {
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "Title":
-                break;
         }
     }
 
