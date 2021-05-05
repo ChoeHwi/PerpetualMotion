@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2587761530373558680}
   - component: {fileID: 3175990607475321210}
-  - component: {fileID: 1087325390378348101}
   - component: {fileID: 3995487361362030075}
   - component: {fileID: 3891350873966438915}
   - component: {fileID: 750829631424080657}
@@ -85,22 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!208 &1087325390378348101
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3357407560616542915}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 7.2700005, y: 4.2450004, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!114 &3995487361362030075
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2056306910175697577}
   - component: {fileID: 2982245346296666268}
   - component: {fileID: 7687243344288523609}
-  - component: {fileID: -7129219073650087716}
   - component: {fileID: -7845095791286664798}
   - component: {fileID: 6184403308704309139}
   m_Layer: 0
@@ -103,22 +102,6 @@ MonoBehaviour:
   greenImages: []
   nowColor: 2
   eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
---- !u!208 &-7129219073650087716
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678022628627142448}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 7.6800003, y: 7.6800003, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!60 &-7845095791286664798
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5245788333246577709}
   - component: {fileID: 2008222645066428440}
   - component: {fileID: 1776016680734735840}
-  - component: {fileID: 3653472457215330438}
   - component: {fileID: 7973058512520950506}
   - component: {fileID: 5093576217309790001}
   m_Layer: 0
@@ -102,22 +101,7 @@ MonoBehaviour:
   buleImages: []
   greenImages: []
   nowColor: 3
---- !u!208 &3653472457215330438
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8588029930699078692}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 7.6800003, y: 7.6800003, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  eyes: {fileID: 0}
 --- !u!60 &7973058512520950506
 PolygonCollider2D:
   m_ObjectHideFlags: 0
