@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:PerpetualMotion/Assets/Sprite/Animation/Animation.meta
 guid: c8303fb85a2a3af439afd13f331d7892
+=======
+guid: d201ba01e49c264489cd0a9fa937117c
+>>>>>>> otsuki:PerpetualMotion/Assets/Sprite/UI/GameClear.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
