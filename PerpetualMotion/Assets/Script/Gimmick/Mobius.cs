@@ -27,6 +27,18 @@ public class Mobius : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
+        switch (part_type)
+        {
+            case PART_TYPE.Part6:
+                image.sprite = images6[processNum];
+                break;
+            case PART_TYPE.Part9:
+                image.sprite = images9[processNum];
+                break;
+            case PART_TYPE.Part13:
+                image.sprite = images13[processNum];
+                break;
+        }
     }
 
     public bool FitPiece(int item)
