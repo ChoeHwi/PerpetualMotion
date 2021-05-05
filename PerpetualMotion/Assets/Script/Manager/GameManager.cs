@@ -16,25 +16,31 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     /// <summary> </summary>
     public int gimmickCount = 0;
     /// <summary> </summary>
-    [SerializeField] GameObject clearResult = null;
-    /// <summary> </summary>
-    [SerializeField] GameObject gameOverResult = null;
-    /// <summary> </summary>
     [SerializeField] Text[] textBox;
-    /// <summary>台座のUI</summary>
-    [SerializeField] GameObject mobius;
-    Mobius mobiusScript;
     /// <summary> </summary>
     [SerializeField] GameObject itemPrefabBase = null;
     /// <summary> </summary>
     NavMeshHit hit;
-    /// <summary> 参照先のクラスの変数 </summary>
-    [SerializeField] GameObject director;
+    GameMessenger gameMessenger;
 
-    private void Start()
+    void Start()
     {
-        mobiusScript = mobius.GetComponentInChildren<Mobius>();
-        mobiusScript.gameManager = this;
+        if (!gameMessenger)
+        {
+            if (GameObject.FindObjectOfType<GameMessenger>())
+            {
+                gameMessenger = GameObject.FindObjectOfType<GameMessenger>();
+            }
+        }
+    }
+
+    void OnSceneLoaded(Scene nextScene, ScaleMode mode)
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Title":
+                break;
+        }
     }
 
     public void LostItem(Vector3 position, GameObject itemObj)
@@ -53,37 +59,37 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     IEnumerator FitPiece(int item)
     {
-        mobius.SetActive(true);
+        gameMessenger.mobius.SetActive(true);
         yield return new WaitForSeconds(1f);
-        if (mobiusScript.FitPiece(item))
+        if (gameMessenger.mobiusScript.FitPiece(item))
         {
-            
+
         }
         else
         {
             yield return new WaitForSeconds(1f);
-            mobius.SetActive(false);
+            gameMessenger.mobius.SetActive(false);
         }
-        
+
     }
 
     public void OpenResult(bool isClear)
     {
-        if(isClear)
+        if (isClear)
         {
             StartCoroutine(ClearResult());
         }
         else
         {
-            gameOverResult.SetActive(true);
+            gameMessenger.gameOverResult.SetActive(true);
         }
     }
 
     IEnumerator ClearResult()
     {
-        director.SetActive(true);
+        gameMessenger.director.SetActive(true);
         yield return new WaitForSeconds(3.5f);
-        clearResult.SetActive(true);
+        gameMessenger.clearResult.SetActive(true);
         /*textBox[0].text = clearTime.ToString();
         textBox[1].text = killedEnemy.ToString();
         textBox[2].text = gimmickCount.ToString();*/
