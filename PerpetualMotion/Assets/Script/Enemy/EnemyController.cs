@@ -37,7 +37,7 @@ public class EnemyController : ColorInfo
     public bool tracking = false;
     [SerializeField] GameObject projectorObj;
     /// <summary>このオブジェクトの見た目のオブジェクト</summary>
-    [SerializeField] GameObject enemyProjector;
+    public GameObject enemyProjector;
     PlayerController playerController;
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
     public SpriteRenderer enemyImage;
@@ -143,6 +143,8 @@ public class EnemyController : ColorInfo
             if (distance > quitRange || playerController.stealth)
             {
                 tracking = false;
+                playerController.enemyCon.Remove(this);
+                enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
 
             //Playerを目標とする
@@ -156,6 +158,7 @@ public class EnemyController : ColorInfo
                 if (!playerController.stealth)
                 {
                     tracking = true;
+                    playerController.enemyCon.Add(this);
                 }
             }
 

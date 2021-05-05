@@ -15,7 +15,7 @@ public class moveObject : ColorInfo
     {
         active = false;
         pc = GameObject.FindObjectOfType<PlayerController>();
-        speed = pc.ObjSpeed;
+        //speed = pc.ObjSpeed;
         objImage = GetComponent<SpriteRenderer>();
         Form_Color(nowColor);
     }

@@ -9,6 +9,8 @@ public class Event : MonoBehaviour
     public Sprite[] Sprit_UI;
     [Header("呼び込みたいシーンを追加する")]
     public string[] LoadSceneName;
+    public GameObject i;
+    public bool ch = false;
 
 
     void Start()
@@ -18,10 +20,18 @@ public class Event : MonoBehaviour
     public void EnterButton()
     {
         GetComponent<Image>().sprite = Sprit_UI[0];
+        if (ch)
+        {
+            i.gameObject.SetActive(true);
+        }
     }
     public void ExitButton()
     {
         GetComponent<Image>().sprite = Sprit_UI[1];
+        if (ch)
+        {
+            i.gameObject.SetActive(false);
+        }
     }
     public void DownButton_main()
     {
