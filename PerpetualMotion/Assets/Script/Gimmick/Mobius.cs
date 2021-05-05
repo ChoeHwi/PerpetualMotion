@@ -6,32 +6,58 @@ using UnityEngine.UI;
 
 public class Mobius : MonoBehaviour
 {
-    [SerializeField] Sprite[] images = new Sprite[7];
+    [Header("メビウス完成に必要なパーツの数")]
+    public PART_TYPE part_type;
+
+    public enum PART_TYPE
+    { 
+        Part6,
+        Part9,
+        Part13
+    }
+    
+    [SerializeField] Sprite[] images6 = new Sprite[6];
+    [SerializeField] Sprite[] images9 = new Sprite[9];
+    [SerializeField] Sprite[] images13 = new Sprite[13];
+
     public GameManager gameManager;
     int processNum = 0;
     Image image;
 
-    // Start is called before the first frame update
     void Start()
     {
         image = GetComponent<Image>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool FitPiece(int item)
     {
         processNum += item;
-        image.sprite = images[processNum];
-        Debug.Log(processNum);
-        if (images.Length == processNum + 1)
+        switch (part_type)
         {
-            gameManager.OpenResult(true);
-            return true;
+            case PART_TYPE.Part6:
+                image.sprite = images6[processNum];
+                if (images6.Length == processNum + 1)
+                {
+                    gameManager.OpenResult(true);
+                    return true;
+                }
+                break;
+            case PART_TYPE.Part9:
+                image.sprite = images9[processNum];
+                if (images9.Length == processNum + 1)
+                {
+                    gameManager.OpenResult(true);
+                    return true;
+                }
+                break;
+            case PART_TYPE.Part13:
+                image.sprite = images13[processNum];
+                if (images13.Length == processNum + 1)
+                {
+                    gameManager.OpenResult(true);
+                    return true;
+                }
+                break;
         }
         return false;
     }
