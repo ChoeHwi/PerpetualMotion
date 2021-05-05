@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1071589393105834715}
   - component: {fileID: 3765796793184223434}
+  - component: {fileID: 1718091631075594389}
   m_Layer: 0
   m_Name: Garbage2
   m_TagString: Untagged
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1718091631075594389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8461159443849677666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: f8a247e888e1b9343b8c08a7a056d44a, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 5f6d3c522de43e947883d0c9ac7b7d50, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: d88c7aa5137b51b46ae02711897426a4, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 656601c4176e08d43bc457e874a0fe56, type: 3}
+  nowColor: 0

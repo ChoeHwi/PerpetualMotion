@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1692454734634381192}
   - component: {fileID: 6263069973819517828}
+  - component: {fileID: -2370674099233396346}
   m_Layer: 0
-  m_Name: Electric plug
+  m_Name: Electric plug1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2370674099233396346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661230446017795128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: a31fc35b7de391d4e99330b6c69b91bd, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 5de665f5714a0154f89f7a26cab5e334, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 289e840c70631a447b6a9058d743e9d1, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 62d2c4f10c610b24f94258018f3399f6, type: 3}
+  nowColor: 0

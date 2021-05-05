@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2238248672775277728}
   - component: {fileID: 4670134901383173853}
+  - component: {fileID: 6938802817450266270}
   m_Layer: 0
-  m_Name: "DesktopObject\uFF11"
+  m_Name: DesktopObject1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6938802817450266270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3398415529172053123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: 20932c8408cabec49947d8735fbeefa7, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: 5153266d3960d964fbcabe1332052549, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 113c54aad037c8446a00ce53d6b4b772, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 79d67e89e22069b41881244f4dfe31ad, type: 3}
+  nowColor: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5443158139809882968}
   - component: {fileID: 8556819533817736561}
+  - component: {fileID: 4215960546297962796}
   m_Layer: 0
   m_Name: Electric plug2
   m_TagString: Untagged
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4215960546297962796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544254389313190033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: 10edb53a8a3ed7449b5dc73a7a169019, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: f4e7de9371067e846be275461ea2fa33, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 131219a371b22b54489e4c936b2440a0, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: a07ae434ff2e8994084ad5152a073b18, type: 3}
+  nowColor: 0

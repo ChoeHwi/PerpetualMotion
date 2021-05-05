@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4947137121959095984}
   - component: {fileID: 7202040958799032332}
+  - component: {fileID: 8388684303813550309}
   m_Layer: 0
   m_Name: rack4
   m_TagString: Untagged
@@ -81,3 +82,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8388684303813550309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032235937171625749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 21300000, guid: 2ec013909f01cb348afb657cec6c17b4, type: 3}
+  redImages:
+  - {fileID: 21300000, guid: d037f68f3b82a9e4682e681d083fd8f8, type: 3}
+  buleImages:
+  - {fileID: 21300000, guid: 10b5884bc49c430459b338a357da9156, type: 3}
+  greenImages:
+  - {fileID: 21300000, guid: 26fc19dc170dcd846b480c6bd137e9f0, type: 3}
+  nowColor: 0

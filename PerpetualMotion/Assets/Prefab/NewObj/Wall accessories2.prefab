@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2571696239896362063}
   - component: {fileID: 6220911585007738582}
   - component: {fileID: 6082235489278375605}
+  - component: {fileID: 1943296350112693555}
   m_Layer: 0
   m_Name: Wall accessories2
   m_TagString: stealth
@@ -97,13 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blankImages:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: e023a4a34640805439e907d91b007adf, type: 3}
   redImages:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: af7d39157ed2dcd4c95bfe9bb14e4855, type: 3}
   buleImages:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 0a8b715dc6ac5584787ad03eacc24a21, type: 3}
   greenImages:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 94257c3cee50d18469c498df3b564248, type: 3}
   nowColor: 0
   eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
 --- !u!60 &6220911585007738582
@@ -179,3 +180,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 12
+--- !u!114 &1943296350112693555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433146440994156596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5528c4dea95f2846a2265af706f5d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 0}
+  redImages:
+  - {fileID: 0}
+  buleImages:
+  - {fileID: 0}
+  greenImages:
+  - {fileID: 0}
+  nowColor: 0
