@@ -384,6 +384,7 @@ MonoBehaviour:
   VentNum: 0
   enemyCon: []
   BeingTrackedOBJ: {fileID: 0}
+  eye: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
 --- !u!50 &7617695134527377972
 Rigidbody2D:
   serializedVersion: 4
