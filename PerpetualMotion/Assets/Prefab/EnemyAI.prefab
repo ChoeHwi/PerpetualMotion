@@ -66,19 +66,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe79fe30184b6c4f833534930b1e324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankImages: []
+  blankImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   redImages:
-  - {fileID: 21300000, guid: 58f9db74014895d45ba588d4f954cbed, type: 3}
+  - {fileID: 21300000, guid: dbb3415fff27b1547b1aab06c034abad, type: 3}
   - {fileID: 21300000, guid: 29a5329f3fce6e749ae3e2aa527018e1, type: 3}
   - {fileID: 21300000, guid: 969d599e519fa414c83775b28f9a8c39, type: 3}
   - {fileID: 21300000, guid: 0094e4be0816e0141bbc00e71ca617cd, type: 3}
-  buleImages: []
+  - {fileID: 21300000, guid: 0094e4be0816e0141bbc00e71ca617cd, type: 3}
+  - {fileID: 21300000, guid: 0094e4be0816e0141bbc00e71ca617cd, type: 3}
+  - {fileID: 21300000, guid: 0094e4be0816e0141bbc00e71ca617cd, type: 3}
+  - {fileID: 21300000, guid: 0094e4be0816e0141bbc00e71ca617cd, type: 3}
+  buleImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   greenImages: []
   speed: 2
   points: []
   targetName: Player
   trackingRange: 3
   quitRange: 5
+  tracking: 0
   projectorObj: {fileID: 798846991317957121, guid: 59be78ab3a6133741bb585bf306215b9,
     type: 3}
   enemyProjector: {fileID: 0}
