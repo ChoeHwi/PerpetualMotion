@@ -1324,7 +1324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -7698,26 +7698,28 @@ MonoBehaviour:
   - {fileID: 906691033}
   - {fileID: 979787107}
   selectStage:
-  - {fileID: 1713844214}
-  - {fileID: 483142844}
-  - {fileID: 674419050}
-  - {fileID: 337645665}
-  - {fileID: 117371605}
-  - {fileID: 276993602}
-  - {fileID: 31977755}
-  - {fileID: 743342409}
-  - {fileID: 1638539737}
-  - {fileID: 1250327070}
-  - {fileID: 1592963083}
-  - {fileID: 1852867652}
-  - {fileID: 814646119}
-  - {fileID: 976546282}
-  - {fileID: 1566240957}
-  - {fileID: 607927233}
-  - {fileID: 2010132124}
-  - {fileID: 1371217014}
-  - {fileID: 16935644}
-  - {fileID: 2134456743}
+  - {fileID: 21300000, guid: dc81f3c7939fe3c4aa77088a649d7ebd, type: 3}
+  - {fileID: 21300000, guid: fb44320e96c3b28449e05b2ed8fb605f, type: 3}
+  - {fileID: 21300000, guid: db84eb5bedf102f40bfebde9ece3ddb1, type: 3}
+  - {fileID: 21300000, guid: 1385d341d3881b14780ab015ff3445d0, type: 3}
+  - {fileID: 21300000, guid: 3269254c50db09b488dcf184127f994d, type: 3}
+  - {fileID: 21300000, guid: 9cf5fcb528b66f844974cb7be73cb7eb, type: 3}
+  - {fileID: 21300000, guid: 9d738ff01a9a22948a80ffb7d2e62595, type: 3}
+  - {fileID: 21300000, guid: b85201369c74de94ea483d2ab551309c, type: 3}
+  - {fileID: 21300000, guid: a28ee9093d300b441aafc9ba8b3f4c81, type: 3}
+  - {fileID: 21300000, guid: 8d6264a2345cda64ab712c11147e27ce, type: 3}
+  - {fileID: 21300000, guid: 64489956b61e0b947b15addf41caf383, type: 3}
+  - {fileID: 21300000, guid: 7b78c3cbdb4aae043ab02c65d02728bf, type: 3}
+  - {fileID: 21300000, guid: 2d2afc2b155a5404eb9cb771c71736e3, type: 3}
+  - {fileID: 21300000, guid: 1d6cfdf8ba8020d4ba279787eaecbbd1, type: 3}
+  - {fileID: 21300000, guid: 526bdf10776c19e4391ab1cd15c298e5, type: 3}
+  - {fileID: 21300000, guid: b4c8b1dd3bad4924ab191fa4973f2f58, type: 3}
+  - {fileID: 21300000, guid: e50b89e46f36c8c428aa8ad4c7c3c661, type: 3}
+  - {fileID: 21300000, guid: b7f32199f7db43e428348aaef49f22bc, type: 3}
+  - {fileID: 21300000, guid: 435da2774bc639045b71264f42fdf8a1, type: 3}
+  - {fileID: 21300000, guid: 79667a2ad02538c418a0d85a32424fc8, type: 3}
+  MapImage: {fileID: 221824781}
+  ch: 0
 --- !u!1 &1566240957
 GameObject:
   m_ObjectHideFlags: 0
