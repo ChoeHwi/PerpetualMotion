@@ -44,6 +44,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         }
     }
 
+    public void playerPullback(GameObject gameObj)
+    {
+        if (NavMesh.SamplePosition(gameObj.transform.position, out hit, 2.0f, NavMesh.AllAreas))
+        {
+            gameObj.transform.position = hit.position;
+        }
+    }
+
     public void FitStart(int item)
     {
         StartCoroutine(FitPiece(item));

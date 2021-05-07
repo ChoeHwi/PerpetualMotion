@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 /// <summary>
 /// プレイヤーの制御
@@ -46,6 +47,7 @@ public class PlayerController : ColorInfo
     /// <summary>現在追いかけられてる敵</summary>
     public List<EnemyController> enemyCon = new List<EnemyController>(0);
     public Canvas BeingTrackedOBJ;
+    Vector2 enterPosition;
 
     void Start()
     {
@@ -108,12 +110,12 @@ public class PlayerController : ColorInfo
         }
         if (Input.GetKeyDown(KeyCode.Space))//スペースを押したとき
         {
-            Debug.Log("enter");
             if (stealthObject)//ステルスオブジェクトに触れているなら
             {
                 if (stealth)//ステルス状態なら
                 {
                     playerImage.enabled = true;
+                    this.transform.position = enterPosition;
                     capsuleCollider.isTrigger = false;
                     stealth = false;
                     active = true;
@@ -129,6 +131,7 @@ public class PlayerController : ColorInfo
                     {
                         //stealthObject.EyeController_Tr();
                         rb.velocity = new Vector2(0, 0);
+                        enterPosition = this.transform.position;
                         stealth = true;
                         capsuleCollider.isTrigger = true;
                         this.transform.position = new Vector3(stealthObject.transform.position.x, stealthObject.transform.position.y, this.transform.position.z);
@@ -336,11 +339,15 @@ public class PlayerController : ColorInfo
                 if (stealthObject.nowColor != nowColor)
                 {
                     playerImage.enabled = true;
-                    //stealthObject.EyeController_Fa();
+                    this.transform.position = enterPosition;
                     capsuleCollider.isTrigger = false;
                     stealth = false;
                     active = true;
-                    dialog.SetActive(false);
+                    //stealthObject.EyeController_Fa();
+                    if (stealthObject.canMove)
+                    {
+                        Destroy(addedRigidbody);
+                    }
                 }
             }
             else
