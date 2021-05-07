@@ -48,6 +48,8 @@ public class PlayerController : ColorInfo
     public List<EnemyController> enemyCon = new List<EnemyController>(0);
     public Canvas BeingTrackedOBJ;
     Vector2 enterPosition;
+    [SerializeField] GameObject eye;
+    GameObject instancedEye;
 
     void Start()
     {
@@ -114,36 +116,13 @@ public class PlayerController : ColorInfo
             {
                 if (stealth)//ステルス状態なら
                 {
-                    playerImage.enabled = true;
-                    this.transform.position = enterPosition;
-                    capsuleCollider.isTrigger = false;
-                    stealth = false;
-                    active = true;
-                    //stealthObject.EyeController_Fa();
-                    if (stealthObject.canMove)
-                    {
-                        Destroy(addedRigidbody);
-                    }
+                    StealthOff();
                 }
                 else
                 {
                     if (canStealth)//ステルスできる状態なら
                     {
-                        //stealthObject.EyeController_Tr();
-                        rb.velocity = new Vector2(0, 0);
-                        enterPosition = this.transform.position;
-                        stealth = true;
-                        capsuleCollider.isTrigger = true;
-                        this.transform.position = new Vector3(stealthObject.transform.position.x, stealthObject.transform.position.y, this.transform.position.z);
-                        playerImage.enabled = false;
-                        if (stealthObject.canMove)
-                        {
-                            addedRigidbody = stealthObject.gameObject.AddComponent<Rigidbody2D>();
-                        }
-                        else
-                        {
-                            active = false;
-                        }
+                        StealthOn();
                     }
                 }
             }
@@ -338,16 +317,7 @@ public class PlayerController : ColorInfo
             {
                 if (stealthObject.nowColor != nowColor)
                 {
-                    playerImage.enabled = true;
-                    this.transform.position = enterPosition;
-                    capsuleCollider.isTrigger = false;
-                    stealth = false;
-                    active = true;
-                    //stealthObject.EyeController_Fa();
-                    if (stealthObject.canMove)
-                    {
-                        Destroy(addedRigidbody);
-                    }
+                    StealthOff();
                 }
             }
             else
@@ -360,7 +330,6 @@ public class PlayerController : ColorInfo
                 else if (stealthObject.nowColor == nowColor)
                 {
                     playerImage.enabled = true;
-                    //stealthObject.EyeController_Fa();
                     dialog.SetActive(true);
                     canStealth = true;
                 }
@@ -378,6 +347,43 @@ public class PlayerController : ColorInfo
             {
                 enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
             }
+        }
+    }
+
+    void StealthOn()
+    {
+        instancedEye = Instantiate(eye, stealthObject.transform);
+        //instancedEye.transform.localScale = stealthObject.transform.localScale;
+        rb.velocity = new Vector2(0, 0);
+        enterPosition = this.transform.position;
+        stealth = true;
+        capsuleCollider.isTrigger = true;
+        //this.transform.position = new Vector3(stealthObject.transform.position.x, stealthObject.transform.position.y, this.transform.position.z);
+        transform.SetParent(stealthObject.transform);
+        this.transform.localPosition = new Vector2(0, 0);
+        playerImage.enabled = false;
+        if (stealthObject.canMove)
+        {
+            addedRigidbody = stealthObject.gameObject.AddComponent<Rigidbody2D>();
+        }
+        else
+        {
+            active = false;
+        }
+    }
+
+    void StealthOff()
+    {
+        Destroy(instancedEye);
+        transform.SetParent(null);
+        playerImage.enabled = true;
+        this.transform.position = enterPosition;
+        capsuleCollider.isTrigger = false;
+        stealth = false;
+        active = true;
+        if (stealthObject.canMove)
+        {
+            Destroy(addedRigidbody);
         }
     }
 }

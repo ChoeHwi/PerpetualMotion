@@ -9,6 +9,7 @@ TagManager:
   - Mobius
   - vent
   - stealth
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Eye
+    uniqueID: 3905482847
     locked: 0
   - name: Mobius
     uniqueID: 2406333217
