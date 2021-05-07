@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7151094940997132714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7151094940997132719}
+  - component: {fileID: 7151094940997132713}
+  - component: {fileID: 7151094940997132712}
+  m_Layer: 0
+  m_Name: Enemy1AI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7151094940997132719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151094940997132714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &7151094940997132713
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151094940997132714}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.16
+  m_BaseOffset: 0.08
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7151094940997132712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151094940997132714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe79fe30184b6c4f833534930b1e324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blankImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  redImages:
+  - {fileID: 21300000, guid: 319782333a0c316489cb2b553162752b, type: 3}
+  - {fileID: 21300000, guid: a81c7d38307f4094ea4982807b2c9336, type: 3}
+  - {fileID: 21300000, guid: efda829ed541f66439a085eb8a55bea5, type: 3}
+  - {fileID: 21300000, guid: df1ad92242a94e4439a49dddaef317ad, type: 3}
+  - {fileID: 21300000, guid: 15534fed906c9f04d8a763d3525d29b2, type: 3}
+  - {fileID: 21300000, guid: 757c896dcb6d53942a6154edb8d04002, type: 3}
+  - {fileID: 21300000, guid: 67a572f61c2740a42a1365b99e2d4437, type: 3}
+  - {fileID: 21300000, guid: c79cc040d862e4f4faafab83242c2097, type: 3}
+  buleImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  greenImages: []
+  speed: 2
+  points: []
+  targetName: Player
+  trackingRange: 3
+  quitRange: 5
+  tracking: 0
+  projectorObj: {fileID: 798846991317957121, guid: 59be78ab3a6133741bb585bf306215b9,
+    type: 3}
+  enemyProjector: {fileID: 0}
+  nowColor: 1
+  enemyImage: {fileID: 0}
+  alarm: 0

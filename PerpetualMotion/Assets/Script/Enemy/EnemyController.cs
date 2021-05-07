@@ -43,12 +43,14 @@ public class EnemyController : ColorInfo
     public SpriteRenderer enemyImage;
     int imageIndex = 1;
     bool onPlayer;
+    int angle;
+    Transform m_transform;
 
     public bool alarm = false;
     void Start()
     {
         alarm = false;
-
+        m_transform = transform;
         agent = GetComponent<NavMeshAgent>();
         enemyProjector = Instantiate(projectorObj, new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
         enemyProjector.GetComponent<EnemyColliderController>().enemyController = this;
@@ -90,65 +92,79 @@ public class EnemyController : ColorInfo
 
     void Update()
     {
-        enemyProjector.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+        //enemyProjector.transform.forward = transform.forward;
+        enemyProjector.transform.position = new Vector3(m_transform.position.x, m_transform.position.y, 0);
         //Playerとこのオブジェクトの距離を測る
         targetPos = target.transform.position;
 
-        if (enemyProjector.transform.position.x - agent.destination.x > 0)
+        angle = (int)(Mathf.Asin(m_transform.forward.x) * Mathf.Rad2Deg);
+        if (angle < 0)
         {
-            imageIndex = 2;
-            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            angle += 360;
         }
-        else if (enemyProjector.transform.position.x - agent.destination.x < 0)
+        if (angle <= 22.5 || angle >= 337.5)
         {
-            imageIndex = 3;
-            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            if (agent.destination.y < transform.position.y)
+            {
+                enemyImage.sprite = SelectColor(nowColor)[4];
+            }
+            else
+            {
+                enemyImage.sprite = SelectColor(nowColor)[0];
+            }
         }
-        else if (enemyProjector.transform.position.y - agent.destination.y > 0)
-        {
-            imageIndex = 1;
-            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+        else if (angle > 22.5 && angle < 67.5)
+        {   
+            if (agent.destination.y < transform.position.y)
+            {
+                enemyImage.sprite = SelectColor(nowColor)[3];
+            }
+            else
+            {
+                enemyImage.sprite = SelectColor(nowColor)[1];
+            }
         }
-        else if (enemyProjector.transform.position.y - agent.destination.y < 0)
+        else if (angle >= 67.5 && angle < 112.5)
         {
-            imageIndex = 0;
-            enemyImage.sprite = SelectColor(nowColor)[imageIndex];
+            enemyImage.sprite = SelectColor(nowColor)[2];
+        }
+        else if (angle >= 157.5 && angle < 202.5)
+        {
+            enemyImage.sprite = SelectColor(nowColor)[3];
+        }
+        else if (angle > 202.5 && angle <= 247.5)
+        {
+            enemyImage.sprite = SelectColor(nowColor)[5];
+        }
+        else if (angle >= 247.5 && angle < 292.5)
+        {
+            enemyImage.sprite = SelectColor(nowColor)[6];
+        }
+        else if (angle >= 292 && angle < 337)
+        {
+            if (agent.destination.y < transform.position.y)
+            {
+                enemyImage.sprite = SelectColor(nowColor)[5];
+            }
+            else
+            {
+                enemyImage.sprite = SelectColor(nowColor)[7];
+            }
         }
 
         distance = Vector3.Distance(enemyProjector.transform.position, targetPos);
 
+        //追跡の時、quitRangeより距離が離れたら中止
+        if (distance > quitRange || playerController.stealth)
+        {
+            tracking = false;
+            playerController.enemyCon.Remove(this);
+            onPlayer = false;
+            enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+        }
+
         if (tracking || alarm == true)
         {
-            if (enemyProjector.transform.position.y - targetPos.y > 3)//プレイヤーが下側
-            {
-                imageIndex = 1;
-                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-            else if (enemyProjector.transform.position.y - targetPos.y < 3)//プレイヤーが上側
-            {
-                imageIndex = 0;
-                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-            else if (enemyProjector.transform.position.x - targetPos.x > 0)//プレイヤーが左側
-            {
-                imageIndex = 2;
-                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-            else if (enemyProjector.transform.position.x - targetPos.x < 0)//プレイヤーが右側
-            {
-                imageIndex = 3;
-                enemyImage.sprite = SelectColor(nowColor)[imageIndex];
-            }
-
-            //追跡の時、quitRangeより距離が離れたら中止
-            if (distance > quitRange || playerController.stealth)
-            {
-                tracking = false;
-                playerController.enemyCon.Remove(this);
-                onPlayer = false;
-                enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
-            }
-
             //Playerを目標とする
             agent.destination = targetPos;
         }

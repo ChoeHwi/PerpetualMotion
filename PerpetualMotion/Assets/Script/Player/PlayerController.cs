@@ -345,7 +345,7 @@ public class PlayerController : ColorInfo
         {
             foreach (EnemyController enemy in enemyCon)
             {
-                enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
         }
     }
