@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3585032967588750887}
   - component: {fileID: 4329119030256463600}
   - component: {fileID: -8339845767094941459}
+  - component: {fileID: -5678908482260012985}
   m_Layer: 0
   m_Name: cord2
   m_TagString: Untagged
@@ -103,3 +104,19 @@ MonoBehaviour:
   greenImages:
   - {fileID: 21300000, guid: 3ea6a21ad351edc4ebb06612a0ea5e9d, type: 3}
   nowColor: 0
+--- !u!208 &-5678908482260012985
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421002493628123770}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.6800003, y: 7.6800003, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

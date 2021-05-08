@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6702116850689015798}
   - component: {fileID: -6333651427606076928}
   - component: {fileID: 736343576465234778}
+  - component: {fileID: -1602682416246551876}
   m_Layer: 0
   m_Name: Desk1
   m_TagString: stealth
@@ -105,7 +106,9 @@ MonoBehaviour:
   greenImages:
   - {fileID: 21300000, guid: 82e924d8d1b99164b9d321ead5c5d55d, type: 3}
   nowColor: 0
+  canMove: 0
   eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
+  RootObject: {fileID: 0}
 --- !u!60 &-6333651427606076928
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -300,3 +303,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.5}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!208 &-1602682416246551876
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606684535663779500}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5000001, y: 1.5000001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

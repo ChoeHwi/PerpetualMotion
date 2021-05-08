@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6070482838510910619}
   - component: {fileID: -5492460819928125966}
   - component: {fileID: 6363180713680118462}
+  - component: {fileID: -2253489812748927761}
   m_Layer: 0
   m_Name: Monitor4
   m_TagString: stealth
@@ -105,7 +106,9 @@ MonoBehaviour:
   greenImages:
   - {fileID: 21300000, guid: ed0acb422a42b6841a02c60c9530b513, type: 3}
   nowColor: 0
+  canMove: 0
   eyes: {fileID: 5539990712052314978, guid: ba3215370530786438848415f78854f4, type: 3}
+  RootObject: {fileID: 0}
 --- !u!60 &-5492460819928125966
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +162,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5
+--- !u!208 &-2253489812748927761
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956227139122151793}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.5000001, y: 1.5000001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

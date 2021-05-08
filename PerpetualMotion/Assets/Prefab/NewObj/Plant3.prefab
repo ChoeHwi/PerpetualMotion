@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7238772821068409157}
   - component: {fileID: 4894610992373799193}
   - component: {fileID: -5959157613738250429}
+  - component: {fileID: -7571414044331221908}
   m_Layer: 0
   m_Name: Plant3
   m_TagString: Untagged
@@ -103,3 +104,19 @@ MonoBehaviour:
   greenImages:
   - {fileID: 21300000, guid: 543e685b803b6604a90b247fbb7e1183, type: 3}
   nowColor: 0
+--- !u!208 &-7571414044331221908
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223598113082507981}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 7.6800003, y: 7.6800003, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
