@@ -1125,21 +1125,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 991172609}
+    - target: {fileID: 123726983385506094, guid: 6dba396731ed68f47bb617d417e05633,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SelectScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 123726983594505472, guid: 6dba396731ed68f47bb617d417e05633,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 991172609}
+    - target: {fileID: 123726983594505472, guid: 6dba396731ed68f47bb617d417e05633,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: SelectScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 123726983763409077, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 991172609}
     - target: {fileID: 123726983763409077, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 991172609}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage3
+      objectReference: {fileID: 0}
     - target: {fileID: 123726984161835074, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 991172609}
+    - target: {fileID: 123726984161835074, guid: 6dba396731ed68f47bb617d417e05633,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Stage3
+      objectReference: {fileID: 0}
     - target: {fileID: 8974755149308061285, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
       propertyPath: m_SizeDelta.y
