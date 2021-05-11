@@ -15,10 +15,10 @@ public class ColorSelection : MonoBehaviour
     /// <summary>3本のゲージの値</summary>
     float[] usageTimes = new float[3] { 1f, 1f, 1f, };
     /// <summary>ゲージの減少速度</summary>
-    [Header("色の使用スピード(0に近いと早く減る)")]
+    [Header("色の使用スピード(0に近いと遅く減る)")]
     public float speed;
     /// <summary>ゲージの回復速度</summary>
-    [Header("色の回復スピード(0に近いと早く回復する)")]
+    [Header("色の回復スピード(0に近いと遅く回復する)")]
     public float heelSpeed;
     PlayerController playerController;
 
@@ -89,16 +89,16 @@ public class ColorSelection : MonoBehaviour
                 }
                 if (usageTimes[0] > 0)
                 {
-                    usageTimes[0] -= 1.0f / speed * Time.deltaTime;
+                    usageTimes[0] -= speed / 100 * Time.deltaTime;
                     select_red.fillAmount = usageTimes[0];
                     if (usageTimes[1] < 1)
                     {
-                        usageTimes[1] += 1.0f / heelSpeed * Time.deltaTime;
+                        usageTimes[1] += heelSpeed / 100 * Time.deltaTime;
                         select_green.fillAmount = usageTimes[1];
                     }
                     if (usageTimes[2] < 1)
                     {
-                        usageTimes[2] += 1.0f / heelSpeed * Time.deltaTime;
+                        usageTimes[2] += heelSpeed / 100 * Time.deltaTime;
                         select_blue.fillAmount = usageTimes[2];
                     }
                 }
@@ -115,16 +115,16 @@ public class ColorSelection : MonoBehaviour
                 }
                 if (usageTimes[1] > 0)
                 {
-                    usageTimes[1] -= 1.0f / speed * Time.deltaTime;
+                    usageTimes[1] -= speed / 100 * Time.deltaTime;
                     select_green.fillAmount = usageTimes[1];
                     if (usageTimes[0] < 1)
                     {
-                        usageTimes[0] += 1.0f / heelSpeed * Time.deltaTime;
+                        usageTimes[0] += heelSpeed / 100 * Time.deltaTime;
                         select_red.fillAmount = usageTimes[0];
                     }
                     if (usageTimes[2] < 1)
                     {
-                        usageTimes[2] += 1.0f / heelSpeed * Time.deltaTime;
+                        usageTimes[2] += heelSpeed / 100 * Time.deltaTime;
                         select_blue.fillAmount = usageTimes[2];
                     }
                 }
@@ -141,16 +141,16 @@ public class ColorSelection : MonoBehaviour
                 }
                 if (usageTimes[2] > 0)
                 {
-                    usageTimes[2] -= 1.0f / speed * Time.deltaTime;
+                    usageTimes[2] -= speed /100 * Time.deltaTime;
                     select_blue.fillAmount = usageTimes[2];
                     if (usageTimes[0] < 1)
                     {
-                        usageTimes[0] += 1.0f / heelSpeed * Time.deltaTime;
+                        usageTimes[0] += heelSpeed / 100 * Time.deltaTime;
                         select_red.fillAmount = usageTimes[0];
                     }
                     if (usageTimes[1] < 1)
                     {
-                        usageTimes[1] += 1.0f / heelSpeed * Time.deltaTime;
+                        usageTimes[1] += heelSpeed / 100 * Time.deltaTime;
                         select_green.fillAmount = usageTimes[1];
                     }
                 }
@@ -167,17 +167,17 @@ public class ColorSelection : MonoBehaviour
                 }
                 if (usageTimes[0] < 1)
                 {
-                    usageTimes[0] += 1.0f / heelSpeed * Time.deltaTime;
+                    usageTimes[0] += heelSpeed / 100 * Time.deltaTime;
                     select_red.fillAmount = usageTimes[0];
                 }
                 if (usageTimes[1] < 1)
                 {
-                    usageTimes[1] += 1.0f / heelSpeed * Time.deltaTime;
+                    usageTimes[1] += heelSpeed / 100 * Time.deltaTime;
                     select_green.fillAmount = usageTimes[1];
                 }
                 if (usageTimes[2] < 1)
                 {
-                    usageTimes[2] += 1.0f / heelSpeed * Time.deltaTime;
+                    usageTimes[2] += heelSpeed / 100 * Time.deltaTime;
                     select_blue.fillAmount = usageTimes[2];
                 }
                 break;
