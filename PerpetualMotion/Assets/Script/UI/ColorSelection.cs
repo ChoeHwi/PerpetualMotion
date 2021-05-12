@@ -21,6 +21,7 @@ public class ColorSelection : MonoBehaviour
     [Header("色の回復スピード(0に近いと遅く回復する)")]
     public float heelSpeed;
     PlayerController playerController;
+    public GameObject UICheng;
 
     void Start()
     {
@@ -33,50 +34,59 @@ public class ColorSelection : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+    {
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            if (selectNumber == 0)
-            {
-                selectNumber = 3;
-            }
-            else
-            {
-                for (int i = selectNumber - 1; i >= 0; i--)
-                {
-                    if (usageTimes[i] > 0)
-                    {
-                        selectNumber = i;
-                        break;
-                    }
-                }
-            }
+            UICheng.gameObject.SetActive(true);
         }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyUp(KeyCode.X))
         {
-            if (selectNumber == 2)
-            {
-                selectNumber = 3;
-            }
-            else if (selectNumber != 3)
-            {
-                for (int i = selectNumber + 1; i < usageTimes.Length; i++)
-                {
-                    if (usageTimes[i] > 0)
-                    {
-                        selectNumber = i;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                selectNumber = 0;
-            }
+            UICheng.gameObject.SetActive(false);
         }
-
         selectColor();
+        //if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //{
+        //    if (selectNumber == 0)
+        //    {
+        //        selectNumber = 3;
+        //    }
+        //    else
+        //    {
+        //        for (int i = selectNumber - 1; i >= 0; i--)
+        //        {
+        //            if (usageTimes[i] > 0)
+        //            {
+        //                selectNumber = i;
+        //                break;
+        //            }
+        //        }
+        //    }
+        //}
+
+        //if (Input.GetKeyDown(KeyCode.RightArrow))
+        //{
+        //    if (selectNumber == 2)
+        //    {
+        //        selectNumber = 3;
+        //    }
+        //    else if (selectNumber != 3)
+        //    {
+        //        for (int i = selectNumber + 1; i < usageTimes.Length; i++)
+        //        {
+        //            if (usageTimes[i] > 0)
+        //            {
+        //                selectNumber = i;
+        //                break;
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        selectNumber = 0;
+        //    }
+        //}
+
+
     }
     void selectColor()
     {

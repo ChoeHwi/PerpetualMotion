@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChengColor : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int selectNumber;
+    public Sprite[] UI_Image;
+    ColorSelection colorSelection;
     void Start()
     {
-        
+        colorSelection = FindObjectOfType<ColorSelection>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ColorDown()
     {
-        
+        colorSelection.selectNumber = selectNumber;
+    }
+    public void ColorEnter()
+    {
+        GetComponent<Image>().sprite = UI_Image[1];
+    }
+    public void Color_Exit()
+    {
+        GetComponent<Image>().sprite = UI_Image[0];
     }
 }
