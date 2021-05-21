@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary> 敵を足止めするトラップオブジェクトのクラス </summary>
 public class ElectricTrap : MonoBehaviour
 {
-    bool actuation;
-    [SerializeField] Sprite onImage;
-    [SerializeField] Sprite offImage;
-    SpriteRenderer spriteRenderer;
+    bool actuation = false;
     EnemyController enemyController;
+    /// <summary> animatorの変数 </summary>
+    Animator anim = null;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     public void Actuation()
     {
         if(actuation)
         {
-            spriteRenderer.sprite = offImage;
+            anim.SetBool("Trap", false);
             actuation = false;
             if (enemyController)
             {
@@ -29,7 +29,7 @@ public class ElectricTrap : MonoBehaviour
         }
         else
         {
-            spriteRenderer.sprite = onImage;
+            anim.SetBool("Trap", true);
             actuation = true;
             if (enemyController)
             {
