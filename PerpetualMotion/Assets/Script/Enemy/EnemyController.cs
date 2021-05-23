@@ -155,7 +155,7 @@ public class EnemyController : ColorInfo
         distance = Vector3.Distance(enemyProjector.transform.position, targetPos);
 
         //追跡の時、quitRangeより距離が離れたら中止
-        if (distance > quitRange || playerController.stealth)
+        if (distance > quitRange || playerController.m_stealth)
         {
             tracking = false;
             playerController.enemyCon.Remove(this);
@@ -173,7 +173,7 @@ public class EnemyController : ColorInfo
             //PlayerがtrackingRangeより近づいたら追跡開始
             if (distance < trackingRange)
             {
-                if (!playerController.stealth)
+                if (!playerController.m_stealth)
                 {
                     tracking = true;
                     foreach(EnemyController enemyController in playerController.enemyCon)
