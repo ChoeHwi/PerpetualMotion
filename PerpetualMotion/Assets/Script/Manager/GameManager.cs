@@ -87,8 +87,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     IEnumerator ClearResult()
     {
+        
         gameMessenger.director.SetActive(true);
         yield return new WaitForSeconds(3.5f);
+        gameMessenger.clearAnim.SetActive(true);
+        yield return new WaitForSeconds(2f);
         gameMessenger.clearResult.SetActive(true);
         /*textBox[0].text = clearTime.ToString();
         textBox[1].text = killedEnemy.ToString();
