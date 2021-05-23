@@ -9,17 +9,34 @@ using UnityEngine.AI;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] AnimationImages blankImages;
-    [SerializeField] AnimationImages redImages;
-    [SerializeField] AnimationImages buleImages;
-    [SerializeField] AnimationImages greenImages;
-
+    ///プランナーが設定するパラメーター
+    #region
     [Header("プレイヤーの移動速度")]
     public float m_moveSpeed = 4.0f;
     [Header("無敵時間")]
     [SerializeField] float m_invincibleTime = 3f;
+    [Header("オブジェクトと融合したときのスピード")]
+    [SerializeField] float ObjSpeed;
+    #endregion
+
+    //コンポーネント系
+    #region
+    /// <summary>リジッドボディ</summary>
     Rigidbody2D m_rb;
+    /// <summary>スプライトレンダラー</summary>
     SpriteRenderer m_spriteRenderer;
+    /// <summary>カプセルコライダー</summary>
+    CapsuleCollider2D capsuleCollider;
+    #endregion
+    /// <summary>無色の画像</summary>
+    [SerializeField] AnimationImages blankImages;
+    /// <summary>赤の画像</summary>
+    [SerializeField] AnimationImages redImages;
+    /// <summary>青の画像</summary>
+    [SerializeField] AnimationImages buleImages;
+    /// <summary>緑の画像</summary>
+    [SerializeField] AnimationImages greenImages;
+
     /// <summary>現在のカラーイメージ</summary>
     AnimationImages m_colorSprites;
     /// <summary>現在アニメーションしているイメージの配列</summary>
@@ -42,15 +59,13 @@ public class PlayerController : MonoBehaviour
     public bool m_stealth = false;
     /// <summary>プレイヤーが操作可能か</summary>
     bool m_active = true;
-
+    /// <summary>ゲームマネージャー</summary>
     GameManager gameManager;
-    CapsuleCollider2D capsuleCollider;
+    /// <summary>今できることを表示するUI</summary>
     [SerializeField] GameObject dialog;
     
     /// <summary>現在入ることのできるステルスオブジェクト</summary>
     public StealthObject stealthObject;
-    [Header("オブジェクトと融合したときのスピード")]
-    [SerializeField] float ObjSpeed;
     /// <summary>ステルスオブジェクトに追加したRigidbody2D</summary>
     Rigidbody2D addedRigidbody;
     //アイテム関連
