@@ -11,10 +11,8 @@ public class CountDownSprite : MonoBehaviour
     /// <summary> Countdownのスプライトの変数 </summary>
     [Header("Countdownのスプライト入れる")]
     [SerializeField] private Sprite[] m_countDownSprite = null;
-    /// <summary> プレイヤーの変数 </summary>
-    [Header("プレイヤープレハブ入れる")]
-    [SerializeField] GameObject m_player = null;
-
+    /// <summary> 参照先の変数 </summary>
+    PlayerController m_playerController;
 
     void Start()
     {
@@ -22,14 +20,15 @@ public class CountDownSprite : MonoBehaviour
 
         StartCoroutine(CountDown());
 
-        m_player.SetActive(false);
+        m_playerController = FindObjectOfType<PlayerController>();
+        m_playerController.m_active = false;
     }
 
     /// <summary>
     /// カウントダウンスプライトを表示させるコルーチン
     /// </summary>
     /// <returns></returns>
-    IEnumerator CountDown()
+    public IEnumerator CountDown()
     {
         m_spriteImage.sprite = m_countDownSprite[0];
         yield return new WaitForSeconds(1.0f);
@@ -44,9 +43,8 @@ public class CountDownSprite : MonoBehaviour
         //インデックスが3であるならばプレイヤーオブジェクトをアクティブにしてコルーチンを停止させる。
         if (m_countDownSprite[3])
         {
-            m_player.SetActive(true);
+            m_playerController.m_active = true;
             yield break;
         }
-        
     }
 }
