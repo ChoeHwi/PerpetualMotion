@@ -386,6 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7dac7c95c19bfc419e1cf788146d53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_moveSpeed: 4
+  m_invincibleTime: 3
+  ObjSpeed: 0
   blankImages:
     m_idleImages: []
     m_backImages:
@@ -454,15 +457,13 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cf584f50c7538134c98b8b9e8676b70c, type: 3}
     - {fileID: 21300000, guid: b0b7775218cf0c847a279907d671fc8a, type: 3}
     - {fileID: 21300000, guid: c9001393900743047960648c2d79bbf2, type: 3}
-  m_moveSpeed: 4
-  m_invincibleTime: 3
   m_count: 0.25
   m_playerHp: 5
   nowColor: 0
   m_stealth: 0
+  m_active: 1
   dialog: {fileID: 7617695133186185854}
   stealthObject: {fileID: 0}
-  ObjSpeed: 0
   itemCount: 0
   itemType:
   - {fileID: 0}
