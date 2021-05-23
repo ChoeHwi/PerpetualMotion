@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class AnimationImageChanger : MonoBehaviour
 {
-    [SerializeField] Sprite[] _sprits;
-    int _index = 0;
-    [SerializeField] float _count = 0.25f;
-    float _counter = 0;
+    [SerializeField] Sprite[] m_sprits;
+    int m_index = 0;
+    /// <summary>アニメーションのスピード</summary>
+    [SerializeField] float m_count = 0.25f;
+    /// <summary></summary>
+    float m_counter = 0;
     SpriteRenderer sr;
 
     void Start()
@@ -18,19 +20,20 @@ public class AnimationImageChanger : MonoBehaviour
 
     void SpriteChange()
     {
-        sr.sprite = _sprits[_index];
-        _index = (_index + 1) % _sprits.Length;
+        sr.sprite = m_sprits[m_index];
+        m_index = (m_index + 1) % m_sprits.Length;
     }
+
     void Update()
     {
-        if (_counter >= _count)
+        if (m_counter >= m_count)
         {
             SpriteChange();
-            _counter = 0;
+            m_counter = 0;
         }
         else
         {
-            _counter += Time.deltaTime;
+            m_counter += Time.deltaTime;
         }
     }
 }

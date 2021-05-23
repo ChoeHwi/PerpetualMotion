@@ -7,23 +7,35 @@ using UnityEngine.AI;
 /// <summary>
 /// プレイヤーの制御
 /// </summary>
-[RequireComponent(typeof(AnimationImageChanger))]
-public class PlayerController : ColorInfo
+public class PlayerController : MonoBehaviour
 {
+    [SerializeField] AnimationImages blankImages;
+    [SerializeField] AnimationImages redImages;
+    [SerializeField] AnimationImages buleImages;
+    [SerializeField] AnimationImages greenImages;
+
     [Header("プレイヤーの移動速度")]
     public float m_moveSpeed = 4.0f;
     [Header("無敵時間")]
     [SerializeField] float m_invincibleTime = 3f;
     Rigidbody2D m_rb;
     SpriteRenderer m_spriteRenderer;
+    /// <summary>現在のカラーイメージ</summary>
+    AnimationImages m_colorSprites;
+    /// <summary>現在アニメーションしているイメージの配列</summary>
+    Sprite[] m_animationSprites;
     /// <summary>ダメージアニメーションの表示中</summary>
     bool m_isDamaged = false;
-
-    int imageIndex = 1;
+    /// <summary>アニメーションのスピード</summary>
+    [SerializeField] float m_count = 0.25f;
+    /// <summary>時間のカウンター</summary>
+    float m_counter = 0;
+    /// <summary>アニメーション画像の番号</summary>
+    int m_imageIndex = 0;
     /// <summary>プレイヤーのライフ</summary>
     public int m_playerHp = 5;
     /// <summary>プレイヤーの現在の色</summary>
-    public COLOR_TYPE nowColor = COLOR_TYPE.Blank;
+    public ColorInfo.COLOR_TYPE nowColor = ColorInfo.COLOR_TYPE.Blank;
     /// <summary>ステルス可能な状態か</summary>
     bool m_canStealth;
     /// <summary>ステルス状態か</summary>
@@ -69,6 +81,53 @@ public class PlayerController : ColorInfo
 
     void Update()
     {
+        //入力方向を向く
+        #region
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            if (transform.localScale.x > 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = transform.localScale.x * -1;
+                transform.localScale = scale;
+            }
+            PlayerAnimation();
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            if (transform.localScale.x < 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = Mathf.Abs(transform.localScale.x);
+                transform.localScale = scale;
+            }
+            PlayerAnimation();
+        }
+        else if(Input.GetKeyDown(KeyCode.S))
+        {
+            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Front);
+            if (transform.localScale.x < 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = Mathf.Abs(transform.localScale.x);
+                transform.localScale = scale;
+            }
+            PlayerAnimation();
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Back);
+            if (transform.localScale.x < 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = Mathf.Abs(transform.localScale.x);
+                transform.localScale = scale;
+            }
+            PlayerAnimation();
+        }
+        #endregion
         if (ventBool && enemyCon.Count == 0)//ベントオブジェクトに触れており、追いかけられてないなら
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -138,59 +197,22 @@ public class PlayerController : ColorInfo
             float h = Input.GetAxisRaw("Horizontal");
             float v = Input.GetAxisRaw("Vertical");
             Vector2 dir = new Vector2(h, v).normalized;
-
+            //アクティブ状態なら移動とアニメーションをする。
             if (m_active)
             {
                 m_rb.velocity = dir * m_moveSpeed;
-
-                //方向によって画像変更
-                #region
-                if (h > 0)
+                if (m_counter >= m_count)
                 {
-                    if (v > 0)
+                    if (h != 0 || v != 0)
                     {
-
+                        PlayerAnimation();
                     }
-                    else if (v < 0)
-                    {
-
-                    }
-                    else
-                    {
-                        imageIndex = 3;
-                        m_spriteRenderer.sprite = SelectColor(nowColor)[imageIndex];
-                    }
-                }
-                else if (h < 0)
-                {
-                    if (v > 0)
-                    {
-
-                    }
-                    else if (v < 0)
-                    {
-
-                    }
-                    else
-                    {
-                        imageIndex = 2;
-                        m_spriteRenderer.sprite = SelectColor(nowColor)[imageIndex];
-                    }
+                    m_counter = 0;
                 }
                 else
                 {
-                    if (v > 0)
-                    {
-                        imageIndex = 0;
-                        m_spriteRenderer.sprite = SelectColor(nowColor)[imageIndex];
-                    }
-                    else if (v < 0)
-                    {
-                        imageIndex = 1;
-                        m_spriteRenderer.sprite = SelectColor(nowColor)[imageIndex];
-                    }
+                    m_counter += Time.deltaTime;
                 }
-                #endregion
             }
             else if (m_stealth)
             {
@@ -201,7 +223,6 @@ public class PlayerController : ColorInfo
                 }
             }
         }
-
         if (m_playerHp <= 0 && m_active)
         {
             GameOverCH();
@@ -273,7 +294,7 @@ public class PlayerController : ColorInfo
         if (collision.gameObject.tag == "stealth")
         {
             stealthObject = collision.GetComponent<StealthObject>();
-            if (nowColor != COLOR_TYPE.Blank)
+            if (nowColor != ColorInfo.COLOR_TYPE.Blank)
             {
                 if (stealthObject.nowColor == nowColor)
                 {
@@ -327,10 +348,12 @@ public class PlayerController : ColorInfo
         transform.position = new Vector3(vent_Mana.vent_Pos[VentNum].position.x, vent_Mana.vent_Pos[VentNum].position.y, 1);
     }
 
-    public void Form_Color(COLOR_TYPE color)
+    /// <summary>色変更</summary>
+    /// <param name="color">色のタイプ</param>
+    public void Form_Color(ColorInfo.COLOR_TYPE color)
     {
         nowColor = color;
-        m_spriteRenderer.sprite = SelectColor(nowColor)[imageIndex];
+        m_colorSprites = SelectColor(nowColor);
         if (stealthObject)
         {
             if (m_stealth)
@@ -357,6 +380,7 @@ public class PlayerController : ColorInfo
         }
     }
     
+    /// <summary>ステルスオン</summary>
     void StealthOn()
     {
         instancedEye = Instantiate(eye, stealthObject.transform);
@@ -379,6 +403,7 @@ public class PlayerController : ColorInfo
         }
     }
 
+    /// <summary>ステルス解除</summary>
     void StealthOff()
     {
         Destroy(instancedEye);
@@ -392,5 +417,79 @@ public class PlayerController : ColorInfo
         {
             Destroy(addedRigidbody);
         }
+    }
+
+    /// <summary>スクリプトアニメーション</summary>
+    void PlayerAnimation()
+    {
+        m_spriteRenderer.sprite = m_animationSprites[m_imageIndex];
+        m_imageIndex = (m_imageIndex + 1) % m_animationSprites.Length;
+    }
+
+    /// <summary>色のタイプを渡すとその色の画像を返す</summary>
+    /// <param name="colorType">色のタイプ</param>
+    /// <returns></returns>
+    public AnimationImages SelectColor(ColorInfo.COLOR_TYPE colorType)
+    {
+        AnimationImages image = null;
+        switch (colorType)
+        {
+            case ColorInfo.COLOR_TYPE.Blank:
+                image = blankImages;
+                break;
+            case ColorInfo.COLOR_TYPE.Red:
+                image = redImages;
+                break;
+            case ColorInfo.COLOR_TYPE.Bule:
+                image = buleImages;
+                break;
+            case ColorInfo.COLOR_TYPE.Green:
+                image = greenImages;
+                break;
+        }
+        return image;
+    }
+
+    /// <summary>プレイヤーのアニメーション一覧</summary>
+    [System.Serializable]
+    public class AnimationImages
+    {
+        [SerializeField] public Sprite[] m_idleImages;
+        [SerializeField] public Sprite[] m_backImages;
+        [SerializeField] public Sprite[] m_frontImages;
+        [SerializeField] public Sprite[] m_sideImages;
+
+        public enum ANIMATION_TYPE
+        {
+            Idle,
+            Back,
+            Side,
+            Front,
+        }
+
+        public Sprite[] GetAnimImages(ANIMATION_TYPE type)
+        {
+            Sprite[] sprites;
+            switch (type)
+            {
+                case ANIMATION_TYPE.Idle:
+                    sprites = m_idleImages;
+                    break;
+                case ANIMATION_TYPE.Back:
+                    sprites = m_backImages;
+                    break;
+                case ANIMATION_TYPE.Side:
+                    sprites = m_sideImages;
+                    break;
+                case ANIMATION_TYPE.Front:
+                    sprites = m_frontImages;
+                    break;
+                default:
+                    sprites = null;
+                    break;
+            }
+            return sprites;
+        }
+
     }
 }

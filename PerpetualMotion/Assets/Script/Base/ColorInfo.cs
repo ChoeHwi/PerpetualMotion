@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class ColorInfo : MonoBehaviour
 {
-    
     [SerializeField] private Sprite[] blankImages;
     [SerializeField] private Sprite[] redImages;
     [SerializeField] private Sprite[] buleImages;
@@ -18,6 +17,7 @@ public abstract class ColorInfo : MonoBehaviour
         Bule,
         Green,
     }
+
     /// <summary>現在の色</summary>
     COLOR_TYPE type;
 
