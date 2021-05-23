@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>ステルス状態か</summary>
     public bool m_stealth = false;
     /// <summary>プレイヤーが操作可能か</summary>
-    bool m_active = true;
+    public bool m_active = false;
     /// <summary>ゲームマネージャー</summary>
     GameManager gameManager;
     /// <summary>今できることを表示するUI</summary>
