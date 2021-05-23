@@ -9,9 +9,10 @@ public class CountDownSprite : MonoBehaviour
     /// <summary> スプライトレンダラーの変数 </summary>
     Image m_spriteImage;
     /// <summary> Countdownのスプライトの変数 </summary>
-    [Header("Countdownのスプライト")]
+    [Header("Countdownのスプライト入れる")]
     [SerializeField] private Sprite[] m_countDownSprite = null;
     /// <summary> プレイヤーの変数 </summary>
+    [Header("プレイヤープレハブ入れる")]
     [SerializeField] GameObject m_player = null;
 
 
