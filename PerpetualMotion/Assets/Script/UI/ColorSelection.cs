@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class ColorSelection : MonoBehaviour
 {
     public int selectNumber = 0;
+    [System.NonSerialized]
     [Header("赤色のバー")]
     [SerializeField] Image select_red;
+    [System.NonSerialized]
     [Header("緑のバー")]
     [SerializeField] Image select_green;
+    [System.NonSerialized]
     [Header("青色のバー")]
     [SerializeField] Image select_blue;
     /// <summary>3本のゲージの値</summary>
