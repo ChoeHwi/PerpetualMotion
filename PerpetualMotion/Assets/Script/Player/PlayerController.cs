@@ -72,16 +72,24 @@ public class PlayerController : MonoBehaviour
     public int itemCount;
     [SerializeField] GameObject[] itemType = new GameObject[1];
     //通気口関連
+    /// <summary>Ventスクリプトが入る</summary>
     Vent vent_S;
+    /// <summary>VentManagerスクリプトが入る</summary>
     ventManager vent_Mana;
+    /// <summary>Ventに触れているかどうか</summary>
     bool ventBool;
+    /// <summary>触れたVentの番号</summary>
     public int VentNum;
+    /// <summary>Ventに入っているかどうか</summary>
     bool Vent_ch = false;
     /// <summary>現在追いかけられてる敵</summary>
     public List<EnemyController> enemyCon = new List<EnemyController>(0);
     public Canvas BeingTrackedOBJ;
     Vector2 enterPosition;
+    /// <summary>eyeのプレハブ</summary>
+    [Header("eyeのプレハブを入れる")]
     [SerializeField] GameObject eye;
+    /// <summary>eyeの生成場所</summary>
     GameObject instancedEye;
 
     void Start()
