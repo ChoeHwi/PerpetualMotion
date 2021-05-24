@@ -13,7 +13,7 @@ public class GameMessenger : MonoBehaviour
     /// <summary> キャンバス下にあるMobiusUIオブジェクト </summary>
     public Mobius mobiusScript;
     /// <summary> 参照先のクラスの変数 </summary>
-    public GameObject clearAnim = null;
+    public GameObject stageClearAnim = null;
     /// <summary> 参照先のクラスの変数 </summary>
     public GameObject director;
     
