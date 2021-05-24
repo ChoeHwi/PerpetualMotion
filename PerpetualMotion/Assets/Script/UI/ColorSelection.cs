@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>色を変えるスクリプト</summary>
 public class ColorSelection : MonoBehaviour
 {
     public int selectNumber = 0;
@@ -24,6 +24,7 @@ public class ColorSelection : MonoBehaviour
     [Header("色の回復スピード(0に近いと遅く回復する)")]
     public float heelSpeed;
     PlayerController playerController;
+    /// <summary>プレイやの色変えのUIオブジェクト</summary>
     public GameObject UICheng;
 
     void Start()
@@ -47,49 +48,6 @@ public class ColorSelection : MonoBehaviour
             UICheng.gameObject.SetActive(false);
         }
         selectColor();
-        //if (Input.GetKeyDown(KeyCode.LeftArrow))
-        //{
-        //    if (selectNumber == 0)
-        //    {
-        //        selectNumber = 3;
-        //    }
-        //    else
-        //    {
-        //        for (int i = selectNumber - 1; i >= 0; i--)
-        //        {
-        //            if (usageTimes[i] > 0)
-        //            {
-        //                selectNumber = i;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.RightArrow))
-        //{
-        //    if (selectNumber == 2)
-        //    {
-        //        selectNumber = 3;
-        //    }
-        //    else if (selectNumber != 3)
-        //    {
-        //        for (int i = selectNumber + 1; i < usageTimes.Length; i++)
-        //        {
-        //            if (usageTimes[i] > 0)
-        //            {
-        //                selectNumber = i;
-        //                break;
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        selectNumber = 0;
-        //    }
-        //}
-
-
     }
     void selectColor()
     {

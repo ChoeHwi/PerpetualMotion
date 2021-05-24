@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class LifeUI : MonoBehaviour
 {
+    /// <summary>PlayerControllerを呼ぶ</summary>
     PlayerController con;
+    /// <summary>LifeのUIを入れる</summary>
     [SerializeField] Image LifeImage;
+    /// <summary>現在のライフ</summary>
     public int life;
     // Start is called before the first frame update
     void Start()
