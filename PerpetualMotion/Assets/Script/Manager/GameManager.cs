@@ -21,10 +21,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField] GameObject itemPrefabBase = null;
     /// <summary> </summary>
     NavMeshHit hit;
+    /// <summary> 参照先の変数 </summary>
     GameMessenger gameMessenger;
+    /// <summary> 参照先の変数 </summary>
+    PlayerController m_playerController;
 
     void Start()
     {
+        m_playerController = FindObjectOfType<PlayerController>();
+
         if (!gameMessenger)
         {
             if (GameObject.FindObjectOfType<GameMessenger>())
@@ -87,11 +92,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     IEnumerator ClearResult()
     {
-        
+        m_playerController.m_active = false;
         gameMessenger.director.SetActive(true);
         yield return new WaitForSeconds(3.5f);
-        gameMessenger.clearAnim.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        gameMessenger.stageClearAnim.SetActive(true);
+        yield return new WaitForSeconds(4f);
         gameMessenger.clearResult.SetActive(true);
         /*textBox[0].text = clearTime.ToString();
         textBox[1].text = killedEnemy.ToString();
