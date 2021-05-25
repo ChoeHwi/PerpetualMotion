@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class hourglass_time : MonoBehaviour
 {
     public Image cooldown;
+    /// <summary>どっちからいちるかの判定</summary>
     [Header("オンが上から下/オフが下から上")]
     public bool hourglassUpDwon;
+    /// <summary>制限時間</summary>
     [Header("0に近いと早く減る")]
     public float waitTime = 30.0f;
+    /// <summary>PlayerControllerを呼び出す</summary>
     PlayerController pc;
     void Start()
     {

@@ -461,6 +461,7 @@ MonoBehaviour:
   m_playerHp: 5
   nowColor: 0
   m_stealth: 0
+  m_active: 1
   dialog: {fileID: 7617695133186185854}
   stealthObject: {fileID: 0}
   itemCount: 0

@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>アイテムをテキストで表示させるスクリプト</summary>
 public class ItemManager : MonoBehaviour
 {
     new public string name = "New Item";
     public Sprite icon = null;
-
+    /// <summary>メビウスの持っている数を保管している</summary>
     public int numberOfItem;
+    /// <summary>textを入れる場所</summary>
     public Text itemText;
+    /// <summary>PlayerControllerを呼び出し</summary>
     PlayerController playcon;
     void Start()
     {
