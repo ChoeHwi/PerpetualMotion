@@ -5,20 +5,23 @@ using UnityEngine.UI;
 
 public class LifeUI : MonoBehaviour
 {
+    /// <summary>PlayerControllerを呼ぶ</summary>
     PlayerController con;
+    /// <summary>LifeのUIを入れる</summary>
     [SerializeField] Image LifeImage;
+    /// <summary>現在のライフ</summary>
     public int life;
     // Start is called before the first frame update
     void Start()
     {
         con = GameObject.Find("Player").GetComponent<PlayerController>();
-        life = con.playerHp;
+        life = con.m_playerHp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        life = con.playerHp;
+        life = con.m_playerHp;
         CHANG_COLOR();
     }
     public void CHANG_COLOR()
