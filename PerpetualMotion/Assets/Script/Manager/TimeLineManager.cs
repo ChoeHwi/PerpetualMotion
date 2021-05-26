@@ -9,7 +9,7 @@ public class TimeLineManager : MonoBehaviour
     /// <summary>  </summary>
     private PlayableDirector _playableDirector;
     /// <summary> PlayableDirectorがAddComponentされたオブジェクト </summary>
-    public GameObject _director;
+   GameObject _director;
 
     private void Awake()
     {
