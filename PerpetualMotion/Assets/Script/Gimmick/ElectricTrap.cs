@@ -9,17 +9,24 @@ public class ElectricTrap : MonoBehaviour
     EnemyController enemyController;
     /// <summary> animatorの変数 </summary>
     Animator anim = null;
+    /// <summary> AudioManagerを参照する変数 </summary>
+    AudioManager audioManager;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+
+        if (GameObject.FindObjectOfType<AudioManager>())
+        {
+            audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
+
     }
 
     public void Actuation()
     {
         if(actuation)
-        {
-            anim.SetBool("Trap", false);
+        {   
             actuation = false;
             if (enemyController)
             {
@@ -29,7 +36,7 @@ public class ElectricTrap : MonoBehaviour
         }
         else
         {
-            anim.SetBool("Trap", true);
+            StartCoroutine(ElecAnim());
             actuation = true;
             if (enemyController)
             {
@@ -49,5 +56,19 @@ public class ElectricTrap : MonoBehaviour
                 enemyController.Freeze();
             }
         }
+    }
+
+    /// <summary>
+    /// トラップのアニメーションのコルーチン
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ElecAnim() 
+    {
+        anim.SetBool("Trap", true);
+        yield return new WaitForSeconds(3f);
+        anim.SetBool("Trap", false);
+        //スイッチOFFのSE
+        audioManager.PlaySE(audioManager.audioClips[1]);
+        yield break;
     }
 }
