@@ -19,7 +19,7 @@ public class Effect : MonoBehaviour
 
 	void Update()
 	{
-        if (e_controller.tracking == true)
+        if (e_controller.m_tracking == true)
         {
 			if (effectStart)
 			{
