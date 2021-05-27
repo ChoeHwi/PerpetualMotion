@@ -19,14 +19,16 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public AudioClip damageSE;
     /// <summary>ゲームオーバーのSE</summary>
     public AudioClip gameOver;
+    /// <summary> 複数のAudioClipを扱う。index番号を設定 </summary>
+    [Header("複数のAudioClipを扱う。index番号を設定")]
+    public AudioClip[] audioClips;
     /// <summary>trueでmute</summary>
     public bool m_mute = false;
-
     /// <summary>BGMのフェードアウトスピード</summary>
     [SerializeField] float fadeSpeed;
 
-    [SerializeField] AudioSource audioSourceBGM;
-    [SerializeField] AudioSource audioSourceSE;
+    [SerializeField] public AudioSource audioSourceBGM;
+    [SerializeField] public AudioSource audioSourceSE;
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
