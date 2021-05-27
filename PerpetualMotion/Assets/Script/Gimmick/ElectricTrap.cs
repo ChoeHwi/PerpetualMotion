@@ -28,6 +28,8 @@ public class ElectricTrap : MonoBehaviour
         if(actuation)
         {   
             actuation = false;
+            //電流が流れる前
+            audioManager.PlaySE(audioManager.audioClips[2]);
             if (enemyController)
             {
                 enemyController.FreezeOff();
@@ -65,6 +67,8 @@ public class ElectricTrap : MonoBehaviour
     IEnumerator ElecAnim() 
     {
         anim.SetBool("Trap", true);
+        //電流が流れている時
+        audioManager.PlaySE(audioManager.audioClips[3]);
         yield return new WaitForSeconds(3f);
         anim.SetBool("Trap", false);
         //スイッチOFFのSE
