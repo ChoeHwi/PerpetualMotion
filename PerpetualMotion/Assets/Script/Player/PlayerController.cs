@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (EnemyController enemy in enemyCon)
             {
-                enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
         }
     }
@@ -286,8 +286,8 @@ public class PlayerController : MonoBehaviour
             {
                 foreach (EnemyController enemy in enemyCon)
                 {
-                    Debug.Log(enemy.enemyProjector.GetComponent<CapsuleCollider2D>());
-                    enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                    Debug.Log(enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>());
+                    enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
                 }
             }
             Invoke("FlashEnd", m_invincibleTime);
