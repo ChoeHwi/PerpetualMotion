@@ -8,6 +8,30 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    //プランナーの設定項目
+    [Header("移動速度")]
+    /// <summary>移動速度</summary>
+    [SerializeField] float m_speed;
+    [Header("巡回地点")]
+    /// <summary>巡回地点</summary>
+    public Transform[] m_points;
+    [Header("追いかける対象の名前")]
+    /// <summary>追いかける対象の名前</summary>
+    public string m_targetName = "Player";
+    [Header("追跡を開始する範囲の半径")]
+    /// <summary>この範囲に入ったら追跡</summary>
+    [SerializeField] float m_trackingRange = 3f;
+    [Header("追跡を停止する範囲の半径")]
+    /// <summary>この範囲から出たら追跡をやめる</summary>
+    [SerializeField] float m_quitRange = 5f;
+    [Header("攻撃する範囲の半径")]
+    [SerializeField] float m_attackRange = 1f;
+    [Header("この敵の色")]
+    public ColorInfo.COLOR_TYPE m_nowColor = ColorInfo.COLOR_TYPE.Red;
+    [Header("敵のタイプ")]
+    public ENEMY_TYPE m_enemyType = ENEMY_TYPE.RargeType;
+
+
     /// <summary>アニメーションのスピード</summary>
     [SerializeField] float m_count = 0.25f;
     /// <summary>時間のカウンター</summary>
@@ -18,33 +42,16 @@ public class EnemyController : MonoBehaviour
     public bool m_tracking = false;
     /// <summary>攻撃状態かどうか</summary>
     public bool m_isAttack = false;
-    [Header("移動速度")]
-    /// <summary>移動速度</summary>
-    [SerializeField] float m_speed;
-    [Header("巡回地点")]
-    /// <summary>巡回地点</summary>
-    public Transform[] m_points;
     /// <summary>現在の巡回地のインデックス</summary>
     int m_destPoint = 0;
     /// <summary>このオブジェクトのAI</summary>
     NavMeshAgent m_agent;
     /// <summary>ターゲットの位置</summary>
     Vector3 m_targetPos;
-    [Header("追いかける対象の名前")]
-    /// <summary>追いかける対象の名前</summary>
-    public string m_targetName = "Player";
     /// <summary>追いかける対象</summary>
     GameObject m_target;
     /// <summary>ターゲットからの距離</summary>
     float m_distance;
-    [Header("追跡を開始する範囲の半径")]
-    /// <summary>この範囲に入ったら追跡</summary>
-    [SerializeField] float m_trackingRange = 3f;
-    [Header("追跡を停止する範囲の半径")]
-    /// <summary>この範囲から出たら追跡をやめる</summary>
-    [SerializeField] float m_quitRange = 5f;
-    [Header("攻撃する範囲の半径")]
-    [SerializeField] float m_attackRange = 1f;
     /// <summary>敵のソースプレハブ</summary>
     [SerializeField] GameObject[] enemyEntitys;
     /// <summary>このオブジェクトの実体</summary>
@@ -53,10 +60,6 @@ public class EnemyController : MonoBehaviour
     EnemyColliderController m_enemyScipt;
     /// <summary>プレイヤーコントローラー</summary>
     PlayerController m_playerController;
-    [Header("この敵の色")]
-    public ColorInfo.COLOR_TYPE m_nowColor = ColorInfo.COLOR_TYPE.Red;
-    [Header("敵のタイプ")]
-    public ENEMY_TYPE m_enemyType = ENEMY_TYPE.RargeType;
     bool onPlayer;
     /// <summary>このオブジェクトの角度</summary>
     int m_angle;
