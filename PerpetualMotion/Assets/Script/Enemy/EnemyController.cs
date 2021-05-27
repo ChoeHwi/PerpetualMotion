@@ -8,87 +8,97 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] AnimationImages blankImages;
-    [SerializeField] AnimationImages redImages;
-    [SerializeField] AnimationImages buleImages;
-    [SerializeField] AnimationImages greenImages;
-    /// <summary>現在のカラーイメージ</summary>
-    AnimationImages m_colorSprites;
-    /// <summary>現在アニメーションしているイメージの配列</summary>
-    Sprite[] m_animationSprites;
+    //プランナーの設定項目
+    [Header("移動速度")]
+    /// <summary>移動速度</summary>
+    [SerializeField] float m_speed;
+    [Header("巡回地点")]
+    /// <summary>巡回地点</summary>
+    public Transform[] m_points;
+    [Header("追いかける対象の名前")]
+    /// <summary>追いかける対象の名前</summary>
+    public string m_targetName = "Player";
+    [Header("追跡を開始する範囲の半径")]
+    /// <summary>この範囲に入ったら追跡</summary>
+    [SerializeField] float m_trackingRange = 3f;
+    [Header("追跡を停止する範囲の半径")]
+    /// <summary>この範囲から出たら追跡をやめる</summary>
+    [SerializeField] float m_quitRange = 5f;
+    [Header("攻撃する範囲の半径")]
+    [SerializeField] float m_attackRange = 1f;
+    [Header("この敵の色")]
+    public ColorInfo.COLOR_TYPE m_nowColor = ColorInfo.COLOR_TYPE.Red;
+    [Header("敵のタイプ")]
+    public ENEMY_TYPE m_enemyType = ENEMY_TYPE.RargeType;
+
+
     /// <summary>アニメーションのスピード</summary>
     [SerializeField] float m_count = 0.25f;
     /// <summary>時間のカウンター</summary>
     float m_counter = 0;
-    /// <summary>アニメーション画像の番号</summary>
-    int m_imageIndex = 0;
-    /// <summary>移動可能かどうか</summary>
-    bool m_active;
-    [Header("移動速度")]
-    /// <summary>移動速度</summary>
-    [SerializeField] float speed;
-    [Header("巡回地点")]
-    /// <summary>巡回地点</summary>
-    public Transform[] points;
-    /// <summary>現在の巡回地のインデックス</summary>
-    int destPoint = 0;
-    /// <summary>このオブジェクトのAI</summary>
-    private NavMeshAgent agent;
-    /// <summary>ターゲットの位置</summary>
-    Vector3 targetPos;
-    [Header("追いかける対象の名前")]
-    /// <summary>追いかける対象の名前</summary>
-    public string targetName = "Player";
-    /// <summary>追いかける対象</summary>
-    GameObject target;
-    /// <summary>ターゲットからの距離</summary>
-    float distance;
-    [Header("追跡を開始する範囲の半径")]
-    /// <summary>この範囲に入ったら追跡</summary>
-    [SerializeField] float trackingRange = 3f;
-    [Header("追跡を停止する範囲の半径")]
-    /// <summary>この範囲から出たら追跡をやめる</summary>
-    [SerializeField] float quitRange = 5f;
+    /// <summary>アニメーションするかどうか</summary>
+    bool m_isAnimation = true;
     /// <summary>追跡状態かどうか</summary>
-    public bool tracking = false;
-    [SerializeField] GameObject projectorObj;
-    /// <summary>このオブジェクトの見た目のオブジェクト</summary>
-    public GameObject enemyProjector;
+    public bool m_tracking = false;
+    /// <summary>攻撃状態かどうか</summary>
+    public bool m_isAttack = false;
+    /// <summary>現在の巡回地のインデックス</summary>
+    int m_destPoint = 0;
+    /// <summary>このオブジェクトのAI</summary>
+    NavMeshAgent m_agent;
+    /// <summary>ターゲットの位置</summary>
+    Vector3 m_targetPos;
+    /// <summary>追いかける対象</summary>
+    GameObject m_target;
+    /// <summary>ターゲットからの距離</summary>
+    float m_distance;
+    /// <summary>敵のソースプレハブ</summary>
+    [SerializeField] GameObject[] enemyEntitys;
+    /// <summary>このオブジェクトの実体</summary>
+    public GameObject m_enemyProjector;
+    /// <summary>実体のスクリプト</summary>
+    EnemyColliderController m_enemyScipt;
     /// <summary>プレイヤーコントローラー</summary>
-    PlayerController playerController;
-    [Header("この敵の色")]
-    public ColorInfo.COLOR_TYPE nowColor = ColorInfo.COLOR_TYPE.Red;
-    public SpriteRenderer enemyImage;
-    int imageIndex = 1;
+    PlayerController m_playerController;
     bool onPlayer;
-    int angle;
+    /// <summary>このオブジェクトの角度</summary>
+    int m_angle;
+    /// <summary>トランスフォームのキャッシュ</summary>
     Transform m_transform;
+
+    public enum ENEMY_TYPE
+    { 
+        RargeType,
+        HumanoidType,
+        DroneType,
+        LowType
+    }
 
     public bool alarm = false;
     void Start()
     {
         alarm = false;
         m_transform = transform;
-        agent = GetComponent<NavMeshAgent>();
-        enemyProjector = Instantiate(projectorObj, new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
-        enemyProjector.GetComponent<EnemyColliderController>().enemyController = this;
-        enemyImage = enemyProjector.GetComponent<SpriteRenderer>();
-        Form_Color(nowColor);
+        m_agent = GetComponent<NavMeshAgent>();
+        m_enemyProjector = Instantiate(enemyEntitys[(int)m_enemyType], new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
+        m_enemyScipt =  m_enemyProjector.GetComponent<EnemyColliderController>();
+        m_enemyScipt.enemyController = this;
+        Form_Color(m_nowColor);
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
         //(つまり、エージェントは目標地点に近づいても
         // 速度をおとしません)
-        agent.autoBraking = false;
-        agent.speed = speed;
+        m_agent.autoBraking = false;
+        m_agent.speed = m_speed;
 
         GotoNextPoint();
 
         //追跡したいオブジェクトの名前を入れる
-        target = GameObject.Find(targetName);
+        m_target = GameObject.Find(m_targetName);
 
-        if (target.GetComponent<PlayerController>())
+        if (m_target.GetComponent<PlayerController>())
         {
-            playerController = target.GetComponent<PlayerController>();
+            m_playerController = m_target.GetComponent<PlayerController>();
         }
     }
 
@@ -96,127 +106,185 @@ public class EnemyController : MonoBehaviour
     void GotoNextPoint()
     {
         // 地点がなにも設定されていないときに返します
-        if (points.Length == 0)
+        if (m_points.Length == 0)
             return;
 
         // エージェントが現在設定された目標地点に行くように設定します
-        agent.destination = points[destPoint].position;
+        m_agent.destination = m_points[m_destPoint].position;
 
         // 配列内の次の位置を目標地点に設定し、
         // 必要ならば出発地点にもどります
-        destPoint = (destPoint + 1) % points.Length;
+        m_destPoint = (m_destPoint + 1) % m_points.Length;
     }
 
 
     void Update()
     {
-        enemyProjector.transform.position = new Vector3(m_transform.position.x, m_transform.position.y, 0);
+        m_enemyProjector.transform.position = new Vector3(m_transform.position.x, m_transform.position.y, 0);
+        //Playerオブジェクトの位置取得
+        m_targetPos = m_target.transform.position;
         //Playerとこのオブジェクトの距離を測る
-        targetPos = target.transform.position;
-
-        angle = (int)(Mathf.Asin(m_transform.forward.x) * Mathf.Rad2Deg);
-        if (angle < 0)
+        m_distance = Vector3.Distance(m_enemyProjector.transform.position, m_targetPos);
+        //このオブジェクトの角度取得
+        m_angle = (int)(Mathf.Asin(m_transform.forward.x) * Mathf.Rad2Deg);
+        //プレイヤーが攻撃範囲に入り、ステルス状態じゃないなら攻撃状態にする
+        if (m_attackRange > m_distance && !m_playerController.m_stealth)
         {
-            angle += 360;
+            m_isAttack = true;
         }
-        if (angle <= 22.5 || angle >= 337.5)
+        else if (m_attackRange < m_distance && m_isAttack)
         {
-            if (transform.localScale.x < 0)
+            m_isAttack = false;
+        }
+        if (m_isAttack)
+        {
+            Freeze();
+        }
+        else
+        {
+            FreezeOff();
+        }
+        //Debug.Log(m_angle);
+        if (m_angle < 0)
+        {
+            m_angle += 360;
+        }
+        if (m_angle <= 22.5 || m_angle >= 337.5)
+        {
+            if (m_transform.forward.y < 0)//下　
             {
-                Vector3 scale = transform.localScale;
-                scale.x = Mathf.Abs(transform.localScale.x);
-                transform.localScale = scale;
-            }
-            if (agent.destination.y < transform.position.y)//下
-            {
-                m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Front);
+                Debug.Log("下1");
+                if (m_isAttack)
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackFront);
+                }
+                else
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Front);
+                }
             }
             else//上
             {
-                m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Back);
+                Debug.Log("上1");
+                if (m_isAttack)
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackBack);
+                }
+                else
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Back);
+                }
             }
         }
-        else if (angle > 22.5 && angle < 67.5)
+        else if (m_angle > 22.5 && m_angle < 67.5)
         {
-            if (transform.localScale.x > 0)
+            if (m_transform.forward.y < 0)//右下
             {
-                Vector3 scale = transform.localScale;
-                scale.x = transform.localScale.x * -1;
-                transform.localScale = scale;
-            }
-            if (agent.destination.y < transform.position.y)//右下
-            {
-                m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+                Debug.Log("右下");
+                if (m_isAttack)
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackRight);
+                }
+                else
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Right);
+                }
             }
             else//右上
             {
-                m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+                Debug.Log("右上");
+                if (m_isAttack)
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackRight);
+                }
+                else
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Right);
+                }
             }
         }
-        else if (angle >= 67.5 && angle < 112.5)//右
+        else if (m_angle >= 67.5 && m_angle < 112.5)//右
         {
-            if (transform.localScale.x > 0)
+            Debug.Log("右");
+            if (m_isAttack)
             {
-                Vector3 scale = transform.localScale;
-                scale.x = transform.localScale.x * -1;
-                transform.localScale = scale;
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackRight);
             }
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            else
+            {
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Right);
+            }
         }
-        else if (angle >= 157.5 && angle < 202.5)//下
+        else if (m_angle >= 157.5 && m_angle < 202.5)//下
         {
-            if (transform.localScale.x < 0)
+            Debug.Log("下2");
+            if (m_isAttack)
             {
-                Vector3 scale = transform.localScale;
-                scale.x = Mathf.Abs(transform.localScale.x);
-                transform.localScale = scale;
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackFront);
             }
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Front);
+            else
+            {
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Front);
+            }
         }
-        else if (angle > 202.5 && angle <= 247.5)//左下
+        else if (m_angle > 202.5 && m_angle <= 247.5)//左下
         {
-            if (transform.localScale.x < 0)
+            Debug.Log("左下");
+            if (m_isAttack)
             {
-                Vector3 scale = transform.localScale;
-                scale.x = Mathf.Abs(transform.localScale.x);
-                transform.localScale = scale;
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
             }
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            else
+            {
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Left);
+            }
         }
-        else if (angle >= 247.5 && angle < 292.5)//左
+        else if (m_angle >= 247.5 && m_angle < 292.5)//左
         {
-            if (transform.localScale.x < 0)
+            Debug.Log("左");
+            if (m_isAttack)
             {
-                Vector3 scale = transform.localScale;
-                scale.x = Mathf.Abs(transform.localScale.x);
-                transform.localScale = scale;
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
             }
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            else
+            {
+                m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Left);
+            }
         }
-        else if (angle >= 292 && angle < 337)
+        else if (m_angle >= 292 && m_angle < 337)
         {
-            if (transform.localScale.x < 0)
+            if (m_transform.forward.y < 0)//左下
             {
-                Vector3 scale = transform.localScale;
-                scale.x = Mathf.Abs(transform.localScale.x);
-                transform.localScale = scale;
-            }
-            if (agent.destination.y < transform.position.y)//左下
-            {
-                m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+                Debug.Log("左下");
+                if (m_isAttack)
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
+                }
+                else
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Left);
+                }
             }
             else//左上
             {
-                m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+                Debug.Log("左上");
+                if (m_isAttack)
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
+                }
+                else
+                {
+                    m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.Left);
+                }
             }
         }
 
-        //アクティブ状態なら移動とアニメーションをする。
-        if (m_active)
+        //アクティブ状態ならアニメーションをする。
+        if (m_isAnimation)
         {
             if (m_counter >= m_count)
             {
-                EnemyAnimation();
+                m_enemyScipt.EnemyAnimation();
                 m_counter = 0;
             }
             else
@@ -225,31 +293,29 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        distance = Vector3.Distance(enemyProjector.transform.position, targetPos);
-
         //追跡の時、quitRangeより距離が離れたら中止
-        if (distance > quitRange || playerController.m_stealth)
+        if (m_distance > m_quitRange || m_playerController.m_stealth)
         {
-            tracking = false;
-            playerController.enemyCon.Remove(this);
+            m_tracking = false;
+            m_playerController.enemyCon.Remove(this);
             onPlayer = false;
-            enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
         }
 
-        if (tracking || alarm == true)
+        if (m_tracking || alarm == true)
         {
             //Playerを目標とする
-            agent.destination = targetPos;
+            m_agent.destination = m_targetPos;
         }
         else
         {
             //PlayerがtrackingRangeより近づいたら追跡開始
-            if (distance < trackingRange)
+            if (m_distance < m_trackingRange)
             {
-                if (!playerController.m_stealth)
+                if (!m_playerController.m_stealth)
                 {
-                    tracking = true;
-                    foreach (EnemyController enemyController in playerController.enemyCon)
+                    m_tracking = true;
+                    foreach (EnemyController enemyController in m_playerController.enemyCon)
                     {
                         if (enemyController == this)
                         {
@@ -258,14 +324,14 @@ public class EnemyController : MonoBehaviour
                     }
                     if (!onPlayer)
                     {
-                        playerController.enemyCon.Add(this);
+                        m_playerController.enemyCon.Add(this);
                     }
                 }
             }
 
             // エージェントが現目標地点に近づいてきたら、
             // 次の目標地点を選択します
-            if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            if (!m_agent.pathPending && m_agent.remainingDistance < 0.5f)
                 GotoNextPoint();
         }
     }
@@ -281,97 +347,37 @@ public class EnemyController : MonoBehaviour
         Gizmos.DrawWireSphere(enemyProjector.transform.position, quitRange);
     }*/
 
+    /// <summary>
+    /// 色変更
+    /// </summary>
+    /// <param name="color"></param>
     public void Form_Color(ColorInfo.COLOR_TYPE color)
     {
-        nowColor = color;
-        m_colorSprites = SelectColor(nowColor);
+        m_nowColor = color;
+        m_enemyScipt.ChangeColorImage(color);
     }
 
+    /// <summary>
+    /// 動きを停止
+    /// </summary>
     public void Freeze()
     {
-        agent.isStopped = true;
+        if (m_agent.isStopped == true)
+        {
+            return;
+        }
+        m_agent.isStopped = true;
     }
 
+    /// <summary>
+    /// 停止を解除
+    /// </summary>
     public void FreezeOff()
     {
-        agent.isStopped = false;
-    }
-
-    /// <summary>スクリプトアニメーション</summary>
-    void EnemyAnimation()
-    {
-        enemyImage.sprite = m_animationSprites[m_imageIndex];
-        m_imageIndex = (m_imageIndex + 1) % m_animationSprites.Length;
-    }
-
-    /// <summary>色のタイプを渡すとその色の画像を返す</summary>
-    /// <param name="colorType">色のタイプ</param>
-    /// <returns></returns>
-    public AnimationImages SelectColor(ColorInfo.COLOR_TYPE colorType)
-    {
-        AnimationImages image = null;
-        switch (colorType)
+        if (m_agent.isStopped == false)
         {
-            case ColorInfo.COLOR_TYPE.Blank:
-                image = blankImages;
-                break;
-            case ColorInfo.COLOR_TYPE.Red:
-                image = redImages;
-                break;
-            case ColorInfo.COLOR_TYPE.Bule:
-                image = buleImages;
-                break;
-            case ColorInfo.COLOR_TYPE.Green:
-                image = greenImages;
-                break;
+            return;
         }
-        return image;
-    }
-
-    /// <summary>エネミーのアニメーション一覧</summary>
-    [System.Serializable]
-    public class AnimationImages
-    {
-        [SerializeField] public Sprite[] m_idleImages;
-        [SerializeField] public Sprite[] m_backImages;
-        [SerializeField] public Sprite[] m_frontImages;
-        [SerializeField] public Sprite[] m_sideImages;
-        [SerializeField] public Sprite[] m_attackImages;
-
-        public enum ANIMATION_TYPE
-        {
-            Idle,
-            Back,
-            Side,
-            Front,
-            Attack
-        }
-
-        public Sprite[] GetAnimImages(ANIMATION_TYPE type)
-        {
-            Sprite[] sprites;
-            switch (type)
-            {
-                case ANIMATION_TYPE.Idle:
-                    sprites = m_idleImages;
-                    break;
-                case ANIMATION_TYPE.Back:
-                    sprites = m_backImages;
-                    break;
-                case ANIMATION_TYPE.Side:
-                    sprites = m_sideImages;
-                    break;
-                case ANIMATION_TYPE.Front:
-                    sprites = m_frontImages;
-                    break;
-                case ANIMATION_TYPE.Attack:
-                    sprites = m_frontImages;
-                    break;
-                default:
-                    sprites = null;
-                    break;
-            }
-            return sprites;
-        }
+        m_agent.isStopped = false;
     }
 }

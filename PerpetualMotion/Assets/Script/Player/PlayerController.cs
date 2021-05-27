@@ -91,6 +91,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject eye;
     /// <summary>eyeの生成場所</summary>
     GameObject instancedEye;
+    /// <summary> AudioManagerを参照する変数 </summary>
+    AudioManager audioManager;
 
     void Start()
     {
@@ -100,6 +102,10 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.FindObjectOfType<GameManager>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         m_rb = GetComponent<Rigidbody2D>();
+        if (GameObject.FindObjectOfType<AudioManager>())
+        {
+            audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
     }
 
     void Update()
@@ -200,10 +206,15 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))//スペースを押したとき
         {
+            //電流が流れる前
+            audioManager.PlaySE(audioManager.audioClips[6]);
+
             if (stealthObject)//ステルスオブジェクトに触れているなら
             {
                 if (m_stealth)//ステルス状態なら
                 {
+                    //電流が流れる前
+                    audioManager.PlaySE(audioManager.audioClips[7]);
                     StealthOff();
                 }
                 else
@@ -229,6 +240,8 @@ public class PlayerController : MonoBehaviour
                     if (h != 0 || v != 0)
                     {
                         PlayerAnimation();
+                        //電流が流れる前
+                        audioManager.PlaySE(audioManager.audioClips[5]);
                     }
                     m_counter = 0;
                 }
@@ -271,7 +284,7 @@ public class PlayerController : MonoBehaviour
         {
             foreach (EnemyController enemy in enemyCon)
             {
-                enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
             }
         }
     }
@@ -282,12 +295,14 @@ public class PlayerController : MonoBehaviour
         {
             m_isDamaged = true;
             m_playerHp -= 1;
+            //電流が流れる前
+            audioManager.PlaySE(audioManager.audioClips[8]);
             if (enemyCon.Count > 0)
             {
                 foreach (EnemyController enemy in enemyCon)
                 {
-                    Debug.Log(enemy.enemyProjector.GetComponent<CapsuleCollider2D>());
-                    enemy.enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                    Debug.Log(enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>());
+                    enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
                 }
             }
             Invoke("FlashEnd", m_invincibleTime);
