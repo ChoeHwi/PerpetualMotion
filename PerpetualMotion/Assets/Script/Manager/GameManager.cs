@@ -25,6 +25,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     GameMessenger gameMessenger;
     /// <summary> 参照先の変数 </summary>
     PlayerController m_playerController;
+    /// <summary> AudioManagerを参照する変数 </summary>
+    AudioManager audioManager;
 
     void Start()
     {
@@ -37,6 +39,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
                 gameMessenger = GameObject.FindObjectOfType<GameMessenger>();
                 gameMessenger.mobiusScript.gameManager = this;
             }
+        }
+
+        if (GameObject.FindObjectOfType<AudioManager>())
+        {
+            audioManager = GameObject.FindObjectOfType<AudioManager>();
         }
     }
 
@@ -87,6 +94,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         else
         {
             gameMessenger.gameOverResult.SetActive(true);
+            audioManager.PlayBgm(audioManager.gameOverBGM);
         }
     }
 
