@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1341,16 +1341,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 198a806e75f818d43bb96cc51e8b0da6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleBGM: {fileID: 0}
-  enterSE: {fileID: 0}
-  returnSE: {fileID: 0}
-  gameBGM: []
-  footSE: {fileID: 0}
-  damageSE: {fileID: 0}
-  gameOver: {fileID: 0}
+  titleBGM: {fileID: 8300000, guid: d8cd77ce53da9c54daa43eed2278202c, type: 3}
+  gameOverBGM: {fileID: 8300000, guid: 04594f7cf973b24409b5b33df21328a9, type: 3}
+  gameBGM:
+  - {fileID: 8300000, guid: c898a0a62e4307d48ba5bfbfb6376b92, type: 3}
   audioClips:
   - {fileID: 8300000, guid: acb088d87338601489511b2cb39d9525, type: 3}
   - {fileID: 8300000, guid: ae91307a1585b3444a9ae8cb84cc8bf3, type: 3}
+  - {fileID: 8300000, guid: d0bc16785f1057643aa551bfa82c4df8, type: 3}
+  - {fileID: 8300000, guid: 5269bd078c5e9f84f893a8229f95fdba, type: 3}
+  - {fileID: 8300000, guid: d1fb1c8466ace334fb56e13ea3984b15, type: 3}
+  - {fileID: 8300000, guid: 948980ae462a92e45a69c745ca2dafed, type: 3}
+  - {fileID: 8300000, guid: eca677abe73e5dd4bbac2e29e27afa4f, type: 3}
+  - {fileID: 8300000, guid: b3059219380a0a24fad8bbec181f6777, type: 3}
   m_mute: 0
   fadeSpeed: 0
   audioSourceBGM: {fileID: 2132549278}
