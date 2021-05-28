@@ -29,10 +29,10 @@ public class ElectricTrap : MonoBehaviour
         {   
             actuation = false;
             //電流が流れる前
-            audioManager.PlaySE(audioManager.audioClips[2]);
+            audioManager.PlaySE(audioManager.audioClips[3]);
             if (enemyController)
-            {
-                enemyController.FreezeOff();
+            {             
+                enemyController.FreezeOff();  
                 enemyController = null;
             }
         }
@@ -68,11 +68,11 @@ public class ElectricTrap : MonoBehaviour
     {
         anim.SetBool("Trap", true);
         //電流が流れている時
-        audioManager.PlaySE(audioManager.audioClips[3]);
+        audioManager.PlaySE(audioManager.audioClips[4]);
         yield return new WaitForSeconds(3f);
         anim.SetBool("Trap", false);
         //スイッチOFFのSE
-        audioManager.PlaySE(audioManager.audioClips[1]);
+        audioManager.PlaySE(audioManager.audioClips[2]);
         yield break;
     }
 }
