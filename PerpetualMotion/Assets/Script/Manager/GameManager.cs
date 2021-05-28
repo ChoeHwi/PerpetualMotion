@@ -75,7 +75,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         yield return new WaitForSeconds(1f);
         if (gameMessenger.mobiusScript.FitPiece(item))
         {
-
+            
         }
         else
         {
