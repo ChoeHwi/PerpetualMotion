@@ -94,6 +94,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         else
         {
             gameMessenger.gameOverResult.SetActive(true);
+            //ゲームオーバーBGM
             audioManager.PlayBgm(audioManager.gameOverBGM);
         }
     }
