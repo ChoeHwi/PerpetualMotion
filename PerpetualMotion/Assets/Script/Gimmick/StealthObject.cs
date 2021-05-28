@@ -13,6 +13,8 @@ public class StealthObject : ColorInfo
     /// <summary>目</summary>
     public GameObject eyes;
     public GameObject RootObject;
+    /// <summary> AudioManagerを参照する変数 </summary>
+    AudioManager audioManager;
 
     private void Start()
     {
@@ -25,7 +27,12 @@ public class StealthObject : ColorInfo
             {
                 item.gameObject.SetActive(false);
             }
-        }        
+        }
+
+        if (GameObject.FindObjectOfType<AudioManager>())
+        {
+            audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
     }
 
     public void ObjSet()
@@ -42,6 +49,8 @@ public class StealthObject : ColorInfo
         foreach (Transform item in transform)
         {
             item.gameObject.SetActive(true);
+            //スイッチONのSE
+            audioManager.PlaySE(audioManager.audioClips[9]);
         }
     }
     public void EyeController_Fa()
