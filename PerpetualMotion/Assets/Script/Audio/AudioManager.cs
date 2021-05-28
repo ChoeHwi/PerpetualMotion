@@ -7,18 +7,10 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
     /// <summary>タイトル画面のBGM</summary>
     public AudioClip titleBGM;
-    /// <summary>決定ボタンのSE</summary>
-    public AudioClip enterSE;
-    /// <summary>戻るボタンのSE</summary>
-    public AudioClip returnSE;
+    /// <summary>ゲームオーバーのSE</summary>
+    public AudioClip gameOverBGM;
     /// <summary>各ステージのBGM</summary>
     public AudioClip[] gameBGM;
-    /// <summary>足音のSE</summary>
-    public AudioClip footSE;
-    /// <summary>ダメージのSE
-    public AudioClip damageSE;
-    /// <summary>ゲームオーバーのSE</summary>
-    public AudioClip gameOver;
     /// <summary> 複数のAudioClipを扱う。index番号を設定 </summary>
     [Header("複数のAudioClipを扱う。index番号を設定")]
     public AudioClip[] audioClips;
@@ -45,23 +37,17 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
             case "Title":
                 PlayBgm(titleBGM);
                 break;
-            case "Stage1":
-                //PlayBgm(gameBGM[0]);
-                break;
-            case "Stage2":
-                //PlayBgm(gameBGM[1]);
-                break;
-            case "Stage3":
-                PlayBgm(gameBGM[2]);
-                break;
             case "Tutorial":
                 PlayBgm(gameBGM[0]);
                 break;
+                //case "Scene1":
+                //    PlayBgm(gameBGM[0]);
+                //    break;
         }
     }
 
     //BGMを再生
-    void PlayBgm(AudioClip bgm)
+    public void PlayBgm(AudioClip bgm)
     {
         audioSourceBGM.clip = bgm;
         audioSourceBGM.loop = true;
