@@ -38,6 +38,10 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         { 
             case "Title":
                 PlayBgm(titleBGM);
+                if (titleBGM)
+                {
+                    audioSourceBGM.loop = true;
+                }
                 break;
             case "Tutorial":
                 PlayBgm(gameBGM[0]);
@@ -52,7 +56,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void PlayBgm(AudioClip bgm)
     {
         audioSourceBGM.clip = bgm;
-        audioSourceBGM.loop = true;
+        audioSourceBGM.loop = false;
         audioSourceBGM.Play();
     }
 
