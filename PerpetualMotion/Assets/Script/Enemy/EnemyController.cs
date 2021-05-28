@@ -153,7 +153,7 @@ public class EnemyController : MonoBehaviour
         {
             if (m_transform.forward.y < 0)//下　
             {
-                Debug.Log("下1");
+                //Debug.Log("下1");
                 if (m_isAttack)
                 {
                     m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackFront);
@@ -165,7 +165,7 @@ public class EnemyController : MonoBehaviour
             }
             else//上
             {
-                Debug.Log("上1");
+                //Debug.Log("上1");
                 if (m_isAttack)
                 {
                     m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackBack);
@@ -180,7 +180,7 @@ public class EnemyController : MonoBehaviour
         {
             if (m_transform.forward.y < 0)//右下
             {
-                Debug.Log("右下");
+                //Debug.Log("右下");
                 if (m_isAttack)
                 {
                     m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackRight);
@@ -192,7 +192,7 @@ public class EnemyController : MonoBehaviour
             }
             else//右上
             {
-                Debug.Log("右上");
+                //Debug.Log("右上");
                 if (m_isAttack)
                 {
                     m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackRight);
@@ -205,7 +205,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (m_angle >= 67.5 && m_angle < 112.5)//右
         {
-            Debug.Log("右");
+            //Debug.Log("右");
             if (m_isAttack)
             {
                 m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackRight);
@@ -217,7 +217,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (m_angle >= 157.5 && m_angle < 202.5)//下
         {
-            Debug.Log("下2");
+            //Debug.Log("下2");
             if (m_isAttack)
             {
                 m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackFront);
@@ -229,7 +229,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (m_angle > 202.5 && m_angle <= 247.5)//左下
         {
-            Debug.Log("左下");
+            //Debug.Log("左下");
             if (m_isAttack)
             {
                 m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
@@ -241,7 +241,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (m_angle >= 247.5 && m_angle < 292.5)//左
         {
-            Debug.Log("左");
+            //Debug.Log("左");
             if (m_isAttack)
             {
                 m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
@@ -255,7 +255,7 @@ public class EnemyController : MonoBehaviour
         {
             if (m_transform.forward.y < 0)//左下
             {
-                Debug.Log("左下");
+                //Debug.Log("左下");
                 if (m_isAttack)
                 {
                     m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
@@ -267,7 +267,7 @@ public class EnemyController : MonoBehaviour
             }
             else//左上
             {
-                Debug.Log("左上");
+                //Debug.Log("左上");
                 if (m_isAttack)
                 {
                     m_enemyScipt.AnimChange(AnimationImages.ANIMATION_TYPE.AttackLeft);
