@@ -39,11 +39,11 @@ public class ColorSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             UICheng.gameObject.SetActive(true);
         }
-        else if (Input.GetKeyUp(KeyCode.X))
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             UICheng.gameObject.SetActive(false);
         }
