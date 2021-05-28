@@ -5,6 +5,7 @@ using UnityEngine.UI;
 /// <summary>色を変えるスクリプト</summary>
 public class ColorSelection : MonoBehaviour
 {
+    /// <summary></summary>
     public int selectNumber = 0;
     [System.NonSerialized]
     [Header("赤色のバー")]
@@ -16,16 +17,16 @@ public class ColorSelection : MonoBehaviour
     [Header("青色のバー")]
     [SerializeField] Image select_blue;
     /// <summary>3本のゲージの値</summary>
-    float[] usageTimes = new float[3] { 1f, 1f, 1f, };
+    float[] m_usageTimes = new float[3] { 1f, 1f, 1f, };
     /// <summary>ゲージの減少速度</summary>
     [Header("色の使用スピード(0に近いと遅く減る)")]
-    public float speed;
+    public float m_speed;
     /// <summary>ゲージの回復速度</summary>
     [Header("色の回復スピード(0に近いと遅く回復する)")]
-    public float heelSpeed;
+    public float m_heelSpeed;
     PlayerController playerController;
     /// <summary>プレイやの色変えのUIオブジェクト</summary>
-    public GameObject UICheng;
+    public GameObject m_UICheng;
 
     void Start()
     {
@@ -41,15 +42,16 @@ public class ColorSelection : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            UICheng.gameObject.SetActive(true);
+            m_UICheng.gameObject.SetActive(true);
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            UICheng.gameObject.SetActive(false);
+            m_UICheng.gameObject.SetActive(false);
         }
-        selectColor();
+        SelectColor();
     }
-    void selectColor()
+
+    void SelectColor()
     {
         switch (selectNumber)
         {
@@ -58,24 +60,24 @@ public class ColorSelection : MonoBehaviour
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Red);
                 }
-                if (usageTimes[0] > 0)
+                if (m_usageTimes[0] > 0)
                 {
-                    usageTimes[0] -= speed / 100 * Time.deltaTime;
-                    select_red.fillAmount = usageTimes[0];
-                    if (usageTimes[1] < 1)
+                    m_usageTimes[0] -= m_speed / 100 * Time.deltaTime;
+                    select_red.fillAmount = m_usageTimes[0];
+                    if (m_usageTimes[1] < 1)
                     {
-                        usageTimes[1] += heelSpeed / 100 * Time.deltaTime;
-                        select_green.fillAmount = usageTimes[1];
+                        m_usageTimes[1] += m_heelSpeed / 100 * Time.deltaTime;
+                        select_green.fillAmount = m_usageTimes[1];
                     }
-                    if (usageTimes[2] < 1)
+                    if (m_usageTimes[2] < 1)
                     {
-                        usageTimes[2] += heelSpeed / 100 * Time.deltaTime;
-                        select_blue.fillAmount = usageTimes[2];
+                        m_usageTimes[2] += m_heelSpeed / 100 * Time.deltaTime;
+                        select_blue.fillAmount = m_usageTimes[2];
                     }
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    shiftColor();
+                    ShiftColor();
                     selectNumber = 3;
                 }
                 break;
@@ -84,24 +86,24 @@ public class ColorSelection : MonoBehaviour
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Green);
                 }
-                if (usageTimes[1] > 0)
+                if (m_usageTimes[1] > 0)
                 {
-                    usageTimes[1] -= speed / 100 * Time.deltaTime;
-                    select_green.fillAmount = usageTimes[1];
-                    if (usageTimes[0] < 1)
+                    m_usageTimes[1] -= m_speed / 100 * Time.deltaTime;
+                    select_green.fillAmount = m_usageTimes[1];
+                    if (m_usageTimes[0] < 1)
                     {
-                        usageTimes[0] += heelSpeed / 100 * Time.deltaTime;
-                        select_red.fillAmount = usageTimes[0];
+                        m_usageTimes[0] += m_heelSpeed / 100 * Time.deltaTime;
+                        select_red.fillAmount = m_usageTimes[0];
                     }
-                    if (usageTimes[2] < 1)
+                    if (m_usageTimes[2] < 1)
                     {
-                        usageTimes[2] += heelSpeed / 100 * Time.deltaTime;
-                        select_blue.fillAmount = usageTimes[2];
+                        m_usageTimes[2] += m_heelSpeed / 100 * Time.deltaTime;
+                        select_blue.fillAmount = m_usageTimes[2];
                     }
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    shiftColor();
+                    ShiftColor();
                     selectNumber = 3;
                 }
                 break;
@@ -110,24 +112,24 @@ public class ColorSelection : MonoBehaviour
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Bule);
                 }
-                if (usageTimes[2] > 0)
+                if (m_usageTimes[2] > 0)
                 {
-                    usageTimes[2] -= speed /100 * Time.deltaTime;
-                    select_blue.fillAmount = usageTimes[2];
-                    if (usageTimes[0] < 1)
+                    m_usageTimes[2] -= m_speed /100 * Time.deltaTime;
+                    select_blue.fillAmount = m_usageTimes[2];
+                    if (m_usageTimes[0] < 1)
                     {
-                        usageTimes[0] += heelSpeed / 100 * Time.deltaTime;
-                        select_red.fillAmount = usageTimes[0];
+                        m_usageTimes[0] += m_heelSpeed / 100 * Time.deltaTime;
+                        select_red.fillAmount = m_usageTimes[0];
                     }
-                    if (usageTimes[1] < 1)
+                    if (m_usageTimes[1] < 1)
                     {
-                        usageTimes[1] += heelSpeed / 100 * Time.deltaTime;
-                        select_green.fillAmount = usageTimes[1];
+                        m_usageTimes[1] += m_heelSpeed / 100 * Time.deltaTime;
+                        select_green.fillAmount = m_usageTimes[1];
                     }
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    shiftColor();
+                    ShiftColor();
                     selectNumber = 3;
                 }
                 break;
@@ -136,35 +138,42 @@ public class ColorSelection : MonoBehaviour
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Blank);
                 }
-                if (usageTimes[0] < 1)
+                if (m_usageTimes[0] < 1)
                 {
-                    usageTimes[0] += heelSpeed / 100 * Time.deltaTime;
-                    select_red.fillAmount = usageTimes[0];
+                    m_usageTimes[0] += m_heelSpeed / 100 * Time.deltaTime;
+                    select_red.fillAmount = m_usageTimes[0];
                 }
-                if (usageTimes[1] < 1)
+                if (m_usageTimes[1] < 1)
                 {
-                    usageTimes[1] += heelSpeed / 100 * Time.deltaTime;
-                    select_green.fillAmount = usageTimes[1];
+                    m_usageTimes[1] += m_heelSpeed / 100 * Time.deltaTime;
+                    select_green.fillAmount = m_usageTimes[1];
                 }
-                if (usageTimes[2] < 1)
+                if (m_usageTimes[2] < 1)
                 {
-                    usageTimes[2] += heelSpeed / 100 * Time.deltaTime;
-                    select_blue.fillAmount = usageTimes[2];
+                    m_usageTimes[2] += m_heelSpeed / 100 * Time.deltaTime;
+                    select_blue.fillAmount = m_usageTimes[2];
                 }
                 break;
         }
     }
 
     /// <summary>残っているゲージを探し、切り替える</summary>
-    void shiftColor()
+    void ShiftColor()
     {
-        for(int i = 0; i < usageTimes.Length; i++)
+        for(int i = 0; i < m_usageTimes.Length; i++)
         {
-            if (usageTimes[i] > 0)
+            if (m_usageTimes[i] > 0)
             {
                 selectNumber = i;
                 break;
             }
         }
+    }
+
+    /// <summary>外部から色を変える</summary>
+    /// <param name="colorNumber"></param>
+    public void ColorChange(int colorNumber)
+    {
+        selectNumber = colorNumber;
     }
 }

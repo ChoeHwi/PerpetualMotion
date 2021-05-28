@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 636399729}
   - component: {fileID: 636399728}
   m_Layer: 5
-  m_Name: Select (2)
+  m_Name: LoadGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,7 +762,7 @@ GameObject:
   - component: {fileID: 1441002202}
   - component: {fileID: 1441002201}
   m_Layer: 5
-  m_Name: Select (3)
+  m_Name: Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1056,7 +1056,7 @@ GameObject:
   - component: {fileID: 1891490214}
   - component: {fileID: 1891490213}
   m_Layer: 5
-  m_Name: Select (1)
+  m_Name: GameStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1356,6 +1356,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3059219380a0a24fad8bbec181f6777, type: 3}
   m_mute: 0
   fadeSpeed: 0
+  m_BGMVolume: 0.01
+  m_SEVolume: 0.01
   audioSourceBGM: {fileID: 2132549278}
   audioSourceSE: {fileID: 1124739679}
 --- !u!4 &2132549277

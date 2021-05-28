@@ -416,6 +416,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        PlayerAnimation();
     }
     
     /// <summary>ステルスオン</summary>

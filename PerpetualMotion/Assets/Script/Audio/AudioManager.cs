@@ -18,8 +18,10 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public bool m_mute = false;
     /// <summary>BGMのフェードアウトスピード</summary>
     [SerializeField] float fadeSpeed;
+    /// <summary>BGMのボリューム</summary>
+    [SerializeField] public float m_BGMVolume = 0.01f;
     /// <summary>SEのボリューム</summary>
-    [SerializeField] public float seVolume;
+    [SerializeField] public float m_SEVolume = 0.01f;
 
     [SerializeField] public AudioSource audioSourceBGM;
     [SerializeField] public AudioSource audioSourceSE;
@@ -55,6 +57,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     //BGMを再生
     public void PlayBgm(AudioClip bgm)
     {
+        audioSourceBGM.volume = m_BGMVolume;
         audioSourceBGM.clip = bgm;
         audioSourceBGM.loop = false;
         audioSourceBGM.Play();
@@ -80,7 +83,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void PlaySE(AudioClip SE)
     {
         audioSourceSE.pitch = 1;
-        audioSourceSE.volume = seVolume;
+        audioSourceSE.volume = m_SEVolume;
         audioSourceSE.PlayOneShot(SE);
     }
 }
