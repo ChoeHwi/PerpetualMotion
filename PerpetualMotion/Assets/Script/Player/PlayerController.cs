@@ -206,14 +206,14 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))//スペースを押したとき
         {
-            //電流が流れる前
+            //隠れる
             audioManager.PlaySE(audioManager.audioClips[6]);
 
             if (stealthObject)//ステルスオブジェクトに触れているなら
             {
                 if (m_stealth)//ステルス状態なら
                 {
-                    //電流が流れる前
+                    //離れるSE
                     audioManager.PlaySE(audioManager.audioClips[7]);
                     StealthOff();
                 }
@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
                     if (h != 0 || v != 0)
                     {
                         PlayerAnimation();
-                        //電流が流れる前
+                        //移動
                         audioManager.PlaySE(audioManager.audioClips[5]);
                     }
                     m_counter = 0;
@@ -295,7 +295,7 @@ public class PlayerController : MonoBehaviour
         {
             m_isDamaged = true;
             m_playerHp -= 1;
-            //電流が流れる前
+            //ダメージを受けた時
             audioManager.PlaySE(audioManager.audioClips[8]);
             if (enemyCon.Count > 0)
             {
