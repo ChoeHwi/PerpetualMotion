@@ -11,6 +11,19 @@ public class ChengColor : MonoBehaviour
     {
         colorSelection = FindObjectOfType<ColorSelection>();
     }
+
+    private void Update()
+    {
+        if (Input.)
+        {
+
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+
+        }
+    }
+
     public void ColorDown(int colorNumber)
     {
         colorSelection.selectNumber = colorNumber;
