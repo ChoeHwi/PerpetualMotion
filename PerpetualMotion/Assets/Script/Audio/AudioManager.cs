@@ -18,15 +18,21 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public bool m_mute = false;
     /// <summary>BGMのフェードアウトスピード</summary>
     [SerializeField] float fadeSpeed;
-    /// <summary>BGMのボリューム</summary>
-    [SerializeField] public float m_BGMVolume = 0.01f;
-    /// <summary>SEのボリューム</summary>
-    [SerializeField] public float m_SEVolume = 0.01f;
+    /// <summary>セーブマネージャーを格納する場所</summary>
+    SaveManager saveManager;
 
     [SerializeField] public AudioSource audioSourceBGM;
     [SerializeField] public AudioSource audioSourceSE;
     void Start()
     {
+        if (GameObject.FindObjectOfType<SaveManager>())
+        {
+            saveManager = GameObject.FindObjectOfType<SaveManager>().GetComponent<SaveManager>();
+            Debug.Log(saveManager.saveData.m_BGMVolume);
+            Debug.Log(saveManager.saveData.m_SEVolume);
+            VolumeChangeBGM(saveManager.saveData.m_BGMVolume);
+            VolumeChangeSE(saveManager.saveData.m_SEVolume);
+        }
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (SceneManager.GetActiveScene().name == "Title")
         {
@@ -57,7 +63,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     //BGMを再生
     public void PlayBgm(AudioClip bgm)
     {
-        audioSourceBGM.volume = m_BGMVolume;
         audioSourceBGM.clip = bgm;
         audioSourceBGM.loop = false;
         audioSourceBGM.Play();
@@ -83,7 +88,18 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void PlaySE(AudioClip SE)
     {
         audioSourceSE.pitch = 1;
-        audioSourceSE.volume = m_SEVolume;
         audioSourceSE.PlayOneShot(SE);
+    }
+
+    /// <summary>BGMの音量変更を反映</summary>
+    public void VolumeChangeBGM(float volume)
+    {
+        audioSourceBGM.volume = volume;
+    }
+
+    /// <summary>SEの音量変更を反映</summary>
+    public void VolumeChangeSE(float volume)
+    {
+        audioSourceSE.volume = volume;
     }
 }
