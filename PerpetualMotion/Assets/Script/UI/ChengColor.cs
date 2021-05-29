@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChengColor : MonoBehaviour
 {
-    public int selectNumber;
+    public int selectNumber = 0;
     ColorSelection colorSelection;
     void Start()
     {
@@ -14,18 +14,26 @@ public class ChengColor : MonoBehaviour
 
     private void Update()
     {
-        if (Input.)
+        if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.UpSelect))
         {
-
+            selectNumber = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.DownSelect))
         {
-
+            selectNumber = 2;
+        }
+        if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.LeftSelect))
+        {
+            selectNumber = 3;
+        }
+        if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.RightSelect))
+        {
+            selectNumber = 1;
         }
     }
 
-    public void ColorDown(int colorNumber)
+    public void ColorDown()
     {
-        colorSelection.selectNumber = colorNumber;
+        colorSelection.selectNumber = selectNumber;
     }
 }
