@@ -19,6 +19,8 @@ public class Event : MonoBehaviour
     public int selectNum;
     select selection;
 
+    [SerializeField] GameObject optionPanel;
+
     void Start()
     {
         selection = FindObjectOfType<select>();
@@ -61,5 +63,16 @@ public class Event : MonoBehaviour
     public void DownButton_sub()
     {
         SceneManager.LoadScene(LoadSceneName[1]);
+    }
+
+    /// <summary>
+    /// オプションボタンを押したとき
+    /// </summary>
+    public void OptionClick()
+    {
+        if (optionPanel)
+        {
+            optionPanel.SetActive(true);
+        }
     }
 }
