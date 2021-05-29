@@ -33,7 +33,7 @@ public class SaveManager : SingletonMonoBehaviour<SaveManager>
     /// deckImagePathがなければ作成
     /// 保存されているDeckDataを読み込み、なければ初期化
     /// </summary>
-    private void Start()
+    private void Awake()
     {
         SaveDataPath = Application.dataPath + @"\savedata.json";
         if (File.Exists(SaveDataPath))
