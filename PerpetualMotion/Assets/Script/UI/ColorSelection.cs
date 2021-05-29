@@ -26,7 +26,7 @@ public class ColorSelection : MonoBehaviour
     public float m_heelSpeed;
     PlayerController playerController;
     /// <summary>プレイやの色変えのUIオブジェクト</summary>
-    public GameObject m_UICheng;
+    public ChengColor m_UICheng;
 
     void Start()
     {
@@ -46,6 +46,7 @@ public class ColorSelection : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
+            m_UICheng.ColorDown();
             m_UICheng.gameObject.SetActive(false);
         }
         SelectColor();
@@ -56,6 +57,27 @@ public class ColorSelection : MonoBehaviour
         switch (selectNumber)
         {
             case 0:
+                if (playerController.nowColor != ColorInfo.COLOR_TYPE.Blank)
+                {
+                    playerController.Form_Color(ColorInfo.COLOR_TYPE.Blank);
+                }
+                if (m_usageTimes[0] < 1)
+                {
+                    m_usageTimes[0] += m_heelSpeed / 100 * Time.deltaTime;
+                    select_red.fillAmount = m_usageTimes[0];
+                }
+                if (m_usageTimes[1] < 1)
+                {
+                    m_usageTimes[1] += m_heelSpeed / 100 * Time.deltaTime;
+                    select_green.fillAmount = m_usageTimes[1];
+                }
+                if (m_usageTimes[2] < 1)
+                {
+                    m_usageTimes[2] += m_heelSpeed / 100 * Time.deltaTime;
+                    select_blue.fillAmount = m_usageTimes[2];
+                }
+                break;
+            case 1:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Red)
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Red);
@@ -77,11 +99,10 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    ShiftColor();
-                    selectNumber = 3;
+                    selectNumber = 0;
                 }
                 break;
-            case 1:
+            case 2:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Green)
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Green);
@@ -103,11 +124,10 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    ShiftColor();
-                    selectNumber = 3;
+                    selectNumber = 0;
                 }
                 break;
-            case 2:
+            case 3:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Bule)
                 {
                     playerController.Form_Color(ColorInfo.COLOR_TYPE.Bule);
@@ -129,8 +149,7 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    ShiftColor();
-                    selectNumber = 3;
+                    selectNumber = 0;
                 }
                 break;
             default:
@@ -154,19 +173,6 @@ public class ColorSelection : MonoBehaviour
                     select_blue.fillAmount = m_usageTimes[2];
                 }
                 break;
-        }
-    }
-
-    /// <summary>残っているゲージを探し、切り替える</summary>
-    void ShiftColor()
-    {
-        for(int i = 0; i < m_usageTimes.Length; i++)
-        {
-            if (m_usageTimes[i] > 0)
-            {
-                selectNumber = i;
-                break;
-            }
         }
     }
 
