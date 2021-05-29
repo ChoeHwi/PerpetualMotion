@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     /// <summary>現在のカラーイメージ</summary>
     AnimationImages m_colorSprites;
+    
     /// <summary>現在アニメーションしているイメージの配列</summary>
     Sprite[] m_animationSprites;
     /// <summary>ダメージアニメーションの表示中</summary>
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
     GameManager gameManager;
     /// <summary>今できることを表示するUI</summary>
     [SerializeField] GameObject dialog;
-    
+    /// <summary>現在のアニメーションタイプ</summary>
+    AnimationImages.ANIMATION_TYPE animationType;
     /// <summary>現在入ることのできるステルスオブジェクト</summary>
     public StealthObject stealthObject;
     /// <summary>ステルスオブジェクトに追加したRigidbody2D</summary>
@@ -114,7 +116,8 @@ public class PlayerController : MonoBehaviour
         #region
         if (Input.GetKeyDown(KeyCode.D))
         {
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            animationType = AnimationImages.ANIMATION_TYPE.Side;
+            m_animationSprites = m_colorSprites.GetAnimImages(animationType);
             if (transform.localScale.x > 0)
             {
                 Vector3 scale = transform.localScale;
@@ -125,7 +128,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Side);
+            animationType = AnimationImages.ANIMATION_TYPE.Side;
+            m_animationSprites = m_colorSprites.GetAnimImages(animationType);
             if (transform.localScale.x < 0)
             {
                 Vector3 scale = transform.localScale;
@@ -136,7 +140,8 @@ public class PlayerController : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.S))
         {
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Front);
+            animationType = AnimationImages.ANIMATION_TYPE.Front;
+            m_animationSprites = m_colorSprites.GetAnimImages(animationType);
             if (transform.localScale.x < 0)
             {
                 Vector3 scale = transform.localScale;
@@ -147,7 +152,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
-            m_animationSprites = m_colorSprites.GetAnimImages(AnimationImages.ANIMATION_TYPE.Back);
+            animationType = AnimationImages.ANIMATION_TYPE.Back;
+            m_animationSprites = m_colorSprites.GetAnimImages(animationType);
             if (transform.localScale.x < 0)
             {
                 Vector3 scale = transform.localScale;
@@ -416,6 +422,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        m_animationSprites = m_colorSprites.GetAnimImages(animationType);
         PlayerAnimation();
     }
     
