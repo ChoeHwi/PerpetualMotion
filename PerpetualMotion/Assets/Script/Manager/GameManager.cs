@@ -50,6 +50,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void LostItem(Vector3 position, GameObject itemObj)
     {
         var item = Instantiate(itemObj, new Vector3(position.x + Random.Range(-3, 3), position.y + Random.Range(-3, 3), 0), new Quaternion(0, 0, 0, 0));
+        Debug.Log(item.transform.position);
         if (NavMesh.SamplePosition(item.transform.position, out hit, 2.0f, NavMesh.AllAreas))
         {
             item.transform.position = hit.position;
