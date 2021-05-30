@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ColorSelection : MonoBehaviour
 {
     /// <summary></summary>
-    public int selectNumber = 0;
+    public int m_selectNumber = 0;
     [System.NonSerialized]
     [Header("赤色のバー")]
     [SerializeField] Image select_red;
@@ -48,13 +48,14 @@ public class ColorSelection : MonoBehaviour
         {
             m_UICheng.ColorDown();
             m_UICheng.gameObject.SetActive(false);
+            Debug.Log(m_selectNumber);
         }
         SelectColor();
     }
 
     void SelectColor()
     {
-        switch (selectNumber)
+        switch (m_selectNumber)
         {
             case 0:
                 if (playerController.nowColor != ColorInfo.COLOR_TYPE.Blank)
@@ -99,7 +100,7 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    selectNumber = 0;
+                    m_selectNumber = 0;
                 }
                 break;
             case 2:
@@ -124,7 +125,7 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    selectNumber = 0;
+                    m_selectNumber = 0;
                 }
                 break;
             case 3:
@@ -149,7 +150,7 @@ public class ColorSelection : MonoBehaviour
                 }
                 else//ゲージがなくなったら合図をだす
                 {
-                    selectNumber = 0;
+                    m_selectNumber = 0;
                 }
                 break;
             default:
@@ -180,6 +181,6 @@ public class ColorSelection : MonoBehaviour
     /// <param name="colorNumber"></param>
     public void ColorChange(int colorNumber)
     {
-        selectNumber = colorNumber;
+        m_selectNumber = colorNumber;
     }
 }

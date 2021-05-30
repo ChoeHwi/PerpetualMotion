@@ -51,6 +51,6 @@ public class ChengColor : MonoBehaviour
 
     public void ColorDown()
     {
-        colorSelection.selectNumber = selectNumber;
+        colorSelection.m_selectNumber = selectNumber;
     }
 }

@@ -1083,9 +1083,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b973351a9901ae244b3683070c739e92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectNumber: 0
-  m_speed: 0
-  m_heelSpeed: 0
+  m_selectNumber: 0
+  m_speed: 9
+  m_heelSpeed: 9
   m_UICheng: {fileID: 8477586628606910006}
 --- !u!114 &8974755149222773085
 MonoBehaviour:
