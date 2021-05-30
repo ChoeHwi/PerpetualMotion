@@ -190,6 +190,8 @@ MonoBehaviour:
   arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
+  m_stageSprite: {fileID: 0}
+  m_stageSpriteObject: {fileID: 0}
 --- !u!1 &8779087946408710539
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +421,8 @@ MonoBehaviour:
   arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
+  m_stageSprite: {fileID: 0}
+  m_stageSpriteObject: {fileID: 0}
 --- !u!1 &8779087947167189897
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +441,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8779087947167189896
 RectTransform:
   m_ObjectHideFlags: 0
