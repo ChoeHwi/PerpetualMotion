@@ -64,6 +64,10 @@ public class OptionManager : MonoBehaviour
 
     public void PatternClick(bool isPattern1)
     {
+        if (audioManager)
+        {
+            audioManager.PlaySE(audioManager.audioClips[8]);
+        }
         if (!isPattern1)
         {
             foreach(GameObject obj in selectingUI1)
@@ -96,5 +100,14 @@ public class OptionManager : MonoBehaviour
                 saveManager.saveData.m_inputPatten = true;
             }
         }
+    }
+
+    public void Return()
+    {
+        if (audioManager)
+        {
+            audioManager.PlaySE(audioManager.audioClips[8]);
+        }
+        this.gameObject.SetActive(false);
     }
 }
