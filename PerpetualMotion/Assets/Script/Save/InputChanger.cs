@@ -14,7 +14,7 @@ public static class InputChanger
         UpSelect,
         DownSelect,
         LeftSelect,
-        RightSelect
+        RightSelect,
     }
 
     public static bool InputInform(INPUTKEY_TYPE inputType)
@@ -102,8 +102,36 @@ public static class InputChanger
                     result = Input.GetButtonDown("d");
                 }
                 break;
-
         }
+        return result;
+    }
+
+    public static float InputAxisRaw(bool isHorizontal)
+    {
+        float result = 0;
+        if (isHorizontal)
+        {
+            if (!m_inputPattern)
+            {
+                result = Input.GetAxisRaw("Horizontal");
+            }
+            else
+            {
+                result = Input.GetAxisRaw("Horizontal2");
+            }
+        }
+        else
+        {
+            if (!m_inputPattern)
+            {
+                result = Input.GetAxisRaw("Vertical");
+            }
+            else
+            {
+                result = Input.GetAxisRaw("Vertical2");
+            }
+        }
+
         return result;
     }
 }

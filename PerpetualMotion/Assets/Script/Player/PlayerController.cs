@@ -234,8 +234,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
+            float h = InputChanger.InputAxisRaw(true);
+            float v = InputChanger.InputAxisRaw(false);
             Vector2 dir = new Vector2(h, v).normalized;
             //アクティブ状態なら移動とアニメーションをする。
             if (m_active)

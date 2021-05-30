@@ -94,7 +94,7 @@ public class OptionManager : MonoBehaviour
             {
                 obj.SetActive(true);
             }
-            InputChanger.m_inputPattern = false;
+            InputChanger.m_inputPattern = true;
             if (saveManager)
             {
                 saveManager.saveData.m_inputPatten = true;
