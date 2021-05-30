@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         //入力方向を向く
         #region
-        if (Input.GetKeyDown(KeyCode.D))
+        if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.Right))//Input.GetKeyDown(KeyCode.D))
         {
             animationType = AnimationImages.ANIMATION_TYPE.Side;
             m_animationSprites = m_colorSprites.GetAnimImages(animationType);
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             }
             PlayerAnimation();
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.Left))//Input.GetKeyDown(KeyCode.A))
         {
             animationType = AnimationImages.ANIMATION_TYPE.Side;
             m_animationSprites = m_colorSprites.GetAnimImages(animationType);
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
             }
             PlayerAnimation();
         }
-        else if(Input.GetKeyDown(KeyCode.S))
+        else if(InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.Down))//Input.GetKeyDown(KeyCode.S))
         {
             animationType = AnimationImages.ANIMATION_TYPE.Front;
             m_animationSprites = m_colorSprites.GetAnimImages(animationType);
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
             }
             PlayerAnimation();
         }
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.Up))//Input.GetKeyDown(KeyCode.W))
         {
             animationType = AnimationImages.ANIMATION_TYPE.Back;
             m_animationSprites = m_colorSprites.GetAnimImages(animationType);
@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
                 {
                     VentNum = vent_Mana.num;
                 }
-                if (Input.GetKeyDown(KeyCode.A))
+                if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.Left))//Input.GetKeyDown(KeyCode.A))
                 {
                     if (VentNum >= 0)
                     {
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
                         VentNum = vent_Mana.num - 1;
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.D))
+                if (InputChanger.InputInform(InputChanger.INPUTKEY_TYPE.Right))//Input.GetKeyDown(KeyCode.D))
                 {
                     if (VentNum < vent_Mana.num)
                     {
