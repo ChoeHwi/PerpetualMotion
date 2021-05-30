@@ -90,6 +90,18 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void PlaySE(AudioClip SE)
     {
         audioSourceSE.pitch = 1;
+        audioSourceSE.loop = false;
+        audioSourceSE.PlayOneShot(SE);
+    }
+
+    /// <summary>
+    /// SEをループ再生
+    /// </summary>
+    /// <param name="SE"></param>
+    public void PlaySELoop(AudioClip SE)
+    {
+        audioSourceSE.pitch = 1;
+        audioSourceSE.loop = true;
         audioSourceSE.PlayOneShot(SE);
     }
 
