@@ -213,14 +213,20 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))//スペースを押したとき
         {
             //隠れる
-            audioManager.PlaySE(audioManager.audioClips[6]);
+            if (audioManager)
+            {
+                audioManager.PlaySE(audioManager.audioClips[6]);
+            }
 
             if (stealthObject)//ステルスオブジェクトに触れているなら
             {
                 if (m_stealth)//ステルス状態なら
                 {
                     //離れるSE
-                    audioManager.PlaySE(audioManager.audioClips[7]);
+                    if (audioManager)
+                    {
+                        audioManager.PlaySE(audioManager.audioClips[7]);
+                    }
                     StealthOff();
                 }
                 else
@@ -247,7 +253,10 @@ public class PlayerController : MonoBehaviour
                     {
                         PlayerAnimation();
                         //移動
-                        audioManager.PlaySE(audioManager.audioClips[5]);
+                        if (audioManager)
+                        {
+                            audioManager.PlaySE(audioManager.audioClips[5]);
+                        }
                     }
                     m_counter = 0;
                 }
@@ -302,7 +311,10 @@ public class PlayerController : MonoBehaviour
             m_isDamaged = true;
             m_playerHp -= 1;
             //ダメージを受けた時
-            audioManager.PlaySE(audioManager.audioClips[8]);
+            if (audioManager)
+            {
+                audioManager.PlaySE(audioManager.audioClips[8]);
+            }
             if (enemyCon.Count > 0)
             {
                 foreach (EnemyController enemy in enemyCon)
