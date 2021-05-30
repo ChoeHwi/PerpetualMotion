@@ -36,17 +36,24 @@ public class Event : MonoBehaviour
             audioManager = GameObject.FindObjectOfType<AudioManager>();
         }
 
-        if (m_stageSpriteObject.GetComponent<Image>().gameObject)
+        if (m_stageSpriteObject)
         {
-            m_stageSpriteObject = m_stageSpriteObject.GetComponent<Image>().gameObject;
+            if (m_stageSpriteObject.GetComponent<Image>().gameObject)
+            {
+                m_stageSpriteObject = m_stageSpriteObject.GetComponent<Image>().gameObject;
+            }
         }
+        
     }
     //全部共通
     public void EnterButton()
     {
         GetComponent<Image>().sprite = Sprit_UI[0];
         //m_stageSpriteを参照先のm_stageSpriteObjectのImageコンポーネントのspriteにセットさせる。
-        m_stageSpriteObject.GetComponent<Image>().sprite = m_stageSprite;
+        if (m_stageSpriteObject)
+        {
+            m_stageSpriteObject.GetComponent<Image>().sprite = m_stageSprite;
+        }
 
         if (ch)
         {
