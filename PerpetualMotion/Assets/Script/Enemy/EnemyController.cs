@@ -324,11 +324,14 @@ public class EnemyController : MonoBehaviour
             {
                 if (!m_playerController.m_stealth)
                 {
-                    m_tracking = true;
-                    if (effect)
+                    if (m_tracking == false)
                     {
-                        effect.EffectStart();
+                        if (effect)
+                        {
+                            effect.EffectStart();
+                        }
                     }
+                    m_tracking = true;
                     foreach (EnemyController enemyController in m_playerController.enemyCon)
                     {
                         if (enemyController == this)
