@@ -389,6 +389,7 @@ MonoBehaviour:
   m_moveSpeed: 4
   m_invincibleTime: 3
   ObjSpeed: 0
+  m_spriteRenderer: {fileID: 7617695134527377970}
   blankImages:
     m_idleImages: []
     m_backImages:

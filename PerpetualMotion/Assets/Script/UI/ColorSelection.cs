@@ -34,7 +34,7 @@ public class ColorSelection : MonoBehaviour
         select_green = GameObject.Find("Green_Image").GetComponent<Image>();
         select_blue = GameObject.Find("Blue_Image").GetComponent<Image>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        playerController.Form_Color(ColorInfo.COLOR_TYPE.Red);
+        playerController.Form_Color(ColorInfo.COLOR_TYPE.Blank);
     }
 
     // Update is called once per frame

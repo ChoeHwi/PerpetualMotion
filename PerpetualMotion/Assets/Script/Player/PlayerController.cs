@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>リジッドボディ</summary>
     Rigidbody2D m_rb;
     /// <summary>スプライトレンダラー</summary>
-    SpriteRenderer m_spriteRenderer;
+    [SerializeField] SpriteRenderer m_spriteRenderer;
     /// <summary>カプセルコライダー</summary>
     CapsuleCollider2D capsuleCollider;
     #endregion
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>今できることを表示するUI</summary>
     [SerializeField] GameObject dialog;
     /// <summary>現在のアニメーションタイプ</summary>
-    AnimationImages.ANIMATION_TYPE animationType;
+    AnimationImages.ANIMATION_TYPE animationType  = AnimationImages.ANIMATION_TYPE.Front;
     /// <summary>現在入ることのできるステルスオブジェクト</summary>
     public StealthObject stealthObject;
     /// <summary>ステルスオブジェクトに追加したRigidbody2D</summary>
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         vent_Mana = GameObject.FindObjectOfType<ventManager>();
         vent_S = GameObject.FindObjectOfType<Vent>();
-        m_spriteRenderer = GetComponent<SpriteRenderer>();
+        //m_spriteRenderer = GetComponent<SpriteRenderer>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         m_rb = GetComponent<Rigidbody2D>();
