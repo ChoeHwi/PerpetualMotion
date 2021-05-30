@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     {
         gameMessenger.mobius.SetActive(true);
         yield return new WaitForSeconds(1f);
-        if (gameMessenger.mobiusScript.FitPiece(/*item*/))
+        if (gameMessenger.mobiusScript.FitPiece(item))
         {
             
         }
