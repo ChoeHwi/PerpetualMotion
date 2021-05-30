@@ -98,7 +98,10 @@ public class GameManager : MonoBehaviour
         if (isClear)
         {
             StartCoroutine(ClearResult());
-            hourglass_Time.m_isClear = true;
+            if(hourglass_Time)
+            {
+                hourglass_Time.m_isClear = true;
+            }
         }
         else
         {
