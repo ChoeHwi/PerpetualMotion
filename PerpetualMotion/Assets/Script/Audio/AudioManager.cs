@@ -10,7 +10,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     /// <summary>ゲームオーバーのSE</summary>
     public AudioClip gameOverBGM;
     /// <summary>各ステージのBGM</summary>
-    public AudioClip[] gameBGM;
+    public AudioClip gameBGM;
     /// <summary> 複数のAudioClipを扱う。index番号を設定 </summary>
     [Header("複数のAudioClipを扱う。index番号を設定")]
     public AudioClip[] audioClips;
@@ -51,12 +51,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                     audioSourceBGM.loop = true;
                 }
                 break;
-            case "Tutorial":
-                PlayBgm(gameBGM[0]);
+            case "TutorialScene":
+                PlayBgm(gameBGM);
+                StartCoroutine(FadeOutBGM());
                 break;
-                //case "Scene1":
-                //    PlayBgm(gameBGM[0]);
-                //    break;
+            case "TutorialScene2":
+                PlayBgm(gameBGM);
+                StartCoroutine(FadeOutBGM());
+                break;
         }
     }
 
