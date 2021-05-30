@@ -1206,6 +1206,8 @@ MonoBehaviour:
   arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
+  m_stageSprite: {fileID: 0}
+  m_stageSpriteObject: {fileID: 0}
 --- !u!114 &636399730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2357,6 +2359,8 @@ MonoBehaviour:
   arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 354995185}
+  m_stageSprite: {fileID: 0}
+  m_stageSpriteObject: {fileID: 0}
 --- !u!114 &1441002203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,6 +3038,8 @@ MonoBehaviour:
   arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
+  m_stageSprite: {fileID: 0}
+  m_stageSpriteObject: {fileID: 0}
 --- !u!114 &1891490215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3620,13 +3626,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: eca677abe73e5dd4bbac2e29e27afa4f, type: 3}
   - {fileID: 8300000, guid: b3059219380a0a24fad8bbec181f6777, type: 3}
   - {fileID: 8300000, guid: 7cb3ebe822cd6fa498c2705dd525b430, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_mute: 0
   fadeSpeed: 0
   audioSourceBGM: {fileID: 2132549278}
