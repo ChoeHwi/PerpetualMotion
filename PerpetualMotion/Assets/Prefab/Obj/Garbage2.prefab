@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1071589393105834715}
   - component: {fileID: 3765796793184223434}
   - component: {fileID: 1718091631075594389}
-  - component: {fileID: 3094294413824967580}
   m_Layer: 0
   m_Name: Garbage2
   m_TagString: Untagged
@@ -104,19 +103,3 @@ MonoBehaviour:
   greenImages:
   - {fileID: 21300000, guid: 656601c4176e08d43bc457e874a0fe56, type: 3}
   nowColor: 0
---- !u!208 &3094294413824967580
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8461159443849677666}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 7.6800003, y: 7.6800003, z: 0.1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
