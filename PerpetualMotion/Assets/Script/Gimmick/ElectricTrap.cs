@@ -22,15 +22,6 @@ public class ElectricTrap : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        //電流が流れる前
-        if (!actuation)
-        {
-            //audioManager.PlaySE(audioManager.audioClips[2]);
-        }
-    }
-
     public void Actuation()
     {
         if(actuation)
