@@ -40,7 +40,7 @@ public class SaveManager : SingletonMonoBehaviour<SaveManager>
         {
             saveData = LoadData(SaveDataPath);
             Debug.Log("セーブデータを読み込みます。");
-            InputChanger.inputPattern = saveData.m_inputPatten;
+            InputChanger.m_inputPattern = saveData.m_inputPatten;
         }
         else
         {

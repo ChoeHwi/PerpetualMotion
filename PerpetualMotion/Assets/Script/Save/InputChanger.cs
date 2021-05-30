@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class InputChanger
 {
-    public static bool inputPattern = false;
+    public static bool m_inputPattern = false;
     public enum INPUTKEY_TYPE
     {
         Up,
@@ -23,7 +23,7 @@ public static class InputChanger
         switch (inputType)
         {
             case INPUTKEY_TYPE.Up:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("w");
                 }
@@ -33,7 +33,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.Down:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("s");
                 }
@@ -43,7 +43,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.Left:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("a");
                 }
@@ -53,7 +53,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.Right:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("d");
                 }
@@ -63,7 +63,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.UpSelect:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("UpArrowkey");
                 }
@@ -73,7 +73,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.DownSelect:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("DownArrowkey");
                 }
@@ -83,7 +83,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.LeftSelect:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("LeftArrowkey");
                 }
@@ -93,7 +93,7 @@ public static class InputChanger
                 }
                 break;
             case INPUTKEY_TYPE.RightSelect:
-                if (!inputPattern)
+                if (!m_inputPattern)
                 {
                     result = Input.GetButtonDown("RightArrowkey");
                 }

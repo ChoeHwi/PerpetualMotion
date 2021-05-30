@@ -11,6 +11,10 @@ public class OptionManager : MonoBehaviour
     AudioManager audioManager;
     [SerializeField] Slider sliderBGM;
     [SerializeField] Slider sliderSE;
+    /// <summary>パターン1の選択中を表すUI群</summary>
+    [SerializeField] GameObject[] selectingUI1;
+    /// <summary>パターン2の選択中を表すUI群</summary>
+    [SerializeField] GameObject[] selectingUI2;
 
 
     void Start()
@@ -22,6 +26,8 @@ public class OptionManager : MonoBehaviour
             Debug.Log(saveManager.saveData.m_SEVolume);
             sliderBGM.value = saveManager.saveData.m_BGMVolume;
             sliderSE.value = saveManager.saveData.m_SEVolume;
+            PatternClick(saveManager.saveData.m_inputPatten);
+
         }
         if (GameObject.FindObjectOfType<AudioManager>())
         {
@@ -51,6 +57,43 @@ public class OptionManager : MonoBehaviour
             if (saveManager)
             {
                 saveManager.saveData.m_SEVolume = sliderSE.value;
+            }
+        }
+    }
+
+
+    public void PatternClick(bool isPattern1)
+    {
+        if (!isPattern1)
+        {
+            foreach(GameObject obj in selectingUI1)
+            {
+                obj.SetActive(true);
+            }
+            foreach(GameObject obj in selectingUI2)
+            {
+                obj.SetActive(false);
+            }
+            InputChanger.m_inputPattern = false;
+            if (saveManager)
+            {
+                saveManager.saveData.m_inputPatten = false;
+            }
+        }
+        else
+        {
+            foreach (GameObject obj in selectingUI1)
+            {
+                obj.SetActive(false);
+            }
+            foreach (GameObject obj in selectingUI2)
+            {
+                obj.SetActive(true);
+            }
+            InputChanger.m_inputPattern = false;
+            if (saveManager)
+            {
+                saveManager.saveData.m_inputPatten = true;
             }
         }
     }
