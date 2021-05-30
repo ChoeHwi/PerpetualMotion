@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreateScene/YamadaTest2.unity
     guid: eda8572ecb5179a4fbcb34005fba9d26
+  - enabled: 1
+    path: Assets/Scenes/CreateScene/YamadaScene2.unity
+    guid: 8ab367ceddf4215459350e03aaab6710
+  - enabled: 1
+    path: Assets/Scenes/CreateScene/YamadaScene3.unity
+    guid: e4753440db950dc4fa98d073f637a1d2
   m_configObjects: {}
