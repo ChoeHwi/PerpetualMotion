@@ -85,6 +85,10 @@ public class EnemyController : MonoBehaviour
         m_enemyProjector = Instantiate(enemyEntitys[(int)m_enemyType], new Vector3(this.transform.position.x, this.transform.position.y, 0), new Quaternion(0, 0, 0, 0));
         m_enemyScipt =  m_enemyProjector.GetComponent<EnemyColliderController>();
         m_enemyScipt.enemyController = this;
+        if (GameObject.FindObjectOfType<Effect>())
+        {
+            effect = GameObject.FindObjectOfType<Effect>().GetComponent<Effect>();
+        }
         Form_Color(m_nowColor);
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
@@ -299,6 +303,10 @@ public class EnemyController : MonoBehaviour
         if (m_distance > m_quitRange || m_playerController.m_stealth)
         {
             m_tracking = false;
+            if (effect)
+            {
+                effect.EffectStop();
+            }
             m_playerController.enemyCon.Remove(this);
             onPlayer = false;
             m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
@@ -317,7 +325,10 @@ public class EnemyController : MonoBehaviour
                 if (!m_playerController.m_stealth)
                 {
                     m_tracking = true;
-
+                    if (effect)
+                    {
+                        effect.EffectStart();
+                    }
                     foreach (EnemyController enemyController in m_playerController.enemyCon)
                     {
                         if (enemyController == this)

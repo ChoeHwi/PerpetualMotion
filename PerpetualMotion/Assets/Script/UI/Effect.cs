@@ -7,6 +7,8 @@ public class Effect : MonoBehaviour
 {
 	/// <summary>敵に追いかけられているか</summary>
 	bool m_beChased;
+	/// <summary>呼び出された数</summary>
+	int callCount = 0;
 	/// <summary>このスクリプトがついているImage</summary>
 	Image effectImg;
 	[Header("0は赤色,1は緑色,2は青色,3は透過度")]
@@ -29,7 +31,6 @@ public class Effect : MonoBehaviour
 		{
 			audioManager = GameObject.FindObjectOfType<AudioManager>();
 		}
-		//e_controller = FindObjectOfType<EnemyController>();
 		effectImg = GetComponent<Image>();
 		effectImg.color = Color.clear;
 		loopTime = startColor[3];
@@ -55,5 +56,18 @@ public class Effect : MonoBehaviour
 		}
 	}
 
-	
+	public void EffectStart()
+    {
+		m_beChased = true;
+		callCount++;
+	}
+
+	public void EffectStop()
+	{ 
+		callCount--;
+		if (callCount == 0)
+        {
+			m_beChased = false;
+		}
+	}
 }
