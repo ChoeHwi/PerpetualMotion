@@ -24,6 +24,10 @@ public class Mobius : MonoBehaviour
     int processNum = 0;
     Image image;
 
+    public GameObject[] partsAnimationOBJ_6;
+    public GameObject[] partsAnimationOBJ_9;
+    public GameObject[] partsAnimationOBJ_13;
+
     void Start()
     {
         image = GetComponent<Image>();
@@ -73,4 +77,29 @@ public class Mobius : MonoBehaviour
         }
         return false;
     }
+    //public void PartsAnimation(int item)
+    //{
+    //    processNum += item;
+    //    switch (part_type)
+    //    {
+    //        case PART_TYPE.Part6:
+    //            for (int i = 0; i < processNum; i++)
+    //            {
+    //                Instantiate(partsAnimationOBJ_6[i]);
+    //            }
+    //            break;
+    //        case PART_TYPE.Part9:
+    //            for (int i = 0; i < processNum; i++)
+    //            {
+    //                Instantiate(partsAnimationOBJ_9[i]);
+    //            }
+    //            break;
+    //        case PART_TYPE.Part13:
+    //            for (int i = 0; i < processNum; i++)
+    //            {
+    //                Instantiate(partsAnimationOBJ_13[i]);
+    //            }
+    //            break;
+    //    }
+    //}
 }
