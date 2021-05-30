@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3981867096055629750}
   - component: {fileID: 898297529371743672}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Rarge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8fef8eacba8e84a812a143bdc9d8a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_enemyType: 0
   enemyController: {fileID: 0}
   redImages:
     m_idleImages:
@@ -167,6 +168,8 @@ MonoBehaviour:
     m_attackSideImages:
     - {fileID: 21300000, guid: 4dd2302d12ddcd2429bd9d2aa706bfba, type: 3}
     - {fileID: 21300000, guid: 4dc40d0f077bc67449a835b19ea8c7a2, type: 3}
+    m_malfunctionImage: {fileID: 21300000, guid: 58ae58e763cb9944e98589ede9836805,
+      type: 3}
   buleImages:
     m_idleImages:
     - {fileID: 0}
@@ -194,6 +197,7 @@ MonoBehaviour:
     m_attackSideImages:
     - {fileID: 0}
     - {fileID: 0}
+    m_malfunctionImage: {fileID: 0}
   enemyImage: {fileID: 0}
 --- !u!50 &898297529371743672
 Rigidbody2D:

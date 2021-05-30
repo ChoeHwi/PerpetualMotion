@@ -20,7 +20,6 @@ public class EnemyColliderController : MonoBehaviour
     /// <summary>アニメーション画像の番号</summary>
     int m_imageIndex = 0;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +101,12 @@ public class EnemyColliderController : MonoBehaviour
         m_imageIndex = (m_imageIndex + 1) % m_animationSprites.Length;
     }
 
+    /// <summary>故障中</summary>
+    public void Malfunction()
+    {
+        enemyImage.sprite = m_colorSprites.m_malfunctionImage;
+    }
+
     /// <summary>色のタイプを渡すとその色の画像を返す</summary>
     /// <param name="colorType">色のタイプ</param>
     /// <returns></returns>
@@ -138,7 +143,7 @@ public class AnimationImages
     [SerializeField] public Sprite[] m_attackFrontImages;
     [SerializeField] public Sprite[] m_attackBackImages;
     [SerializeField] public Sprite[] m_attackSideImages;
-    
+    [SerializeField] public Sprite m_malfunctionImage;
 
     public enum ANIMATION_TYPE
     {

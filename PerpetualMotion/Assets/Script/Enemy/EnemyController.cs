@@ -380,6 +380,8 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
+        m_isAnimation = false;
+        m_enemyScipt.Malfunction();
         m_agent.isStopped = true;
     }
 
@@ -392,6 +394,7 @@ public class EnemyController : MonoBehaviour
         {
             return;
         }
+        m_isAnimation = true;
         m_agent.isStopped = false;
     }
 }

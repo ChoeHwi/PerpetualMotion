@@ -180,6 +180,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: eb533d42ed677c349a0d5c880d5111cb, type: 3}
     - {fileID: 21300000, guid: 4afc618fc68feb945b305a1f972bf1ce, type: 3}
     - {fileID: 21300000, guid: 2f44f037cd839744dbf13e4ff5cacd49, type: 3}
+    m_malfunctionImage: {fileID: 21300000, guid: 16f49e5fcca0717498b461ea43ed7f7f,
+      type: 3}
   buleImages:
     m_idleImages:
     - {fileID: 0}
@@ -219,6 +221,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 7082e7fba1d2c174e88e5c2cf9723351, type: 3}
     - {fileID: 21300000, guid: d675e26fd1d714a448e1c6a1eef440b3, type: 3}
     - {fileID: 21300000, guid: 3be209caf5208af40b518e75a7354ab8, type: 3}
+    m_malfunctionImage: {fileID: 21300000, guid: 6f05e4c439e325c4a991a54828357a15,
+      type: 3}
   enemyImage: {fileID: 0}
 --- !u!50 &898297529371743672
 Rigidbody2D:
