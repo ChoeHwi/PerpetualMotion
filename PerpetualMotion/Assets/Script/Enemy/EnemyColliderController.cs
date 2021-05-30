@@ -105,7 +105,7 @@ public class EnemyColliderController : MonoBehaviour
         {
             if (m_imageIndex == m_animationSprites.Length)
             {
-                Instantiate(laser, this.transform.position, Quaternion.identity);
+                Instantiate(laser, this.transform.position, Quaternion.identity).GetComponent<Laser>().Positioning(enemyController.transform.rotation);
             }
         }
     }

@@ -67,6 +67,8 @@ public class EnemyController : MonoBehaviour
     Transform m_transform;
     /// <summary>ここから指令を出すエフェクト</summary>
     public Effect effect;
+    /// <summary>故障中</summary>
+    public bool m_isMalfunction;
 
     public enum ENEMY_TYPE
     { 
@@ -288,14 +290,17 @@ public class EnemyController : MonoBehaviour
         //アクティブ状態ならアニメーションをする。
         if (m_isAnimation)
         {
-            if (m_counter >= m_count)
+            if (!m_isMalfunction)
             {
-                m_enemyScipt.EnemyAnimation();
-                m_counter = 0;
-            }
-            else
-            {
-                m_counter += Time.deltaTime;
+                if (m_counter >= m_count)
+                {
+                    m_enemyScipt.EnemyAnimation();
+                    m_counter = 0;
+                }
+                else
+                {
+                    m_counter += Time.deltaTime;
+                }
             }
         }
 
@@ -377,6 +382,21 @@ public class EnemyController : MonoBehaviour
         m_enemyScipt.ChangeColorImage(color);
     }
 
+    /// <summary>故障</summary>
+    public void Malfunction(bool isMalfunction)
+    {
+        m_isMalfunction = isMalfunction;
+        if (isMalfunction)
+        {
+            Freeze();
+            m_enemyScipt.Malfunction();
+        }
+        else
+        {
+            FreezeOff();
+        }
+    }
+
     /// <summary>
     /// 動きを停止
     /// </summary>
@@ -387,7 +407,6 @@ public class EnemyController : MonoBehaviour
             return;
         }
         m_isAnimation = false;
-        m_enemyScipt.Malfunction();
         m_agent.isStopped = true;
     }
 

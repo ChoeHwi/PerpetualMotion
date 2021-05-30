@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,11 @@ public class Laser : MonoBehaviour
 
     public void DeleteThis()
     {
+        Destroy(this.gameObject);
+    }
 
+    public void Positioning(Quaternion direction)
+    {
+        transform.rotation = direction;
     }
 }

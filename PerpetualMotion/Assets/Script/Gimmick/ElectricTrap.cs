@@ -29,7 +29,7 @@ public class ElectricTrap : MonoBehaviour
             actuation = false; 
             if (enemyController)
             {             
-                enemyController.FreezeOff();  
+                enemyController.Malfunction(false);  
                 enemyController = null;
             }
         }
@@ -39,7 +39,7 @@ public class ElectricTrap : MonoBehaviour
             StartCoroutine(ElecAnim());
             if (enemyController)
             { 
-                enemyController.Freeze();
+                enemyController.Malfunction(true);
             }
         }
     }

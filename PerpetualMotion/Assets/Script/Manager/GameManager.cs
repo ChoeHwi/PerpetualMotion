@@ -96,7 +96,10 @@ public class GameManager : MonoBehaviour
         {
             gameMessenger.gameOverResult.SetActive(true);
             //ゲームオーバーBGM
-            audioManager.PlayBgm(audioManager.gameOverBGM);
+            if (audioManager)
+            {
+                audioManager.PlayBgm(audioManager.gameOverBGM);
+            }
         }
     }
 

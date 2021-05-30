@@ -206,6 +206,7 @@ MonoBehaviour:
     m_malfunctionImage: {fileID: 21300000, guid: 0fdc4b181735d32479922030aebc001a,
       type: 3}
   enemyImage: {fileID: 0}
+  laser: {fileID: 7940533648292486552, guid: ed4635c237083474aad8eeaaf8581ee4, type: 3}
 --- !u!50 &898297529371743672
 Rigidbody2D:
   serializedVersion: 4
