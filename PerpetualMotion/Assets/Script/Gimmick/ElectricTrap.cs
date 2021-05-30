@@ -65,10 +65,16 @@ public class ElectricTrap : MonoBehaviour
     {
         anim.SetBool("Trap", true);
         //電流が流れている時
-        audioManager.PlaySE(audioManager.audioClips[3]);
+        if (audioManager)
+        {
+            audioManager.PlaySE(audioManager.audioClips[3]);
+        }
         yield return new WaitForSeconds(3f);
         anim.SetBool("Trap", false);
         //スイッチOFFのSE
-        audioManager.PlaySE(audioManager.audioClips[2]);
+        if (audioManager)
+        {
+            audioManager.PlaySE(audioManager.audioClips[2]);
+        }   
     }
 }

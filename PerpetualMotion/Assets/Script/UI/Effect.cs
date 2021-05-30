@@ -40,7 +40,10 @@ public class Effect : MonoBehaviour
 	{
         if (m_beChased)
         {
-            audioManager.PlaySELoop(audioManager.audioClips[9]);
+			if (audioManager)
+            {
+				audioManager.PlaySELoop(audioManager.audioClips[9]);
+			}
 
             this.effectImg.color = new Color(startColor[0], startColor[1], startColor[2], startColor[3]);
 			startColor[3] -= Time.deltaTime / fadeTime;
