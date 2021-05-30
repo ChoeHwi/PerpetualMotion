@@ -18,12 +18,18 @@ public class Event : MonoBehaviour
         "階層決めるときは最初の階層から順に0～19")]
     public int selectNum;
     select selection;
-
     [SerializeField] GameObject optionPanel;
+    /// <summary> AudioManagerを参照する変数 </summary>
+    AudioManager audioManager;
 
     void Start()
     {
         selection = FindObjectOfType<select>();
+
+        if (GameObject.FindObjectOfType<AudioManager>())
+        {
+            audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
     }
     //全部共通
     public void EnterButton()
@@ -58,6 +64,8 @@ public class Event : MonoBehaviour
     //セレクトシーン以外の時
     public void DownButton_main()
     {
+        //決定
+        audioManager.PlaySE(audioManager.audioClips[8]);
         SceneManager.LoadScene(LoadSceneName[0]);
     }
     public void DownButton_sub()
@@ -73,6 +81,8 @@ public class Event : MonoBehaviour
         if (optionPanel)
         {
             optionPanel.SetActive(true);
+            //決定
+            audioManager.PlaySE(audioManager.audioClips[8]);
         }
     }
 }
