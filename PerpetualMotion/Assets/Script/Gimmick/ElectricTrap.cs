@@ -6,7 +6,7 @@ using UnityEngine;
 public class ElectricTrap : MonoBehaviour
 {
     bool actuation = false;
-    EnemyController enemyController;
+    List<EnemyController> enemyControllers = new List<EnemyController>(0);
     /// <summary> animatorの変数 </summary>
     Animator anim = null;
     /// <summary> AudioManagerを参照する変数 </summary>
@@ -24,22 +24,27 @@ public class ElectricTrap : MonoBehaviour
 
     public void Actuation()
     {
-        if(actuation)
-        {   
-            actuation = false; 
-            if (enemyController)
-            {             
-                enemyController.Malfunction(false);  
-                enemyController = null;
+        if (actuation)
+        {
+            actuation = false;
+            if (enemyControllers.Count > 0)
+            {
+                foreach (EnemyController enemyController in enemyControllers)
+                {
+                    enemyController.Malfunction(false);
+                }
             }
         }
         else
         {
             actuation = true;
             StartCoroutine(ElecAnim());
-            if (enemyController)
-            { 
-                enemyController.Malfunction(true);
+            if (enemyControllers.Count > 0)
+            {
+                foreach (EnemyController enemyController in enemyControllers)
+                {
+                    enemyController.Malfunction(true);
+                }
             }
         }
     }
@@ -49,10 +54,27 @@ public class ElectricTrap : MonoBehaviour
         Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Enemy")
         {
-            enemyController = collision.gameObject.GetComponent<EnemyColliderController>().enemyController;
+            enemyControllers.Add(collision.gameObject.GetComponent<EnemyColliderController>().enemyController);
             if (actuation)
             {
-                enemyController.Freeze();
+                collision.gameObject.GetComponent<EnemyColliderController>().enemyController.Malfunction(true);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (enemyControllers.Count > 0)
+            {
+                for (int i = 0; i < enemyControllers.Count; i++)
+                {
+                    if (enemyControllers[i] == collision.gameObject.GetComponent<EnemyColliderController>().enemyController)
+                    {
+                        enemyControllers.RemoveAt(i);
+                    }
+                }
             }
         }
     }
@@ -61,7 +83,7 @@ public class ElectricTrap : MonoBehaviour
     /// トラップのアニメーションのコルーチン
     /// </summary>
     /// <returns></returns>
-    IEnumerator ElecAnim() 
+    IEnumerator ElecAnim()
     {
         anim.SetBool("Trap", true);
         //電流が流れている時
@@ -69,12 +91,13 @@ public class ElectricTrap : MonoBehaviour
         {
             audioManager.PlaySE(audioManager.audioClips[3]);
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         anim.SetBool("Trap", false);
         //スイッチOFFのSE
         if (audioManager)
         {
             audioManager.PlaySE(audioManager.audioClips[2]);
-        }   
+        }
+        Actuation();
     }
 }
