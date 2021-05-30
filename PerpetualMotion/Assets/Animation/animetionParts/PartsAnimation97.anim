@@ -302,4 +302,12 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: DestroyOBJ
+    data: 
+    objectReferenceParameter: {fileID: 6744085028817757305, guid: a55c4649a8a65534bae120160f7b8e1f,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
