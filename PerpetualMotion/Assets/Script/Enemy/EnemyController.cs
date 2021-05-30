@@ -302,14 +302,17 @@ public class EnemyController : MonoBehaviour
         //追跡の時、quitRangeより距離が離れたら中止
         if (m_distance > m_quitRange || m_playerController.m_stealth)
         {
-            m_tracking = false;
-            if (effect)
+            if (m_tracking == true)
             {
-                effect.EffectStop();
-            }
-            m_playerController.enemyCon.Remove(this);
-            onPlayer = false;
-            m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                if (effect)
+                {
+                    effect.EffectStop();
+                }
+                m_tracking = false;
+                m_playerController.enemyCon.Remove(this);
+                onPlayer = false;
+                m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+            }   
         }
 
         if (m_tracking || alarm == true)
@@ -330,18 +333,18 @@ public class EnemyController : MonoBehaviour
                         {
                             effect.EffectStart();
                         }
-                    }
-                    m_tracking = true;
-                    foreach (EnemyController enemyController in m_playerController.enemyCon)
-                    {
-                        if (enemyController == this)
+                        m_tracking = true;
+                        foreach (EnemyController enemyController in m_playerController.enemyCon)
                         {
-                            onPlayer = true;
+                            if (enemyController == this)
+                            {
+                                onPlayer = true;
+                            }
                         }
-                    }
-                    if (!onPlayer)
-                    {
-                        m_playerController.enemyCon.Add(this);
+                        if (!onPlayer)
+                        {
+                            m_playerController.enemyCon.Add(this);
+                        }
                     }
                 }
             }

@@ -61,13 +61,14 @@ public class Effect : MonoBehaviour
 
 	public void EffectStart()
     {
+		Debug.Log(callCount);
 		m_beChased = true;
 		callCount++;
-		Debug.Log(callCount);
 	}
 
 	public void EffectStop()
-	{ 
+	{
+		Debug.Log(callCount);
 		callCount--;
 		if (callCount == 0)
         {
