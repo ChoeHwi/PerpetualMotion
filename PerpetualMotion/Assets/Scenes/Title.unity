@@ -2569,7 +2569,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "WASD\u3000    \u79FB\u52D5\n\u2191\u2190\u2193\u2192\u3000\u8272\u9078\u629E\nSpace   
+  m_Text: "WASD\u3000    \u79FB\u52D5\nLeftShift\u3000\u30D1\u30EC\u30C3\u30C8\u8868\u793A\n\u2191\u2190\u2193\u2192\u3000\u8272\u9078\u629E\nSpace   
     \u96A0\u308C\u308B\n"
 --- !u!222 &1519708135
 CanvasRenderer:
@@ -2648,7 +2648,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u2191\u2190\u2193\u2192\u3000    \u79FB\u52D5\nWASD\u3000\u8272\u9078\u629E\nSpace   
+  m_Text: "\u2191\u2190\u2193\u2192\u3000    \u79FB\u52D5\nLeftShift\u3000\u30D1\u30EC\u30C3\u30C8\u8868\u793A\nWASD\u3000\u8272\u9078\u629E\nSpace   
     \u96A0\u308C\u308B\n"
 --- !u!222 &1554959870
 CanvasRenderer:
