@@ -150,7 +150,10 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            FreezeOff();
+            if (!m_isMalfunction)
+            {
+                FreezeOff();
+            }
         }
         //Debug.Log(m_angle);
         if (m_angle < 0)
@@ -402,10 +405,6 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Freeze()
     {
-        if (m_agent.isStopped == true)
-        {
-            return;
-        }
         m_isAnimation = false;
         m_agent.isStopped = true;
     }
@@ -415,10 +414,6 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void FreezeOff()
     {
-        if (m_agent.isStopped == false)
-        {
-            return;
-        }
         m_isAnimation = true;
         m_agent.isStopped = false;
     }

@@ -359,26 +359,29 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && !m_isDamaged && !m_stealth)
         {
-            m_isDamaged = true;
-            m_playerHp -= 1;
-            //ダメージを受けた時
-            if (audioManager)
+            if (!collision.gameObject.GetComponent<EnemyColliderController>().enemyController.m_isMalfunction)
             {
-                audioManager.PlaySE(audioManager.audioClips[8]);
-            }
-            if (enemyCon.Count > 0)
-            {
-                foreach (EnemyController enemy in enemyCon)
+                m_isDamaged = true;
+                m_playerHp -= 1;
+                //ダメージを受けた時
+                if (audioManager)
                 {
-                    Debug.Log(enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>());
-                    enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                    audioManager.PlaySE(audioManager.audioClips[8]);
                 }
-            }
-            Invoke("FlashEnd", m_invincibleTime);
-            if (itemCount > 0)
-            {
-                itemCount -= 1;
-                gameManager.LostItem(this.transform.position, itemType[0]);
+                if (enemyCon.Count > 0)
+                {
+                    foreach (EnemyController enemy in enemyCon)
+                    {
+                        Debug.Log(enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>());
+                        enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = true;
+                    }
+                }
+                Invoke("FlashEnd", m_invincibleTime);
+                if (itemCount > 0)
+                {
+                    itemCount -= 1;
+                    gameManager.LostItem(this.transform.position, itemType[0]);
+                }
             }
         }
         if (collision.gameObject.tag == "Item")
