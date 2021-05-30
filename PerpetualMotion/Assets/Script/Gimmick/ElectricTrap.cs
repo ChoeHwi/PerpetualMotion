@@ -91,7 +91,7 @@ public class ElectricTrap : MonoBehaviour
         {
             audioManager.PlaySE(audioManager.audioClips[3]);
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         anim.SetBool("Trap", false);
         //スイッチOFFのSE
         if (audioManager)
