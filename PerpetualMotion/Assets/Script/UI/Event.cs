@@ -12,7 +12,6 @@ public class Event : MonoBehaviour
     [Header("矢印が別であるときはtrueにする")]
     public bool ch = false;
     public GameObject arrow_Obj;
-
     //セレクトシーン用追加
     [Header("難易度の時は簡単な順に0～3" +
         "階層決めるときは最初の階層から順に0～19")]
@@ -21,6 +20,12 @@ public class Event : MonoBehaviour
     [SerializeField] GameObject optionPanel;
     /// <summary> AudioManagerを参照する変数 </summary>
     AudioManager audioManager;
+    /// <summary> 各ステージのimage(スプライト)の変数 </summary>
+    [Header("ステージのimage(スプライト)を入れる")]
+    [SerializeField] Sprite m_stageSprite = default(Sprite);
+    /// <summary> stageのimageを入れ込むオブジェクトの変数 </summary>
+    [Header("stageのimageを入れ込むオブジェクトを入れる")]
+    [SerializeField] GameObject m_stageSpriteObject = default(GameObject);
 
     void Start()
     {
@@ -30,11 +35,16 @@ public class Event : MonoBehaviour
         {
             audioManager = GameObject.FindObjectOfType<AudioManager>();
         }
+
+        m_stageSpriteObject = m_stageSpriteObject.GetComponent<Image>().gameObject;
     }
     //全部共通
     public void EnterButton()
     {
         GetComponent<Image>().sprite = Sprit_UI[0];
+        //m_stageSpriteを参照先のm_stageSpriteObjectのImageコンポーネントのspriteにセットさせる。
+        m_stageSpriteObject.GetComponent<Image>().sprite = m_stageSprite;
+
         if (ch)
         {
             arrow_Obj.gameObject.SetActive(true);
@@ -58,7 +68,7 @@ public class Event : MonoBehaviour
     public void s_DownButton_EachStage()
     {
         selection.StageNum = selectNum;
-        selection.ch = true;
+        //selection.ch = true;
     }
 
     //セレクトシーン以外の時
