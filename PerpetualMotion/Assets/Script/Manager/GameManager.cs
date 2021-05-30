@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     PlayerController m_playerController;
     /// <summary> AudioManagerを参照する変数 </summary>
     AudioManager audioManager;
+    /// <summary> Hourglass_timeを参照する変数 </summary>
+    Hourglass_time hourglass_Time;
 
     void Start()
     {
@@ -44,6 +46,11 @@ public class GameManager : MonoBehaviour
         if (GameObject.FindObjectOfType<AudioManager>())
         {
             audioManager = GameObject.FindObjectOfType<AudioManager>();
+        }
+
+        if (GameObject.FindObjectOfType<Hourglass_time>())
+        {
+            hourglass_Time = GameObject.FindObjectOfType<Hourglass_time>();
         }
     }
 
@@ -91,6 +98,7 @@ public class GameManager : MonoBehaviour
         if (isClear)
         {
             StartCoroutine(ClearResult());
+            hourglass_Time.m_isClear = true;
         }
         else
         {

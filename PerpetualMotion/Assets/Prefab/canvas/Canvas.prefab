@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 2179771315658157397}
   - component: {fileID: 9021340259913591146}
   - component: {fileID: 5231311897084436343}
+  - component: {fileID: 6795524042538422530}
   m_Layer: 5
   m_Name: StageClear
   m_TagString: Untagged
@@ -376,6 +377,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6795524042538422530
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442009301957271217}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f84f6432f8bc72488dfa68e30403aa8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4302010571317674184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,9 +1417,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd53fe569f64b147b13a1e65a30a4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: {fileID: 8974755149446559023}
+  coolDown: {fileID: 8974755149446559023}
   hourglassUpDwon: 1
   waitTime: 100
+  m_isClear: 0
 --- !u!1 &8974755149689168036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,9 +2611,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd53fe569f64b147b13a1e65a30a4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: {fileID: 8974755150711028721}
+  coolDown: {fileID: 8974755150711028721}
   hourglassUpDwon: 0
   waitTime: 100
+  m_isClear: 0
 --- !u!1 &8974755150787778668
 GameObject:
   m_ObjectHideFlags: 0
