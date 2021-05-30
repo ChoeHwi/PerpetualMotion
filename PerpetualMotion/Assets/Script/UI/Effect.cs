@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Effect : MonoBehaviour
-{/// <summary>敵に見つかった時の演出</summary>
-	EnemyController e_controller;
+{
+	/// <summary>敵に追いかけられているか</summary>
+	bool m_beChased;
 	/// <summary>このスクリプトがついているImage</summary>
 	Image effectImg;
 	[Header("0は赤色,1は緑色,2は青色,3は透過度")]
@@ -28,7 +29,7 @@ public class Effect : MonoBehaviour
 		{
 			audioManager = GameObject.FindObjectOfType<AudioManager>();
 		}
-		e_controller = FindObjectOfType<EnemyController>();
+		//e_controller = FindObjectOfType<EnemyController>();
 		effectImg = GetComponent<Image>();
 		effectImg.color = Color.clear;
 		loopTime = startColor[3];
@@ -36,9 +37,9 @@ public class Effect : MonoBehaviour
 
 	void Update()
 	{
-        if (e_controller.m_tracking == true)
+        if (m_beChased)
         {
-            audioManager.PlaySE(audioManager.audioClips[9]);
+            audioManager.PlaySELoop(audioManager.audioClips[9]);
 
             this.effectImg.color = new Color(startColor[0], startColor[1], startColor[2], startColor[3]);
 			startColor[3] -= Time.deltaTime / fadeTime;
@@ -53,4 +54,6 @@ public class Effect : MonoBehaviour
 			this.effectImg.color = new Color(stopColor[0], stopColor[1], stopColor[2], stopColor[3]);
 		}
 	}
+
+	
 }

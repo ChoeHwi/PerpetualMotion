@@ -65,6 +65,8 @@ public class EnemyController : MonoBehaviour
     int m_angle;
     /// <summary>トランスフォームのキャッシュ</summary>
     Transform m_transform;
+    /// <summary>ここから指令を出すエフェクト</summary>
+    public Effect effect;
 
     public enum ENEMY_TYPE
     { 
@@ -315,6 +317,7 @@ public class EnemyController : MonoBehaviour
                 if (!m_playerController.m_stealth)
                 {
                     m_tracking = true;
+
                     foreach (EnemyController enemyController in m_playerController.enemyCon)
                     {
                         if (enemyController == this)

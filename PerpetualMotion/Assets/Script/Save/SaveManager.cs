@@ -66,9 +66,9 @@ public class SaveManager : SingletonMonoBehaviour<SaveManager>
     private void CannotLoad()
     {
         saveData = new SaveData();
-        saveData.m_SEVolume = 0.1f;
-        saveData.m_BGMVolume = 0.1f;
-        saveData.m_inputPatten = true;
+        saveData.m_SEVolume = 0.5f;
+        saveData.m_BGMVolume = 0.5f;
+        saveData.m_inputPatten = false;
         saveData.m_clearedStages = new bool[30];
     }
 
