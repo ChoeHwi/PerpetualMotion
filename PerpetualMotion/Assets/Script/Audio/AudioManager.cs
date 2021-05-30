@@ -71,7 +71,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 PlayBgm(gameBGM);
                 StartCoroutine(FadeOutBGM());
                 break;
-           
         }
     }
 
