@@ -80,8 +80,9 @@ public class GameManager : MonoBehaviour
     IEnumerator FitPiece(int item)
     {
         gameMessenger.mobius.SetActive(true);
+        gameMessenger.mobiusScript.PartsAnimation(item);
         yield return new WaitForSeconds(1f);
-        if (gameMessenger.mobiusScript.FitPiece(item))
+        if (gameMessenger.mobiusScript.FitPiece(/*item*/))
         {
             
         }

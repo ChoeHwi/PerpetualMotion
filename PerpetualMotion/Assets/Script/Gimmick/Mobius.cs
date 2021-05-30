@@ -45,9 +45,9 @@ public class Mobius : MonoBehaviour
         }
     }
 
-    public bool FitPiece(int item)
+    public bool FitPiece(/*int item*/)
     {
-        processNum += item;
+        //processNum += item;
         switch (part_type)
         {
             case PART_TYPE.Part6:
@@ -77,29 +77,29 @@ public class Mobius : MonoBehaviour
         }
         return false;
     }
-    //public void PartsAnimation(int item)
-    //{
-    //    processNum += item;
-    //    switch (part_type)
-    //    {
-    //        case PART_TYPE.Part6:
-    //            for (int i = 0; i < processNum; i++)
-    //            {
-    //                Instantiate(partsAnimationOBJ_6[i]);
-    //            }
-    //            break;
-    //        case PART_TYPE.Part9:
-    //            for (int i = 0; i < processNum; i++)
-    //            {
-    //                Instantiate(partsAnimationOBJ_9[i]);
-    //            }
-    //            break;
-    //        case PART_TYPE.Part13:
-    //            for (int i = 0; i < processNum; i++)
-    //            {
-    //                Instantiate(partsAnimationOBJ_13[i]);
-    //            }
-    //            break;
-    //    }
-    //}
+    public void PartsAnimation(int item)
+    {
+        processNum += item;
+        switch (part_type)
+        {
+            case PART_TYPE.Part6:
+                for (int i = 0; i < processNum; i++)
+                {
+                    Instantiate(partsAnimationOBJ_6[i], transform.parent);
+                }
+                break;
+            case PART_TYPE.Part9:
+                for (int i = 0; i < processNum; i++)
+                {
+                    Instantiate(partsAnimationOBJ_9[i]);
+                }
+                break;
+            case PART_TYPE.Part13:
+                for (int i = 0; i < processNum; i++)
+                {
+                    Instantiate(partsAnimationOBJ_13[i]);
+                }
+                break;
+        }
+    }
 }

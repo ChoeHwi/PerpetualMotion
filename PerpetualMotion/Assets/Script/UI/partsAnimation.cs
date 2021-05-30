@@ -5,9 +5,10 @@ using UnityEngine;
 public class partsAnimation : MonoBehaviour
 {
     /// <summary>親オブジェクト</summary>
-    public GameObject parentObject;
-    void Start()
-    {
-        parentObject.transform.parent = transform;
-    }
+    //public GameObject parentObject;
+    //void Start()
+    //{
+
+    //    parentObject.transform.parent = transform;
+    //}
 }
