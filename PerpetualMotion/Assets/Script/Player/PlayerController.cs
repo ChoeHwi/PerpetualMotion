@@ -293,15 +293,66 @@ public class PlayerController : MonoBehaviour
     /// <summary>無敵時間の終了時の処理</summary>
     void FlashEnd()
     {
-        m_isDamaged = false;
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1);
-        if (enemyCon.Count >= 0)
+        if (enemyCon.Count > 0)
         {
-            foreach (EnemyController enemy in enemyCon)
+            if (GetAttackBool())
             {
-                enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                m_playerHp -= 1;
+                if (audioManager)
+                {
+                    audioManager.PlaySE(audioManager.audioClips[8]);
+                }
+                if (m_playerHp > 0)
+                {
+                    Invoke("FlashEnd", m_invincibleTime);
+                    if (itemCount > 0)
+                    {
+                        itemCount -= 1;
+                        gameManager.LostItem(this.transform.position, itemType[0]);
+                    }
+                }
+            }
+            else
+            {
+                m_isDamaged = false;
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1);
+                if (enemyCon.Count > 0)
+                {
+                    foreach (EnemyController enemy in enemyCon)
+                    {
+                        enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                    }
+                }
             }
         }
+        else
+        {
+            m_isDamaged = false;
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1);
+            if (enemyCon.Count > 0)
+            {
+                foreach (EnemyController enemy in enemyCon)
+                {
+                    enemy.m_enemyProjector.GetComponent<CapsuleCollider2D>().isTrigger = false;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// 現在攻撃されているかどうかを取得する
+    /// </summary>
+    /// <returns></returns>
+    private bool GetAttackBool()
+    {
+        foreach (EnemyController enemy in enemyCon)
+        {
+            if (enemy.m_isAttack)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
