@@ -894,6 +894,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver
       objectReference: {fileID: 0}
+    - target: {fileID: 8779087947167189897, guid: 400cb9ac9825f974a91c28f73f4b1d58,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400cb9ac9825f974a91c28f73f4b1d58, type: 3}
 --- !u!1001 &423058775
@@ -5187,7 +5192,12 @@ PrefabInstance:
     - target: {fileID: 8974755149308061285, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 22.360004
+      value: 8.599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974755149308061285, guid: 6dba396731ed68f47bb617d417e05633,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.65763855
       objectReference: {fileID: 0}
     - target: {fileID: 8974755149392233312, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
@@ -5327,7 +5337,12 @@ PrefabInstance:
     - target: {fileID: 8974755149780793111, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 22.360004
+      value: 8.599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974755149780793111, guid: 6dba396731ed68f47bb617d417e05633,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.70002747
       objectReference: {fileID: 0}
     - target: {fileID: 8974755149964219156, guid: 6dba396731ed68f47bb617d417e05633,
         type: 3}
