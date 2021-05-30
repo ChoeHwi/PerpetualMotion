@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Effect : MonoBehaviour
 {
 	/// <summary>敵に追いかけられているか</summary>
-	bool m_beChased;
+	bool m_beChased = false;
 	/// <summary>呼び出された数</summary>
 	int callCount = 0;
 	/// <summary>このスクリプトがついているImage</summary>
@@ -63,6 +63,7 @@ public class Effect : MonoBehaviour
     {
 		m_beChased = true;
 		callCount++;
+		Debug.Log(callCount);
 	}
 
 	public void EffectStop()

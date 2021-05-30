@@ -19,6 +19,8 @@ public class EnemyColliderController : MonoBehaviour
     public SpriteRenderer enemyImage;
     /// <summary>アニメーション画像の番号</summary>
     int m_imageIndex = 0;
+    /// <summary>ドローンが発射する弾</summary>
+    [SerializeField] GameObject laser;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +101,13 @@ public class EnemyColliderController : MonoBehaviour
     {
         enemyImage.sprite = m_animationSprites[m_imageIndex];
         m_imageIndex = (m_imageIndex + 1) % m_animationSprites.Length;
+        if (m_enemyType == EnemyController.ENEMY_TYPE.DroneType)
+        {
+            if (m_imageIndex == m_animationSprites.Length)
+            {
+                Instantiate(laser, this.transform.position, Quaternion.identity);
+            }
+        }
     }
 
     /// <summary>故障中</summary>
