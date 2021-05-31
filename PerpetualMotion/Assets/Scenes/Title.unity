@@ -1185,7 +1185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &636399727
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1279,8 +1279,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ab02ac11da5c81040bae6d9ecc37e197, type: 3}
   - {fileID: 21300000, guid: 212d1fed9ef134d4eae65ac6e9d83338, type: 3}
   LoadSceneName: []
-  ch: 0
-  arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
   m_stageSprite: {fileID: 0}
@@ -2701,8 +2699,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d96d8fa65d7e0f044a9a5567605358b5, type: 3}
   LoadSceneName:
   - Option
-  ch: 0
-  arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 354995185}
   m_stageSprite: {fileID: 0}
@@ -3718,8 +3714,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2b6ca2fe71227bd44bd526e68f7496f4, type: 3}
   LoadSceneName:
   - SelectScreen
-  ch: 0
-  arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
   m_stageSprite: {fileID: 0}

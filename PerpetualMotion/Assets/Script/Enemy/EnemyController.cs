@@ -392,11 +392,13 @@ public class EnemyController : MonoBehaviour
         if (isMalfunction)
         {
             Freeze();
+            m_isAnimation = false;
             m_enemyScipt.Malfunction();
         }
         else
         {
             FreezeOff();
+            m_isAnimation = true;
         }
     }
 
@@ -405,7 +407,6 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Freeze()
     {
-        m_isAnimation = false;
         m_agent.isStopped = true;
     }
 
@@ -414,7 +415,6 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void FreezeOff()
     {
-        m_isAnimation = true;
         m_agent.isStopped = false;
     }
 }
