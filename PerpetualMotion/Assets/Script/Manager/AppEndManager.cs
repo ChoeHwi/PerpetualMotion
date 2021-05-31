@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary> アプリケーションを終了させるクラス </summary>
 public class AppEndManager : SingletonMonoBehaviour<AppEndManager>
 {
-
     /// <summary> ゲーム終了のダイアログのキャンバス </summary>
     [Header("ゲーム終了のダイアログのキャンバス")]
     [SerializeField] Canvas m_endCanvas = default(Canvas);
+    [SerializeField] Sprite[] Sprit_UI;
+    [SerializeField] Image image;
 
     void Start()
     {
@@ -51,5 +54,23 @@ public class AppEndManager : SingletonMonoBehaviour<AppEndManager>
     public void OnCallCancel()
     {
         m_endCanvas.enabled = false;
+    }
+
+    /// <summary>セレクトシーンに戻る</summary>
+    public void SelectReturnButton()
+    {
+        m_endCanvas.enabled = false;
+        image.sprite = Sprit_UI[0];
+        SceneManager.LoadScene("SelectScreen");
+    }
+
+    public void ExitButton()
+    {
+        image.sprite = Sprit_UI[0];
+    }
+
+    public void EnterButton()
+    {
+        image.sprite = Sprit_UI[1];
     }
 }
