@@ -302,8 +302,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7d138a0c4e0b992469a700d8356224d2, type: 3}
   LoadSceneName:
   - 
-  ch: 1
-  arrow_Obj: {fileID: 0}
   selectNum: 0
   optionPanel: {fileID: 0}
   m_stageSprite: {fileID: 0}
@@ -514,7 +512,7 @@ Canvas:
   m_GameObject: {fileID: 2747656370820698871}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -524,7 +522,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &2747656370820698869
 MonoBehaviour:
