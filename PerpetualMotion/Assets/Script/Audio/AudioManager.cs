@@ -71,6 +71,14 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
                 PlayBgm(gameBGM);
                 StartCoroutine(FadeOutBGM());
                 break;
+            case "YamadaScene2":
+                PlayBgm(gameBGM);
+                StartCoroutine(FadeOutBGM());
+                break;
+            case "YamadaScene3":
+                PlayBgm(gameBGM);
+                StartCoroutine(FadeOutBGM());
+                break;
         }
     }
 
