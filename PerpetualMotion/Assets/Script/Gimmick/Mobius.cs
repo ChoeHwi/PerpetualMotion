@@ -27,6 +27,8 @@ public class Mobius : MonoBehaviour
     public GameObject[] partsAnimationOBJ_6;
     public GameObject[] partsAnimationOBJ_9;
     public GameObject[] partsAnimationOBJ_13;
+    /// <summary>パーツをはめた数</summary>
+    int i = 0;
 
     void Start()
     {
@@ -79,27 +81,31 @@ public class Mobius : MonoBehaviour
     }
     public void PartsAnimation(int item)
     {
-        processNum += item;
+        i = processNum;
         switch (part_type)
         {
             case PART_TYPE.Part6:
-                for (int i = 0; i < processNum; i++)
+                while (i < processNum + item)
                 {
                     Instantiate(partsAnimationOBJ_6[i], transform.parent);
+                    i++;
                 }
                 break;
             case PART_TYPE.Part9:
-                for (int i = 0; i < processNum; i++)
+                while (i < processNum + item)
                 {
-                    Instantiate(partsAnimationOBJ_9[i]);
+                    Instantiate(partsAnimationOBJ_9[i], transform.parent);
+                    i++;
                 }
                 break;
             case PART_TYPE.Part13:
-                for (int i = 0; i < processNum; i++)
+                while (i < processNum + item)
                 {
-                    Instantiate(partsAnimationOBJ_13[i]);
+                    Instantiate(partsAnimationOBJ_13[i], transform.parent);
+                    i++;
                 }
                 break;
         }
+        processNum += item;
     }
 }
