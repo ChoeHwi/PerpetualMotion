@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -563,13 +563,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5370cb9ee30263f42a3154814113eb5f, type: 3}
   - {fileID: 21300000, guid: 9c605fa63637e104db405c05023f864c, type: 3}
   LoadSceneName:
-  - 
+  - YamadaScene3
   ch: 0
   arrow_Obj: {fileID: 0}
   selectNum: 6
   optionPanel: {fileID: 0}
-  m_stageSprite: {fileID: 0}
-  m_stageSpriteObject: {fileID: 0}
+  m_stageSprite: {fileID: 21300000, guid: 32626b805d47bc3499bc86e0e9cac378, type: 3}
+  m_stageSpriteObject: {fileID: 221824781}
 --- !u!114 &31977758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 31977757}
-          m_MethodName: s_DownButton_EachStage
+          m_MethodName: DownButton_main
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1162,13 +1162,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9c82eb287f427ab46a2cb6af87dc78d3, type: 3}
   - {fileID: 21300000, guid: 54eab9d604973bd488089e01ef0c4ebb, type: 3}
   LoadSceneName:
-  - 
+  - YamadaScene2
   ch: 0
   arrow_Obj: {fileID: 0}
   selectNum: 5
   optionPanel: {fileID: 0}
-  m_stageSprite: {fileID: 0}
-  m_stageSpriteObject: {fileID: 0}
+  m_stageSprite: {fileID: 21300000, guid: 8327eb6020b1c3947849bc955d774958, type: 3}
+  m_stageSpriteObject: {fileID: 221824781}
 --- !u!114 &276993607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1217,7 +1217,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 276993606}
-          m_MethodName: s_DownButton_EachStage
+          m_MethodName: DownButton_main
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2350,7 +2350,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 743342411}
-          m_MethodName: s_DownButton_EachStage
+          m_MethodName: DownButton_main
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2814,7 +2814,6 @@ RectTransform:
   m_Children:
   - {fileID: 1947746384}
   - {fileID: 1097889221}
-  - {fileID: 1077316264}
   m_Father: {fileID: 1658933967}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3114,7 +3113,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1077316263}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3123,8 +3122,8 @@ RectTransform:
   - {fileID: 814646120}
   - {fileID: 976546283}
   - {fileID: 1566240958}
-  m_Father: {fileID: 906691034}
-  m_RootOrder: 2
+  m_Father: {fileID: 1559806741}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.054, y: 0}
   m_AnchorMax: {x: 0.9396907, y: 0.75526613}
@@ -3563,7 +3562,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1250327072}
-          m_MethodName: s_DownButton_EachStage
+          m_MethodName: DownButton_main
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3860,6 +3859,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 199710181}
+  - {fileID: 1077316264}
   m_Father: {fileID: 1658933967}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4399,7 +4399,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1638539739}
-          m_MethodName: s_DownButton_EachStage
+          m_MethodName: DownButton_main
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
