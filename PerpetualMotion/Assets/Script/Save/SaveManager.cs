@@ -25,7 +25,7 @@ public class SaveManager : SingletonMonoBehaviour<SaveManager>
     /// <summary>セーブデータ
     /// ここから読み込み書き込みを行う
     /// </summary>
-    public SaveData saveData;
+    public static SaveData saveData;
     /// <summary>セーブデータの保存先</summary>
     public string SaveDataPath { get; private set; }
 

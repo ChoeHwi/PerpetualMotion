@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class OptionManager : MonoBehaviour
 {
-    /// <summary>セーブマネージャーを格納する場所</summary>
-    SaveManager saveManager;
     /// <summary>オーディオマネージャーを格納する場所</summary>
     AudioManager audioManager;
     [SerializeField] Slider sliderBGM;
@@ -21,12 +19,9 @@ public class OptionManager : MonoBehaviour
     {
         if (GameObject.FindObjectOfType<SaveManager>())
         {
-            saveManager = GameObject.FindObjectOfType<SaveManager>().GetComponent<SaveManager>();
-            Debug.Log(saveManager.saveData.m_BGMVolume);
-            Debug.Log(saveManager.saveData.m_SEVolume);
-            sliderBGM.value = saveManager.saveData.m_BGMVolume;
-            sliderSE.value = saveManager.saveData.m_SEVolume;
-            PatternClick(saveManager.saveData.m_inputPatten);
+            sliderBGM.value = SaveManager.saveData.m_BGMVolume;
+            sliderSE.value = SaveManager.saveData.m_SEVolume;
+            PatternClick(SaveManager.saveData.m_inputPatten);
 
         }
         if (GameObject.FindObjectOfType<AudioManager>())
@@ -43,10 +38,9 @@ public class OptionManager : MonoBehaviour
             {
                 audioManager.VolumeChangeBGM(sliderBGM.value);
             }
-            if (saveManager)
-            {
-                saveManager.saveData.m_BGMVolume = sliderBGM.value;
-            }
+
+            SaveManager.saveData.m_BGMVolume = sliderBGM.value;
+
         }
         else
         {
@@ -54,10 +48,9 @@ public class OptionManager : MonoBehaviour
             {
                 audioManager.VolumeChangeSE(sliderSE.value);
             }
-            if (saveManager)
-            {
-                saveManager.saveData.m_SEVolume = sliderSE.value;
-            }
+
+            SaveManager.saveData.m_SEVolume = sliderSE.value;
+
         }
     }
 
@@ -70,19 +63,18 @@ public class OptionManager : MonoBehaviour
         }
         if (!isPattern1)
         {
-            foreach(GameObject obj in selectingUI1)
+            foreach (GameObject obj in selectingUI1)
             {
                 obj.SetActive(true);
             }
-            foreach(GameObject obj in selectingUI2)
+            foreach (GameObject obj in selectingUI2)
             {
                 obj.SetActive(false);
             }
             InputChanger.m_inputPattern = false;
-            if (saveManager)
-            {
-                saveManager.saveData.m_inputPatten = false;
-            }
+
+            SaveManager.saveData.m_inputPatten = false;
+
         }
         else
         {
@@ -95,10 +87,9 @@ public class OptionManager : MonoBehaviour
                 obj.SetActive(true);
             }
             InputChanger.m_inputPattern = true;
-            if (saveManager)
-            {
-                saveManager.saveData.m_inputPatten = true;
-            }
+
+            SaveManager.saveData.m_inputPatten = true;
+
         }
     }
 

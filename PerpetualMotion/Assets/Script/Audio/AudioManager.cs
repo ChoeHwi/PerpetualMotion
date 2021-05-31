@@ -18,8 +18,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public bool m_mute = false;
     /// <summary>BGMのフェードアウトスピード</summary>
     [SerializeField] float fadeSpeed;
-    /// <summary>セーブマネージャーを格納する場所</summary>
-    SaveManager saveManager;
 
     [SerializeField] public AudioSource audioSourceBGM;
     [SerializeField] public AudioSource audioSourceSE;
@@ -27,11 +25,8 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     {
         if (GameObject.FindObjectOfType<SaveManager>())
         {
-            saveManager = GameObject.FindObjectOfType<SaveManager>().GetComponent<SaveManager>();
-            Debug.Log(saveManager.saveData.m_BGMVolume);
-            Debug.Log(saveManager.saveData.m_SEVolume);
-            VolumeChangeBGM(saveManager.saveData.m_BGMVolume);
-            VolumeChangeSE(saveManager.saveData.m_SEVolume);
+            VolumeChangeBGM(SaveManager.saveData.m_BGMVolume);
+            VolumeChangeSE(SaveManager.saveData.m_SEVolume);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
         if (SceneManager.GetActiveScene().name == "Title")
