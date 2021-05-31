@@ -85,7 +85,11 @@ public class Event : MonoBehaviour
     public void DownButton_main()
     {
         //決定
-        audioManager.PlaySE(audioManager.audioClips[8]);
+        if (audioManager)
+        {
+            audioManager.PlaySE(audioManager.audioClips[8]);
+        }
+        
         SceneManager.LoadScene(LoadSceneName[0]);
     }
     public void DownButton_sub()
