@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveObject : ColorInfo
+public class MoveObject : ColorInfo
 {
     [Header("このオブジェクトの色")]
     public COLOR_TYPE nowColor = COLOR_TYPE.Blank;

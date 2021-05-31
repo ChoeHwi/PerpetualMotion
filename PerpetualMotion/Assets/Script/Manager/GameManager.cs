@@ -7,6 +7,9 @@ using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("ステージ番号")]
+    /// <summary>ステージ番号</summary>
+    [SerializeField] int m_stageNumber;
     /// <summary>シーンの名前 </summary>
     public string SceneName;
     /// <summary>クリアの時間 </summary>
@@ -98,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
         if (isClear)
         {
+            SaveManager.saveData.m_clearedStages[m_stageNumber - 1] = true;
             StartCoroutine(ClearResult());
             if(hourglass_Time)
             {
