@@ -9,9 +9,6 @@ public class Event : MonoBehaviour
     public Sprite[] Sprit_UI;
     [Header("呼び込みたいシーンを追加する")]
     public string[] LoadSceneName;
-    [Header("矢印が別であるときはtrueにする")]
-    public bool ch = false;
-    public GameObject arrow_Obj;
     //セレクトシーン用追加
     [Header("難易度の時は簡単な順に0～3" +
         "階層決めるときは最初の階層から順に0～19")]
@@ -54,19 +51,10 @@ public class Event : MonoBehaviour
         {
             m_stageSpriteObject.GetComponent<Image>().sprite = m_stageSprite;
         }
-
-        if (ch)
-        {
-            arrow_Obj.gameObject.SetActive(true);
-        }
     }
     public void ExitButton()
     {
         GetComponent<Image>().sprite = Sprit_UI[1];
-        if (ch)
-        {
-            arrow_Obj.gameObject.SetActive(false);
-        }
     }
     //セレクトシーンの時
     //難易度決める時
