@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         if (isClear)
         {
-            SaveManager.saveData.m_clearedStages[m_stageNumber] = true;
+            SaveManager.saveData.m_clearedStages[m_stageNumber - 1] = true;
             StartCoroutine(ClearResult());
             if(hourglass_Time)
             {
