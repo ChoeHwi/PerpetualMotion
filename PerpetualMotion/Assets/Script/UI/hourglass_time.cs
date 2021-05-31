@@ -30,11 +30,11 @@ public class Hourglass_time : MonoBehaviour
         }
         if (hourglassUpDwon == true)
         {
-            coolDown.fillAmount -= 1.0f / waitTime * Time.deltaTime;
+            coolDown.fillAmount -= waitTime/33000 * Time.deltaTime;
         }
         if (hourglassUpDwon == false)
         {
-            coolDown.fillAmount += 1.0f / waitTime * Time.deltaTime;
+            coolDown.fillAmount += waitTime / 33000 * Time.deltaTime;
             if (hourglassUpDwon == false && coolDown.fillAmount == 1)
             {
                 pc.GameOverCH();
